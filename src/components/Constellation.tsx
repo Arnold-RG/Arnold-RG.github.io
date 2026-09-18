@@ -48,7 +48,7 @@ export function Constellation({ compact = false }: { compact?: boolean }) {
         </div>
         <div>
           <span>Kigali desk</span>
-          <strong>{desk.open ? 'Open' : 'Closed'} · Mon–Fri</strong>
+          <strong>{desk.open ? 'Open' : 'Closed'} · 08:00–18:00</strong>
         </div>
       </figcaption>
     </figure>

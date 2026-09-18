@@ -11,19 +11,14 @@ export function DeskHours({ compact = false }: { compact?: boolean }) {
         {desk.weAre}
       </p>
       {compact ? (
-        <p>
-          {OFFICE_HOURS.label}. Closed {OFFICE_HOURS.closed}.
-        </p>
+        <p>{OFFICE_HOURS.label}.</p>
       ) : (
         <>
           <p>
-            <strong>Mon–Fri</strong> {OFFICE_HOURS.open}–{OFFICE_HOURS.close} CAT
+            <strong>Every day</strong> {OFFICE_HOURS.open}–{OFFICE_HOURS.close} CAT
           </p>
           <p>
             <strong>Lunch</strong> {OFFICE_HOURS.lunchStart}–{OFFICE_HOURS.lunchEnd} CAT
-          </p>
-          <p>
-            <strong>Saturday–Sunday</strong> closed
           </p>
           <p className="tiny">{desk.nextLine}</p>
         </>
