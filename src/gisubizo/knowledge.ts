@@ -472,7 +472,7 @@ export const KNOWLEDGE: KnowledgeCard[] = [
       'Circles are 10–14 people. Flights to KGL are yours. Lodges, park fees, and named meals are in the fare.',
       'When a gorilla trek is listed, the permit is included.',
       'Membership is extra: first look at seats and activity rates. It does not replace a tour ticket.',
-      'The office is every day 08:00–18:00 CAT, lunch 12:00–13:30. Boarding a circle is separate from that clock.',
+      'The office is every day 08:00 - 12:00 ¦ 13:30 - 18:00 CAT. Boarding a circle is separate from that clock.',
     ],
     followups: ['Which Hamwe tour includes gorillas?', 'Is the gorilla permit included?', 'When is the Kigali office open?'],
   },
@@ -482,7 +482,7 @@ export const KNOWLEDGE: KnowledgeCard[] = [
     tags: ['hours', 'office', 'open', 'closed', 'desk', 'weekend', 'contact', 'phone', 'email', 'kisimenti', 'ikaze'],
     hook: 'The Kigali house at Ikaze House on KG 11 Ave, Kisimenti, keeps office hours every day.',
     claims: [
-      'Every day, 08:00–18:00 CAT, with lunch 12:00–13:30.',
+      'Every day, 08:00 - 12:00 ¦ 13:30 - 18:00 CAT.',
       'Write circle@hamwe.rw or +250 794 607 518.',
       'A tour can still have seats when the office is closed for the night. The radar on the site shows boarding, not the doorbell.',
     ],

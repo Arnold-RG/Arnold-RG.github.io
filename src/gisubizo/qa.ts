@@ -166,12 +166,12 @@ export const QA_BANK: QAItem[] = [
   {
     q: 'Where is the Hamwe office?',
     tags: ['office', 'kisimenti', 'ikaze', 'contact', 'address'],
-    a: 'Ikaze House, KG 11 Ave, Kisimenti, Kigali. Email circle@hamwe.rw. Phone +250 794 607 518. Hours are every day, 08:00–18:00 CAT, with lunch 12:00–13:30.',
+    a: 'Ikaze House, KG 11 Ave, Kisimenti, Kigali. Email circle@hamwe.rw. Phone +250 794 607 518. Hours are 08:00 - 12:00 ¦ 13:30 - 18:00 CAT, every day.',
   },
   {
     q: 'When is the Kigali office open?',
     tags: ['hours', 'office', 'open'],
-    a: 'Every day, 08:00–18:00 Central Africa Time. Lunch break is 12:00–13:30. A tour can still have seats when the office is closed.',
+    a: 'Every day, 08:00 - 12:00 ¦ 13:30 - 18:00 Central Africa Time. A tour can still have seats when the office is closed.',
   },
   {
     q: 'Are flights to Kigali included?',
@@ -526,7 +526,7 @@ export const QA_BANK: QAItem[] = [
   {
     q: 'What is the Hamwe email and phone?',
     tags: ['email', 'phone', 'contact'],
-    a: 'circle@hamwe.rw and +250 794 607 518. Office: Ikaze House, KG 11 Ave, Kisimenti, Kigali. Every day 08:00–18:00 CAT, lunch 12:00–13:30.',
+    a: 'circle@hamwe.rw and +250 794 607 518. Office: Ikaze House, KG 11 Ave, Kisimenti, Kigali. Hours 08:00 - 12:00 ¦ 13:30 - 18:00 CAT.',
   },
   {
     q: 'Is English enough in Rwanda?',
