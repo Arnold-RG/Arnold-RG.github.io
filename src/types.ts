@@ -118,6 +118,11 @@ export interface AlbumPhoto {
   title: string
   place: string
   caption: string
+  topic?: string
+  topicLabel?: string
+  credit?: string
+  commons?: string
+  full?: string
 }
 
 export interface CartItem {

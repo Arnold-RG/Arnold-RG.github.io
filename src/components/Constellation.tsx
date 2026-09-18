@@ -3,11 +3,11 @@ import { useDeskStatus } from '../hooks/useDeskStatus'
 import { OFFICE_HOURS } from '../lib/hours'
 
 const STOPS = [
-  { name: 'Kigali', src: '/images/kigali.png' },
-  { name: 'Volcanoes', src: '/images/gorilla-volcanoes.png' },
-  { name: 'Kivu', src: '/images/lake-kivu.png' },
-  { name: 'Nyungwe', src: '/images/nyungwe.png' },
-  { name: 'Akagera', src: '/images/akagera.png' },
+  { name: 'Kigali', src: '/images/kigali.jpg' },
+  { name: 'Volcanoes', src: '/images/gorilla-volcanoes.jpg' },
+  { name: 'Kivu', src: '/images/lake-kivu.jpg' },
+  { name: 'Nyungwe', src: '/images/nyungwe.jpg' },
+  { name: 'Akagera', src: '/images/akagera.jpg' },
 ]
 
 export function Constellation({ compact = false }: { compact?: boolean }) {
