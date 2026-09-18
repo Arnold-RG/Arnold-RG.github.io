@@ -7,7 +7,7 @@ export function ScrollMotion() {
   useEffect(() => {
     const nodes = Array.from(
       document.querySelectorAll<HTMLElement>(
-        '[data-reveal], .page-hero, .circle-card, .plan-card, .land-plate, .faq-item, .tour-card, .activity-card, .steps li, .trust-chips li, .album-tile, .album-stage',
+        '[data-reveal], .page-hero, .circle-card, .plan-card, .land-plate, .faq-item, .tour-card, .activity-card, .steps li, .trust-chips li, .album-tile',
       ),
     )
 
