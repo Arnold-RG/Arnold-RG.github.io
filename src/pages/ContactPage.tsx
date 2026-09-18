@@ -1,5 +1,6 @@
 import { type FormEvent, useState } from 'react'
 import { DeskHours } from '../components/DeskHours'
+import { OFFICE_ADDRESS, OFFICE_PHONE } from '../lib/hours'
 
 export function ContactPage() {
   const [name, setName] = useState('')
@@ -21,8 +22,8 @@ export function ContactPage() {
         <p className="eyebrow">Host · Kigali</p>
         <h1>Write the house.</h1>
         <p className="lede">
-          Aline and the circle desk sit on KN 5 Rd, Kiyovu. Dietary notes, permit questions, late
-          landings — send them here.
+          The circle desk sits at {OFFICE_ADDRESS.building} on {OFFICE_ADDRESS.street} in{' '}
+          {OFFICE_ADDRESS.area}. Dietary notes, permit questions, late landings — send them here.
         </p>
       </header>
       <div className="contact-grid">
@@ -51,9 +52,14 @@ export function ContactPage() {
         </form>
         <aside className="buy-panel">
           <p className="footer-label">On the ground</p>
-          <p>KN 5 Rd, Kiyovu</p>
-          <p>Kigali, Rwanda</p>
-          <p>+250 788 000 214</p>
+          <p>{OFFICE_ADDRESS.building}</p>
+          <p>
+            {OFFICE_ADDRESS.street}, {OFFICE_ADDRESS.area}
+          </p>
+          <p>{OFFICE_ADDRESS.city}</p>
+          <p>
+            <a href={`tel:${OFFICE_PHONE.tel}`}>{OFFICE_PHONE.display}</a>
+          </p>
           <p>
             <a href="mailto:circle@hamwe.rw">circle@hamwe.rw</a>
           </p>

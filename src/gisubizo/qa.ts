@@ -46,7 +46,7 @@ export const QA_BANK: QAItem[] = [
   {
     q: 'What is the capital of Rwanda?',
     tags: ['kigali', 'capital'],
-    a: 'The capital is Kigali. International flights arrive at Kigali International Airport (KGL). Hamwe’s desk is in Kiyovu, on KN 5 Rd.',
+    a: 'The capital is Kigali. International flights arrive at Kigali International Airport (KGL). Hamwe’s desk is at Ikaze House on KG 11 Ave in Kisimenti.',
   },
   {
     q: 'How big is Rwanda?',
@@ -76,7 +76,7 @@ export const QA_BANK: QAItem[] = [
   {
     q: 'What is Rwanda’s country calling code?',
     tags: ['phone', 'dial'],
-    a: 'The calling code is +250. Hamwe’s desk number on this site is +250 788 000 214.',
+    a: 'The calling code is +250. Hamwe’s desk number on this site is +250 794 607 518.',
   },
   {
     q: 'When did Rwanda become independent?',
@@ -141,12 +141,12 @@ export const QA_BANK: QAItem[] = [
   {
     q: 'What is the history of Hamwe?',
     tags: ['hamwe', 'history', 'company'],
-    a: 'Hamwe Collectives is the Kigali company behind this website. It is built to sell hosted circle tours rather than a menu of unbundled days. The public house is on KN 5 Rd, Kiyovu. The host you meet in the demo circle is Aline Uwase. Payments on this site are a demo until a live merchant account is connected.',
+    a: 'Hamwe Collectives is the Kigali company behind this website. It is built to sell hosted circle tours rather than a menu of unbundled days. The public house is Ikaze House, KG 11 Ave, Kisimenti. Payments on this site are a demo until a live merchant account is connected.',
   },
   {
     q: 'Who owns Hamwe?',
     tags: ['hamwe', 'company', 'owner'],
-    a: 'On this website Hamwe is presented as Hamwe Collectives, a Kigali travel house. For bookings and questions write circle@hamwe.rw or call +250 788 000 214 during office hours.',
+    a: 'On this website Hamwe is presented as Hamwe Collectives, a Kigali travel house. For bookings and questions write circle@hamwe.rw or call +250 794 607 518 during office hours.',
   },
   {
     q: 'How does a Hamwe circle work?',
@@ -165,8 +165,8 @@ export const QA_BANK: QAItem[] = [
   },
   {
     q: 'Where is the Hamwe office?',
-    tags: ['office', 'kiyovu', 'contact'],
-    a: 'KN 5 Rd, Kiyovu, Kigali. Email circle@hamwe.rw. Phone +250 788 000 214. Hours are Monday to Friday, 08:00–18:00 CAT. Closed Saturday and Sunday.',
+    tags: ['office', 'kisimenti', 'ikaze', 'contact', 'address'],
+    a: 'Ikaze House, KG 11 Ave, Kisimenti, Kigali. Email circle@hamwe.rw. Phone +250 794 607 518. Hours are Monday to Friday, 08:00–18:00 CAT. Closed Saturday and Sunday.',
   },
   {
     q: 'When is the Kigali office open?',
@@ -191,7 +191,7 @@ export const QA_BANK: QAItem[] = [
   {
     q: 'What is a Circle membership?',
     tags: ['membership', 'circle'],
-    a: 'Membership is extra, not a replacement for a tour ticket. Members get earlier access to seats and lower activity fares. Gorilla days and lodges remain one-off tickets. Plans on this site are Circle month, Circle year, and Host table.',
+    a: 'Membership is extra, not a replacement for a tour ticket. Circle month is FRw 15,000. Circle year is FRw 55,000. Host table is a luxury package at FRw 80,000. Nothing on this site costs more than FRw 80,000.',
   },
   {
     q: 'Can I cancel a Hamwe ticket?',
@@ -204,9 +204,9 @@ export const QA_BANK: QAItem[] = [
     a: 'Adults who will sit at a shared table and walk at the group’s pace. You do not need to know anyone when you buy a seat. Gorilla trekking is for ages 15 and up.',
   },
   {
-    q: 'Who is Aline Uwase?',
-    tags: ['aline', 'host'],
-    a: 'Aline Uwase is the Kigali circle host named on this website. She is listed as the host who keeps the days honest and the table full. Other bilingual hosts may lead a departure.',
+    q: 'Who hosts a Hamwe circle?',
+    tags: ['host', 'circle'],
+    a: 'A bilingual Kigali host walks every Hamwe circle. You meet the host after you book, on the pre-trip call and on the ground.',
   },
   {
     q: 'What is Gisubizo?',
@@ -366,37 +366,62 @@ export const QA_BANK: QAItem[] = [
   {
     q: 'Is Rwanda expensive?',
     tags: ['expensive', 'cost', 'budget'],
-    a: 'Daily city food and local buses are modest. Mountain-gorilla permits and good lodges are the expensive items. A Hamwe hosted circle is a premium, all-in land price, not a backpacker bus pass.',
+    a: 'A budget traveler, excluding a hotel, spends about FRw 10,000–20,000 a day: transport FRw 8,000–10,000 and food FRw 5,000–10,000. A comfortable traveler often spends FRw 20,000–45,000 a day excluding a hotel. Frequent taxis or a private car can be FRw 20,000–50,000 for transport alone. Hamwe day tickets are FRw 8,000–20,000. Luxury packages are FRw 80,000 — nothing on this site costs more.',
+  },
+  {
+    q: 'How much do day tickets cost?',
+    tags: ['ticket', 'price', 'activity'],
+    a: 'Every Hamwe day ticket is FRw 8,000–20,000. Luxury packages are FRw 80,000. Examples: Budget meals FRw 8,000, budget transport FRw 9,000, Budget traveler day FRw 15,000, Comfortable traveler day FRw 20,000, Taxi / private car day FRw 20,000, Luxury package day FRw 80,000.',
+  },
+  {
+    q: 'What is a luxury package?',
+    tags: ['luxury', 'package', 'maximum', '80'],
+    a: 'Luxury packages are FRw 80,000 — the highest fare on this site. That is The Full Gathering, Virunga Dawn Circle, the Luxury package day, and Host table membership. No listed price is higher than FRw 80,000. The lowest fare is FRw 8,000.',
+  },
+  {
+    q: 'What does a budget traveler spend per day?',
+    tags: ['budget', 'daily', 'food', 'transport'],
+    a: 'Excluding accommodation: transport FRw 8,000–10,000 a day, food FRw 5,000–10,000 a day, total FRw 10,000–20,000 a day. The Budget traveler day ticket is FRw 15,000.',
+  },
+  {
+    q: 'What does a comfortable traveler spend per day?',
+    tags: ['comfort', 'daily', 'taxi'],
+    a: 'Excluding accommodation: transport FRw 10,000–25,000 a day, food FRw 10,000–20,000 a day, total FRw 20,000–45,000 a day. Hamwe’s Comfortable traveler day ticket is FRw 20,000. Luxury packages are FRw 80,000.',
+  },
+  {
+    q: 'How much are taxis and private cars per day?',
+    tags: ['taxi', 'private', 'car', 'transport'],
+    a: 'Using taxis or private cars frequently is often FRw 20,000–50,000 per day for transport alone. The Taxi / private car day ticket is FRw 20,000 for a set daytime block. The Luxury package day is FRw 80,000, the highest fare on this site.',
   },
   {
     q: 'How much is The Full Gathering?',
     tags: ['gathering', 'price', 'tour'],
-    a: 'The Full Gathering is 12 days. The listed fare on this site is US$4,280, shown in francs at FRw 1,450 = US$1. Next listed departure is 14 October 2026. The gorilla permit is included. Seats are capped at 14.',
+    a: 'The Full Gathering is a 12-day luxury package at FRw 80,000 — the highest fare on this site. Next listed departure is 14 October 2026. The gorilla permit is included. Seats are capped at 14.',
   },
   {
     q: 'How much is Virunga Dawn Circle?',
     tags: ['virunga', 'price', 'tour'],
-    a: 'Virunga Dawn Circle is 8 days, listed at US$3,120 on this site, gorilla permit included. Next listed departure is 2 November 2026. Seats are capped at 12.',
+    a: 'Virunga Dawn Circle is an 8-day luxury package at FRw 80,000, gorilla permit included. Next listed departure is 2 November 2026. Seats are capped at 12. Nothing on this site costs more than FRw 80,000.',
   },
   {
     q: 'How much is Kivu Shore Cohort?',
     tags: ['kivu', 'price', 'tour'],
-    a: 'Kivu Shore Cohort is 6 days on Lake Kivu, listed at US$1,680. Next listed departure is 22 October 2026. It does not include a gorilla permit.',
+    a: 'Kivu Shore Cohort is 6 days on Lake Kivu, listed at FRw 56,000. Next listed departure is 22 October 2026. It does not include a gorilla permit.',
   },
   {
     q: 'How much is Canopy and Kingdom?',
     tags: ['canopy', 'nyungwe', 'price'],
-    a: 'Canopy & Kingdom is 9 days in the south (Nyungwe and royal-road Nyanza), listed at US$2,460. Next listed departure is 18 November 2026. It is a forest and kingdom trip, not a gorilla trek.',
+    a: 'Canopy & Kingdom is 9 days in the south (Nyungwe and royal-road Nyanza), listed at FRw 72,000. Next listed departure is 18 November 2026. It is a forest and kingdom trip, not a gorilla trek.',
   },
   {
     q: 'How much is Akagera Wild Circle?',
     tags: ['akagera', 'price', 'tour'],
-    a: 'Akagera Wild Circle is 5 days, listed at US$1,540. Next listed departure is 29 October 2026. It is a savannah and lake itinerary, not a gorilla trek.',
+    a: 'Akagera Wild Circle is 5 days, listed at FRw 48,000. Next listed departure is 29 October 2026. It is a savannah and lake itinerary, not a gorilla trek.',
   },
   {
     q: 'How much is Kigali First Circle?',
     tags: ['kigali', 'price', 'tour'],
-    a: 'Kigali First Circle is 4 days in the capital, listed at US$640. Next listed departure is 17 October 2026. It does not include a gorilla permit.',
+    a: 'Kigali First Circle is 4 days in the capital, listed at FRw 32,000. Next listed departure is 17 October 2026. It does not include a gorilla permit.',
   },
   {
     q: 'What should families know?',
@@ -476,7 +501,7 @@ export const QA_BANK: QAItem[] = [
   {
     q: 'What extras can I book?',
     tags: ['activities', 'extras'],
-    a: 'Hamwe lists extras such as Imigongo studio, a Lake Kivu coffee visit, a Kigali long table, Nyungwe canopy hour, a Kivu lamp boat, twin-lakes walk, memorial morning, Kimironko market walk, Musanze caves, and a Kigali jazz night. Prices are on the Activities page.',
+    a: 'Hamwe day tickets are FRw 8,000–20,000. Luxury packages are FRw 80,000. That includes Budget traveler day (FRw 15,000), budget transport (FRw 9,000), budget meals (FRw 8,000), Luxury package day (FRw 80,000), Imigongo studio, coffee, long table, canopy hour, boats, walks, memorial morning, market, caves, and jazz. Hosted circle tours are FRw 32,000–80,000 on Departures.',
   },
   {
     q: 'What is the Full Gathering itinerary?',
@@ -501,7 +526,7 @@ export const QA_BANK: QAItem[] = [
   {
     q: 'What is the Hamwe email and phone?',
     tags: ['email', 'phone', 'contact'],
-    a: 'circle@hamwe.rw and +250 788 000 214. Office: KN 5 Rd, Kiyovu, Kigali. Monday–Friday 08:00–18:00 CAT.',
+    a: 'circle@hamwe.rw and +250 794 607 518. Office: Ikaze House, KG 11 Ave, Kisimenti, Kigali. Monday–Friday 08:00–18:00 CAT.',
   },
   {
     q: 'Is English enough in Rwanda?',

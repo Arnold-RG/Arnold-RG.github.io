@@ -3,7 +3,7 @@ import { getActivity } from '../data'
 import { longDate } from '../lib/format'
 import { Price } from '../components/Price'
 import { useBooking } from '../context/BookingContext'
-import { SeatMeter } from '../components/SeatMeter'
+import { ACTIVITY_CATEGORY_LABEL } from '../types'
 
 export function ActivityDetailPage() {
   const { slug } = useParams()
@@ -14,8 +14,6 @@ export function ActivityDetailPage() {
   if (!activity) {
     return <Navigate to="/activities" replace />
   }
-
-  const taken = Math.max(0, activity.spotsTotal - activity.spotsLeft)
 
   const buy = () => {
     setCart({
@@ -34,7 +32,7 @@ export function ActivityDetailPage() {
         <img src={activity.image} alt={activity.name} />
         <div className="detail-hero-copy">
           <p className="eyebrow">
-            {activity.category} · {activity.city} · {activity.duration}
+            {ACTIVITY_CATEGORY_LABEL[activity.category]} · {activity.city} · {activity.duration}
           </p>
           <h1>{activity.name}</h1>
           <p>{activity.description}</p>
@@ -59,10 +57,6 @@ export function ActivityDetailPage() {
             <Price usd={activity.priceUsd} size="l" />
           </p>
           <p>next {longDate(activity.nextSlot)}</p>
-          <SeatMeter taken={taken} total={activity.spotsTotal} unit="spot" />
-          <p className="seats">
-            {activity.spotsLeft} of {activity.spotsTotal} spots
-          </p>
           <button className="btn btn-primary btn-block" type="button" onClick={buy}>
             Join this activity
           </button>

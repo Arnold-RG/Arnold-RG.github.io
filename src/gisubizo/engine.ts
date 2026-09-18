@@ -192,7 +192,7 @@ function leadFor(intent: Intent, query: string, primary?: KnowledgeCard): string
       return 'Not under 15. Gorilla day has a usual age minimum; younger travellers stay in Musanze.'
     }
     if (/expensive/.test(query.toLowerCase())) {
-      return 'Street Rwanda is modest. Gorilla permits and good lodges are not. Budget for the park hour, not for brochettes.'
+      return 'Street Rwanda is modest. Hamwe fares run from FRw 8,000 to FRw 80,000. Luxury packages sit at FRw 80,000 — nothing on this site costs more.'
     }
     if (/momo/.test(query.toLowerCase())) {
       return 'Yes. MTN MoMo is how much of the country pays, and Hamwe checkout can take a Rwanda 07… number (this build is a demo).'

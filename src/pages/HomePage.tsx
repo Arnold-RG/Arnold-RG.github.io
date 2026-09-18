@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
-import { activities, letters, seatsLeft, tours, travelers } from '../data'
-import { compactDate, initials, money } from '../lib/format'
+import { activities, tours } from '../data'
+import { compactDate, money } from '../lib/format'
 import { Constellation } from '../components/Constellation'
-import { SeatMeter } from '../components/SeatMeter'
 import { TourCard } from '../components/TourCard'
+import { DailyBudget } from '../components/DailyBudget'
 import { AlbumStrip } from '../components/AlbumStrip'
 
 const featured = tours.slice(0, 3)
@@ -33,8 +33,6 @@ const trust = [
 ]
 
 export function HomePage() {
-  const open = next ? seatsLeft(next) : 0
-
   return (
     <div className="page-home">
       <section className="hero">
@@ -84,12 +82,7 @@ export function HomePage() {
           </div>
 
           <div className="hero-stage">
-            <Constellation
-              people={travelers}
-              circleOpen={open > 0}
-              seatsOpen={open}
-              seatsTotal={next?.seatsTotal}
-            />
+            <Constellation />
             {next ? (
               <aside className="boarding-pass">
                 <header>
@@ -106,21 +99,18 @@ export function HomePage() {
                     <dd>{compactDate(next.nextDeparture)}</dd>
                   </div>
                   <div>
-                    <dt>Cohort</dt>
-                    <dd>{next.cohortName}</dd>
+                    <dt>Length</dt>
+                    <dd>{next.durationDays} days</dd>
                   </div>
                   <div>
-                    <dt>Seats</dt>
-                    <dd>
-                      {open}/{next.seatsTotal}
-                    </dd>
+                    <dt>Region</dt>
+                    <dd>{next.region}</dd>
                   </div>
                   <div>
                     <dt>Fare</dt>
                     <dd>{money(next.priceUsd)}</dd>
                   </div>
                 </dl>
-                <SeatMeter taken={next.seatsTaken} total={next.seatsTotal} />
                 <Link className="btn btn-primary btn-block" to={`/tours/${next.slug}`}>
                   Claim a seat
                 </Link>
@@ -210,8 +200,8 @@ export function HomePage() {
           <p className="eyebrow">Activities</p>
           <h2>The tour is the spine. The activities are how the circle actually happens.</h2>
           <p>
-            Anyone holding a Hamwe ticket can add a studio, a supper, a boat, a walk. Seats are
-            shared across circles so you keep meeting people.
+            Day tickets are FRw 8,000–20,000. Luxury packages are FRw 80,000 — nothing on this site
+            costs more.
           </p>
           <Link className="btn btn-light" to="/activities">
             Browse activities
@@ -234,69 +224,28 @@ export function HomePage() {
         </ul>
       </section>
 
+      <DailyBudget />
+
       <section className="live-circles" data-reveal>
         <div className="live-copy">
-          <p className="eyebrow">Already going</p>
-          <h2>The circle is not theoretical.</h2>
+          <p className="eyebrow">Circles</p>
+          <h2>A hosted itinerary, then a table.</h2>
           <p>
-            Names, cities, a Kigali host. You see who is walking before you fly — then you join a
-            call. That is the product.
+            You buy a dated seat. After you book, Hamwe introduces the circle and a Kigali host.
           </p>
           <Link className="text-link" to="/circles">
             Open the mission board
           </Link>
         </div>
-        <Constellation
-          people={travelers}
-          compact
-          circleOpen={open > 0}
-          seatsOpen={open}
-          seatsTotal={next?.seatsTotal}
-        />
-        <ul className="live-names">
-          {travelers.slice(0, 5).map((person) => (
-            <li key={person.id}>
-              <span className={person.role === 'host' ? 'avatar host' : 'avatar'}>
-                {initials(person.name)}
-              </span>
-              <div>
-                <strong>
-                  {person.name}
-                  {person.role === 'host' ? ' · host' : ''}
-                </strong>
-                <span>
-                  {person.city}, {person.country}
-                </span>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="section letters" data-reveal>
-        <header className="section-head">
-          <p className="eyebrow">From the road</p>
-          <h2>What the circle writes back</h2>
-        </header>
-        <div className="letter-grid">
-          {letters.map((letter) => (
-            <blockquote key={letter.name}>
-              <p>{letter.text}</p>
-              <footer>
-                {letter.name}
-                <span>{letter.tour}</span>
-              </footer>
-            </blockquote>
-          ))}
-        </div>
+        <Constellation compact />
       </section>
 
       <section className="closing-cta" data-reveal>
         <img src="/images/cohort.png" alt="A small group walking a hillside path in Rwanda" />
         <div>
-          <p className="eyebrow">October is filling</p>
-          <h2>Come for the hills. Stay for the names.</h2>
-          <p>Fourteen seats. A host from Kigali. A country in a sensible order.</p>
+          <p className="eyebrow">Next departure</p>
+          <h2>Come for the hills. Stay for the circle.</h2>
+          <p>A host from Kigali. A country in a sensible order.</p>
           <Link className="btn btn-primary" to="/tours">
             Buy a ticket
           </Link>

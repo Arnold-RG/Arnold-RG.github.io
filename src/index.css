@@ -488,6 +488,12 @@ ol {
   background: rgba(5, 10, 7, 0.72);
 }
 
+.chip-luxury {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(5, 10, 7, 0.8);
+}
+
 .live-pip {
   display: inline-block;
   width: 0.5rem;
@@ -1250,6 +1256,11 @@ ol {
   left: 0.8rem;
 }
 
+.tour-card-media .chip-luxury {
+  left: auto;
+  right: 0.8rem;
+}
+
 .plate-hud {
   position: absolute;
   right: 0.8rem;
@@ -1515,6 +1526,68 @@ ol {
   align-items: center;
   margin: 4.5rem auto;
   padding: 2rem 0 1rem;
+}
+
+.daily-budget {
+  margin: 3.5rem 0 4rem;
+}
+
+.daily-budget > header {
+  max-width: 40rem;
+  margin-bottom: 1.4rem;
+}
+
+.daily-budget > header h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin: 0.35rem 0 0.7rem;
+}
+
+.daily-budget > header p {
+  color: var(--muted);
+}
+
+.daily-budget-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.daily-budget-card {
+  border: 1px solid var(--line);
+  padding: 1.1rem 1.15rem 1.2rem;
+  background: rgba(8, 16, 12, 0.55);
+}
+
+.daily-budget-card.is-budget {
+  border-color: var(--gold);
+}
+
+.daily-budget-card.is-comfort {
+  border-color: rgba(212, 175, 55, 0.45);
+}
+
+.daily-budget-card.is-taxi {
+  border-color: var(--line);
+}
+
+.daily-budget-card dl {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0.85rem 0 1rem;
+}
+
+.daily-budget-card dt {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.daily-budget-card dd {
+  margin: 0.2rem 0 0;
+  color: var(--ink);
+  font-weight: 600;
 }
 
 .together-copy h2 {
@@ -2707,7 +2780,8 @@ textarea {
   .land-grid,
   .plan-grid,
   .album-grid,
-  .album-stage {
+  .album-stage,
+  .daily-budget-grid {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -2800,7 +2874,8 @@ textarea {
   .pay-grid,
   .contact-grid,
   .album-grid,
-  .album-stage {
+  .album-stage,
+  .daily-budget-grid {
     grid-template-columns: 1fr;
   }
 

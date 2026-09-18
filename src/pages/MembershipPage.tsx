@@ -26,14 +26,17 @@ export function MembershipPage() {
         <p className="eyebrow">Membership · Circle pass</p>
         <h1>Stay in the circle after the ticket.</h1>
         <p className="lede">
-          Tours remain one-off fares — gorilla permits and lodges cannot be a subscription. A Circle
-          pass is the layer on top: first seats, activity rates, and the Kigali table.
+          Tours remain one-off fares between FRw 32,000 and FRw 80,000. Luxury packages and Host
+          table membership are FRw 80,000 — nothing on this site costs more.
         </p>
       </header>
       <div className="plan-grid">
         {memberships.map((plan) => (
           <article key={plan.id} className={`plan-card ${plan.highlighted ? 'is-featured' : ''}`}>
-            <p className="mono-meta">{plan.period === 'month' ? 'Monthly' : 'Yearly'}</p>
+            <p className="mono-meta">
+              {plan.luxury ? 'Luxury package · ' : ''}
+              {plan.period === 'month' ? 'Monthly' : 'Yearly'}
+            </p>
             <h2>{plan.name}</h2>
             <p>{plan.tagline}</p>
             <p className="price">

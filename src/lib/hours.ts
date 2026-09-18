@@ -7,6 +7,21 @@ export const OFFICE_HOURS = {
   label: 'Mon–Fri 08:00–18:00 CAT',
 } as const
 
+export const OFFICE_ADDRESS = {
+  building: 'Ikaze House',
+  street: 'KG 11 Ave',
+  area: 'Kisimenti',
+  city: 'Kigali, Rwanda',
+  line: 'Ikaze House, KG 11 Ave, Kisimenti',
+  full: 'Ikaze House, KG 11 Ave, Kisimenti, Kigali',
+} as const
+
+export const OFFICE_PHONE = {
+  display: '+250 794 607 518',
+  tel: '+250794607518',
+  local: '0794 607 518',
+} as const
+
 const WEEKDAY: Record<string, number> = {
   Mon: 1,
   Tue: 2,
