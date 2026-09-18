@@ -1,12 +1,12 @@
 export const OFFICE_HOURS = {
   zone: 'Africa/Kigali',
-  days: 'Monday–Friday',
+  days: 'Every day',
   open: '08:00',
   close: '18:00',
   lunchStart: '12:00',
   lunchEnd: '13:30',
-  closed: 'Saturday and Sunday',
-  label: 'Mon–Fri 08:00–18:00 · Lunch 12:00–13:30 CAT',
+  closed: 'after 18:00 CAT',
+  label: 'Daily 08:00–18:00 · Lunch 12:00–13:30 CAT',
 } as const
 
 export const OFFICE_ADDRESS = {
@@ -102,27 +102,21 @@ function weAreLabel(state: OfficeState): string {
   return 'We are closed'
 }
 
-function officeState(weekday: number, nowSec: number): OfficeState {
-  const weekdayDesk = weekday >= 1 && weekday <= 5
-  if (!weekdayDesk || nowSec < OPEN_SEC || nowSec >= CLOSE_SEC) return 'closed'
+function officeState(nowSec: number): OfficeState {
+  if (nowSec < OPEN_SEC || nowSec >= CLOSE_SEC) return 'closed'
   if (nowSec >= LUNCH_START_SEC && nowSec < LUNCH_END_SEC) return 'lunch'
   return 'open'
 }
 
-function nextMonday(wall: CatWall) {
-  const daysAhead = wall.weekday === 0 ? 1 : 8 - wall.weekday
-  return addDays(wall.year, wall.month, wall.day, daysAhead)
-}
-
 export function getOfficeCountdown(now = new Date()): OfficeCountdown {
   const wall = catWall(now)
-  const state = officeState(wall.weekday, wall.nowSec)
+  const state = officeState(wall.nowSec)
   const open = state === 'open'
   const lunch = state === 'lunch'
 
   let target = { year: wall.year, month: wall.month, day: wall.day, hour: 8, minute: 0, second: 0 }
   let headline = 'Opens in'
-  let targetLabel = 'Monday 08:00 CAT'
+  let targetLabel = 'Today 08:00 CAT'
 
   if (open && wall.nowSec < LUNCH_START_SEC) {
     target = { ...target, hour: 12, minute: 0 }
@@ -136,20 +130,15 @@ export function getOfficeCountdown(now = new Date()): OfficeCountdown {
     target = { ...target, hour: 13, minute: 30 }
     headline = 'Opens in'
     targetLabel = 'Today 13:30 CAT'
-  } else if (wall.weekday >= 1 && wall.weekday <= 5 && wall.nowSec < OPEN_SEC) {
+  } else if (wall.nowSec < OPEN_SEC) {
     target = { ...target, hour: 8, minute: 0 }
     headline = 'Opens in'
     targetLabel = 'Today 08:00 CAT'
-  } else if (wall.weekday >= 1 && wall.weekday <= 4) {
+  } else {
     const tomorrow = addDays(wall.year, wall.month, wall.day, 1)
     target = { ...tomorrow, hour: 8, minute: 0, second: 0 }
     headline = 'Opens in'
     targetLabel = 'Tomorrow 08:00 CAT'
-  } else {
-    const monday = nextMonday(wall)
-    target = { ...monday, hour: 8, minute: 0, second: 0 }
-    headline = 'Opens in'
-    targetLabel = `${DAY_NAMES[monday.weekday]} 08:00 CAT`
   }
 
   const remainingMs = Math.max(0, catInstantMs(target.year, target.month, target.day, target.hour, target.minute, target.second) - now.getTime())
@@ -184,6 +173,6 @@ export function getDeskStatus(now = new Date()) {
     weAre: countdown.weAre,
     hoursLabel: countdown.hoursLabel,
     nextLine: `${countdown.headline} ${countdown.targetLabel}`,
-    closedWeekends: true,
+    closedWeekends: false,
   }
 }
