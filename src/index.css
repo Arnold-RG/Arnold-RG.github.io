@@ -7,6 +7,9 @@
   --gold: #e2b23a;
   --ember: #c45c26;
   --cyan: #4fd0c3;
+  --status-open: #2fbf6b;
+  --status-lunch: #f0c14a;
+  --status-closed: #e23d3d;
   --oxblood: #8b2e2a;
   --glass: rgba(12, 24, 18, 0.55);
   --ink: #f7f4ea;
@@ -662,6 +665,156 @@ ol {
     linear-gradient(180deg, rgba(5, 10, 7, 0.35), transparent 28%, rgba(5, 10, 7, 0.78));
 }
 
+.office-clock {
+  position: relative;
+  z-index: 3;
+  width: min(100% - 2 * var(--gutter), var(--max));
+  margin: 0 auto;
+  padding-top: calc(var(--nav-h) + 0.85rem);
+}
+
+.office-clock-inner {
+  display: grid;
+  grid-template-columns: minmax(10rem, 0.9fr) minmax(16rem, 1.2fr) minmax(10rem, 0.9fr);
+  align-items: center;
+  gap: 1.1rem 1.6rem;
+  padding: 0.85rem 1.15rem;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(8, 16, 12, 0.78), rgba(5, 10, 7, 0.62));
+  backdrop-filter: blur(16px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+.office-clock-state {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  margin: 0;
+  font-family: var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.office-clock-state strong {
+  font-size: 0.78rem;
+  color: var(--gold);
+}
+
+.office-clock-state span:last-child {
+  color: var(--muted);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+}
+
+.office-clock-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.office-clock-label {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.office-clock-count ol {
+  display: flex;
+  align-items: stretch;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.office-clock-count li {
+  min-width: 4.1rem;
+  padding: 0.45rem 0.55rem 0.4rem;
+  border: 1px solid rgba(226, 178, 58, 0.35);
+  background: rgba(5, 10, 7, 0.55);
+  text-align: center;
+}
+
+.office-clock-count b {
+  display: block;
+  font-family: var(--display);
+  font-size: clamp(1.55rem, 3vw, 2.15rem);
+  line-height: 1;
+  color: var(--paper);
+  font-variant-numeric: tabular-nums;
+}
+
+.office-clock-count span {
+  display: block;
+  margin-top: 0.28rem;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.office-clock-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.22rem;
+  margin: 0;
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.office-clock-meta a {
+  color: var(--gold);
+}
+
+.office-clock.is-open .live-pip {
+  background: var(--status-open);
+  box-shadow: 0 0 10px var(--status-open);
+}
+
+.office-clock.is-lunch .live-pip {
+  background: var(--status-lunch);
+  box-shadow: 0 0 10px var(--status-lunch);
+}
+
+.office-clock.is-closed .live-pip {
+  background: var(--status-closed);
+  box-shadow: 0 0 10px var(--status-closed);
+}
+
+.office-clock.is-open .office-clock-state strong,
+.office-clock.is-open .office-clock-label {
+  color: var(--status-open);
+}
+
+.office-clock.is-lunch .office-clock-state strong,
+.office-clock.is-lunch .office-clock-label {
+  color: var(--status-lunch);
+}
+
+.office-clock.is-closed .office-clock-state strong,
+.office-clock.is-closed .office-clock-label {
+  color: var(--mist);
+}
+
+.office-clock.is-lunch .office-clock-count li {
+  border-color: rgba(240, 193, 74, 0.4);
+}
+
+.office-clock.is-closed .office-clock-count li {
+  border-color: var(--hair);
+}
+
 .hero-hud {
   position: relative;
   z-index: 2;
@@ -670,7 +823,7 @@ ol {
   gap: 2rem;
   width: min(100% - 2 * var(--gutter), var(--max));
   margin: 0 auto;
-  padding: calc(var(--nav-h) + 1.5rem) 0 4rem;
+  padding: 1.25rem 0 4rem;
 }
 
 .shell.is-live .hero-hud {
@@ -981,16 +1134,30 @@ ol {
 }
 
 .desk-hours.is-open .desk-hours-status {
-  color: var(--cyan);
+  color: var(--status-open);
+}
+
+.desk-hours.is-lunch .desk-hours-status {
+  color: var(--status-lunch);
 }
 
 .desk-hours.is-closed .desk-hours-status {
-  color: var(--gold);
+  color: var(--status-closed);
+}
+
+.desk-hours.is-open .live-pip {
+  background: var(--status-open);
+  box-shadow: 0 0 10px var(--status-open);
+}
+
+.desk-hours.is-lunch .live-pip {
+  background: var(--status-lunch);
+  box-shadow: 0 0 10px var(--status-lunch);
 }
 
 .desk-hours.is-closed .live-pip {
-  background: var(--ember);
-  box-shadow: 0 0 10px var(--ember);
+  background: var(--status-closed);
+  box-shadow: 0 0 10px var(--status-closed);
 }
 
 /* Seat meter */
@@ -2764,6 +2931,18 @@ textarea {
 
 @media (max-width: 1100px) {
 
+  .office-clock-inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .office-clock-state,
+  .office-clock-meta {
+    align-items: center;
+    text-align: center;
+  }
+
   .hero-hud,
   .live-circles,
   .together-band,
@@ -2884,7 +3063,20 @@ textarea {
   }
 
   .hero-hud {
-    padding-top: 5.5rem;
+    padding-top: 1.15rem;
+  }
+
+  .office-clock-inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    padding: 0.95rem 1rem 1.05rem;
+  }
+
+  .office-clock-state,
+  .office-clock-meta {
+    align-items: center;
+    text-align: center;
   }
 
   .circle-top,

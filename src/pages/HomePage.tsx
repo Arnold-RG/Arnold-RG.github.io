@@ -5,6 +5,7 @@ import { Constellation } from '../components/Constellation'
 import { TourCard } from '../components/TourCard'
 import { DailyBudget } from '../components/DailyBudget'
 import { AlbumStrip } from '../components/AlbumStrip'
+import { OfficeCountdown } from '../components/OfficeCountdown'
 
 const featured = tours.slice(0, 3)
 const next = [...tours].sort((a, b) => a.nextDeparture.localeCompare(b.nextDeparture))[0]
@@ -42,6 +43,8 @@ export function HomePage() {
           <div className="hero-scanlines" aria-hidden="true" />
           <div className="hero-vignette" aria-hidden="true" />
         </div>
+
+        <OfficeCountdown />
 
         <div className="hero-hud">
           <div className="hero-copy">

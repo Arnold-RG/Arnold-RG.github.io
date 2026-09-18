@@ -202,7 +202,7 @@ export function hamweCatalog(query: string): string {
 
 export function deskBrief(): string {
   const desk = getDeskStatus()
-  return `Kigali desk is ${desk.open ? 'open' : 'closed'} now. ${OFFICE_HOURS.label}. Closed ${OFFICE_HOURS.closed}. ${desk.nextLine}. ${OFFICE_ADDRESS.full}. circle@hamwe.rw · ${OFFICE_PHONE.display}.`
+  return `${desk.weAre} now. ${OFFICE_HOURS.label}. Closed ${OFFICE_HOURS.closed}. ${desk.nextLine}. ${OFFICE_ADDRESS.full}. circle@hamwe.rw · ${OFFICE_PHONE.display}.`
 }
 
 export function phrasebook(query: string): string {
