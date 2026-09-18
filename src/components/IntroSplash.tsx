@@ -1,0 +1,48 @@
+import { useEffect, useState } from 'react'
+
+const HOLD_MS = 3400
+const EXIT_MS = 800
+
+export function IntroSplash({ onDone }: { onDone: () => void }) {
+  const [leaving, setLeaving] = useState(false)
+
+  useEffect(() => {
+    document.body.classList.add('intro-lock')
+    document.getElementById('boot-intro')?.remove()
+
+    const leaveAt = window.setTimeout(() => setLeaving(true), HOLD_MS)
+    const doneAt = window.setTimeout(() => {
+      document.body.classList.remove('intro-lock')
+      onDone()
+    }, HOLD_MS + EXIT_MS)
+
+    return () => {
+      window.clearTimeout(leaveAt)
+      window.clearTimeout(doneAt)
+      document.body.classList.remove('intro-lock')
+    }
+  }, [onDone])
+
+  const skip = () => {
+    document.body.classList.remove('intro-lock')
+    document.getElementById('boot-intro')?.remove()
+    onDone()
+  }
+
+  return (
+    <div className={`intro-splash ${leaving ? 'is-leaving' : ''}`}>
+      <div className="intro-glow" aria-hidden="true" />
+      <img
+        className="intro-logo"
+        src="/brand/hamwe-logo-lockup.png"
+        alt="Hamwe Visit Rwanda"
+        width={1048}
+        height={323}
+      />
+      <span className="intro-line" aria-hidden="true" />
+      <button className="intro-skip" type="button" onClick={skip}>
+        Enter site
+      </button>
+    </div>
+  )
+}
