@@ -41,9 +41,8 @@ export function AboutPage() {
           <p className="eyebrow">03</p>
           <h2>What happens after pay</h2>
           <p>
-            You get a ticket. Two weeks out, a circle call. On the ground, Aline or another
-            Kigali host keeps the days honest. Optional extras — supper, studio, boat — keep mixing
-            the table.
+            You get a ticket. Two weeks out, a circle call. On the ground, a Kigali host keeps the
+            days honest. Optional extras — supper, studio, boat — keep mixing the table.
           </p>
         </section>
         <section>

@@ -90,7 +90,7 @@ export function CheckoutPage() {
     if (form.paymentMethod === 'momo' || form.paymentMethod === 'qr') {
       const phone = form.momoPhone || form.phone
       if (!rwandaPhoneValid(phone)) {
-        setError('Use a Rwanda MoMo number such as 0788 000 214.')
+        setError('Use a Rwanda MoMo number such as 0794 607 518.')
         return
       }
     }
@@ -158,7 +158,7 @@ export function CheckoutPage() {
               value={form.phone}
               onChange={(event) => setField('phone', event.target.value)}
               autoComplete="tel"
-              placeholder="+250 788 000 214"
+              placeholder="+250 794 607 518"
             />
           </label>
           {cart.kind !== 'membership' ? (
@@ -233,7 +233,7 @@ export function CheckoutPage() {
                 <input
                   value={form.momoPhone}
                   onChange={(event) => setField('momoPhone', event.target.value)}
-                  placeholder="0788 000 214"
+                  placeholder="0794 607 518"
                   inputMode="tel"
                 />
               </label>

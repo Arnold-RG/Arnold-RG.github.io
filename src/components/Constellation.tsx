@@ -9,19 +9,8 @@ const STOPS = [
   { name: 'Akagera', src: '/images/akagera.png' },
 ]
 
-export function Constellation({
-  compact = false,
-  seatsOpen,
-  seatsTotal = 14,
-}: {
-  people?: unknown
-  compact?: boolean
-  circleOpen?: boolean
-  seatsOpen?: number
-  seatsTotal?: number
-}) {
+export function Constellation({ compact = false }: { compact?: boolean }) {
   const desk = useDeskStatus()
-  const remaining = seatsOpen ?? Math.max(0, seatsTotal)
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
@@ -55,9 +44,7 @@ export function Constellation({
       <figcaption className="live-route-meta">
         <div>
           <span>On the ground</span>
-          <strong>
-            {remaining} {remaining === 1 ? 'seat' : 'seats'} left
-          </strong>
+          <strong>Hosted circles</strong>
         </div>
         <div>
           <span>Kigali desk</span>

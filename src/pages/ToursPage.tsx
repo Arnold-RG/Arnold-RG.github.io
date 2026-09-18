@@ -3,8 +3,9 @@ import { tours } from '../data'
 import { TourCard } from '../components/TourCard'
 import type { Difficulty } from '../types'
 
-const filters: Array<{ id: 'all' | Difficulty; label: string }> = [
+const filters: Array<{ id: 'all' | Difficulty | 'luxury'; label: string }> = [
   { id: 'all', label: 'All circles' },
+  { id: 'luxury', label: 'Luxury packages' },
   { id: 'gentle', label: 'Gentle' },
   { id: 'moderate', label: 'Moderate' },
   { id: 'active', label: 'Active' },
@@ -13,10 +14,11 @@ const filters: Array<{ id: 'all' | Difficulty; label: string }> = [
 export function ToursPage() {
   const [filter, setFilter] = useState<(typeof filters)[number]['id']>('all')
 
-  const list = useMemo(
-    () => (filter === 'all' ? tours : tours.filter((tour) => tour.difficulty === filter)),
-    [filter],
-  )
+  const list = useMemo(() => {
+    if (filter === 'all') return tours
+    if (filter === 'luxury') return tours.filter((tour) => tour.luxury)
+    return tours.filter((tour) => tour.difficulty === filter)
+  }, [filter])
 
   return (
     <div className="page-pad">
@@ -24,8 +26,9 @@ export function ToursPage() {
         <p className="eyebrow">Departures · live seats</p>
         <h1>Choose a circle, not a brochure.</h1>
         <p className="lede">
-          Every Hamwe tour is a dated, hosted itinerary. Seats are capped so the table stays human.
-          Buy a ticket and you are in.
+          Every Hamwe circle tour is a dated, hosted itinerary with lodges. Fares are FRw
+          32,000–80,000. Luxury packages — The Full Gathering and Virunga Dawn Circle — are FRw
+          80,000, the site maximum. Day tickets are FRw 8,000–20,000 on Activities.
         </p>
       </header>
 

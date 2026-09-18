@@ -32,7 +32,7 @@ export function addToCalendar(ticket: TicketOrder) {
     `Hamwe ticket ${ticketCode(ticket.id)}`,
     `Holder: ${ticket.travelerName}`,
     `Party: ${ticket.travelers}`,
-    'Meet at KN 5 Rd, Kiyovu, Kigali unless your host writes otherwise.',
+    'Meet at Ikaze House, KG 11 Ave, Kisimenti, Kigali unless your host writes otherwise.',
   ].join('\\n')
 
   const ics = [
@@ -89,7 +89,7 @@ export function saveWalletPass(ticket: TicketOrder) {
         {
           key: 'note',
           label: 'Host',
-          value: 'Aline Uwase · KN 5 Rd, Kiyovu. This demo pass is unsigned until Apple certificates are added.',
+          value: 'Hamwe host · Ikaze House, KG 11 Ave, Kisimenti. This demo pass is unsigned until Apple certificates are added.',
         },
       ],
     },

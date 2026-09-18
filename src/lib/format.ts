@@ -1,7 +1,29 @@
 export const USD_TO_RWF = 1450
+export const TICKET_MIN_RWF = 8000
+export const DAY_TICKET_MAX_RWF = 20000
+export const TICKET_MAX_RWF = 80000
+export const LUXURY_PACKAGE_RWF = 80000
 
 export function toRwf(usd: number): number {
   return Math.round(usd * USD_TO_RWF)
+}
+
+export function fromRwf(rwf: number): number {
+  return rwf / USD_TO_RWF
+}
+
+export function fareFromRwf(rwf: number): number {
+  if (rwf < TICKET_MIN_RWF || rwf > TICKET_MAX_RWF) {
+    throw new Error(`Fares must be FRw ${TICKET_MIN_RWF}–${TICKET_MAX_RWF}`)
+  }
+  return fromRwf(rwf)
+}
+
+export function ticketFromRwf(rwf: number): number {
+  if (rwf < TICKET_MIN_RWF || rwf > DAY_TICKET_MAX_RWF) {
+    throw new Error(`Day tickets must be FRw ${TICKET_MIN_RWF}–${DAY_TICKET_MAX_RWF}`)
+  }
+  return fromRwf(rwf)
 }
 
 export function money(usd: number): string {

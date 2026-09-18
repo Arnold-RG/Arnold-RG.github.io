@@ -1,6 +1,6 @@
-import { activities, destinations, faqs, memberships, seatsLeft, tours } from '../data'
+import { activities, destinations, faqs, memberships, tours } from '../data'
 import { money } from '../lib/format'
-import { getDeskStatus, OFFICE_HOURS } from '../lib/hours'
+import { getDeskStatus, OFFICE_ADDRESS, OFFICE_HOURS, OFFICE_PHONE } from '../lib/hours'
 import { KNOWLEDGE, MONTHS, PHRASES, type KnowledgeCard } from './knowledge'
 
 export interface McpTool {
@@ -66,7 +66,7 @@ const TYPOS: Record<string, string> = {
 const SYNONYMS: Record<string, string[]> = {
   gorilla: ['gorillas', 'virunga', 'volcanoes', 'permit', 'kinigi', 'musanze', 'trek', 'trekking', 'sabyinyo'],
   chimpanzee: ['chimp', 'chimps', 'chimpanzees', 'nyungwe'],
-  kigali: ['capital', 'kiyovu', 'nyamirambo', 'kgl', 'city'],
+  kigali: ['capital', 'kisimenti', 'nyamirambo', 'kgl', 'city'],
   kivu: ['rubavu', 'gisenyi', 'karongi', 'kibuye', 'lake'],
   nyungwe: ['canopy', 'forest', 'tea'],
   akagera: ['safari', 'savannah', 'ihema', 'lion', 'elephant'],
@@ -176,8 +176,7 @@ export function hamweCatalog(query: string): string {
   })
   const pick = (tourHits.length ? tourHits : tours).slice(0, 3)
   const lines = pick.map((tour) => {
-    const open = seatsLeft(tour)
-    return `${tour.name} — ${tour.durationDays} days, next ${tour.nextDeparture}, ${money(tour.priceUsd)} (${open} seats). ${tour.tagline}`
+    return `${tour.name} — ${tour.durationDays} days, next ${tour.nextDeparture}, ${money(tour.priceUsd)}. ${tour.tagline}`
   })
 
   const extras = wantExtra
@@ -203,7 +202,7 @@ export function hamweCatalog(query: string): string {
 
 export function deskBrief(): string {
   const desk = getDeskStatus()
-  return `Kigali desk is ${desk.open ? 'open' : 'closed'} now. ${OFFICE_HOURS.label}. Closed ${OFFICE_HOURS.closed}. ${desk.nextLine}. KN 5 Rd, Kiyovu. circle@hamwe.rw · +250 788 000 214.`
+  return `Kigali desk is ${desk.open ? 'open' : 'closed'} now. ${OFFICE_HOURS.label}. Closed ${OFFICE_HOURS.closed}. ${desk.nextLine}. ${OFFICE_ADDRESS.full}. circle@hamwe.rw · ${OFFICE_PHONE.display}.`
 }
 
 export function phrasebook(query: string): string {

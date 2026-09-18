@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Logo } from './Logo'
 import { DeskHours } from './DeskHours'
+import { OFFICE_ADDRESS, OFFICE_PHONE } from '../lib/hours'
 
 export function Footer() {
   return (
@@ -20,7 +21,7 @@ export function Footer() {
           <Link to="/destinations">Land</Link>
           <Link to="/album">Photo album</Link>
           <Link to="/activities">Activities</Link>
-          <Link to="/circles">Who is going</Link>
+          <Link to="/circles">Circles</Link>
         </div>
         <div>
           <p className="footer-label">House</p>
@@ -34,9 +35,14 @@ export function Footer() {
         </div>
         <div>
           <p className="footer-label">On the ground</p>
-          <p>KN 5 Rd, Kiyovu</p>
-          <p>Kigali, Rwanda</p>
-          <p>+250 788 000 214</p>
+          <p>{OFFICE_ADDRESS.building}</p>
+          <p>
+            {OFFICE_ADDRESS.street}, {OFFICE_ADDRESS.area}
+          </p>
+          <p>{OFFICE_ADDRESS.city}</p>
+          <p>
+            <a href={`tel:${OFFICE_PHONE.tel}`}>{OFFICE_PHONE.display}</a>
+          </p>
           <DeskHours compact />
         </div>
       </div>

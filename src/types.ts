@@ -1,6 +1,27 @@
 export type Difficulty = 'gentle' | 'moderate' | 'active'
 
-export type ActivityCategory = 'culture' | 'nature' | 'food' | 'night'
+export type ActivityCategory = 'culture' | 'nature' | 'food' | 'night' | 'budget' | 'comfort' | 'taxi' | 'luxury'
+
+export const ACTIVITY_CATEGORY_LABEL: Record<ActivityCategory, string> = {
+  culture: 'Culture',
+  nature: 'Nature',
+  food: 'Food',
+  night: 'Night',
+  budget: 'Budget traveler',
+  comfort: 'Comfortable traveler',
+  taxi: 'Taxis / private cars',
+  luxury: 'Luxury package',
+}
+
+export interface DailyBudget {
+  id: string
+  name: string
+  transport: string
+  food: string
+  total: string
+  note: string
+  ticketSlug: string
+}
 
 export type ItemKind = 'tour' | 'activity' | 'membership'
 
@@ -43,6 +64,7 @@ export interface Tour {
   gallery: string[]
   cohortName: string
   region: string
+  luxury?: boolean
 }
 
 export interface Activity {
@@ -72,6 +94,7 @@ export interface MembershipPlan {
   tagline: string
   perks: string[]
   highlighted?: boolean
+  luxury?: boolean
 }
 
 export interface Destination {
