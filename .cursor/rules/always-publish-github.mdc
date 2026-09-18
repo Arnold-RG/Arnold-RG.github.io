@@ -1,0 +1,16 @@
+---
+description: Always commit and push Hamwe site changes to GitHub Pages
+alwaysApply: true
+---
+
+# Always publish to GitHub
+
+After any user-facing change in `visit-rwanda/`, update GitHub and the live site in the same turn. Do not wait to be asked.
+
+1. Finish the code change and verify it.
+2. Commit the relevant files on `main` (never `git config`; never skip hooks).
+3. Push to `origin` (`https://github.com/Arnold-RG/Arnold-RG.github.io.git`).
+4. The public site is GitHub Pages: https://arnold-rg.github.io
+5. Tell the user both the commit and the live URL.
+
+Do not commit `.env`, credentials, or `dist/` as source. Do not add a CNAME for hamwevisitrwanda.com until DNS is owned.

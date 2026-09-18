@@ -12,7 +12,7 @@ export function Footer() {
             <Logo />
           </div>
           <p className="footer-lede">
-            Planned Rwanda, walked with people you have not met yet. Kigali-born. Circle-sized.
+            Hamwe Rwanda, walked with people you have not met yet. Kigali-born. Circle-sized.
           </p>
         </div>
         <div>
