@@ -2514,6 +2514,29 @@ textarea {
 
 .giso-page .giso-chat {
   max-width: 760px;
+  grid-template-rows: minmax(18rem, 1fr) auto auto;
+}
+
+.giso-bank {
+  border-top: 1px solid var(--hair);
+  padding: 0.85rem 0.9rem 1rem;
+  max-height: 18rem;
+  overflow: auto;
+}
+
+.giso-bank .eyebrow {
+  margin: 0 0 0.65rem;
+}
+
+.giso-bank-chips {
+  margin-top: 0;
+}
+
+.giso-bank-chips button {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 0.68rem;
+  text-align: left;
 }
 
 .giso-chat {

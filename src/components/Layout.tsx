@@ -11,6 +11,10 @@ export function Layout() {
   const finishIntro = useCallback(() => setIntroDone(true), [])
 
   useEffect(() => {
+    document.title = 'hamwevisitrwanda.com'
+  }, [])
+
+  useEffect(() => {
     if (introDone) document.getElementById('boot-intro')?.remove()
   }, [introDone])
 

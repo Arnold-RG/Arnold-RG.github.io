@@ -1,5 +1,5 @@
 import { type FormEvent, useRef, useState } from 'react'
-import { shufflePrompts } from '../gisubizo/knowledge'
+import { QA_BANK, shufflePrompts } from '../gisubizo/qa'
 import { askGisubizo } from '../gisubizo/engine'
 
 interface Line {
@@ -14,7 +14,7 @@ export function GisubizoChat({ compact = false }: { compact?: boolean }) {
     {
       id: 'open',
       role: 'gisubizo',
-      text: 'Muraho. I am Gisubizo — Hamwe’s Rwanda intelligence. Ask in your own words. I compose a brief from country knowledge, live desk hours, and the Hamwe catalogue.',
+      text: 'Hello. I am Gisubizo, Hamwe’s Rwanda desk. I answer in English only. Tap a question or type your own.',
       followups: shufflePrompts(compact ? 4 : 6),
     },
   ])
@@ -79,13 +79,25 @@ export function GisubizoChat({ compact = false }: { compact?: boolean }) {
           id={compact ? 'giso-dock-q' : 'giso-page-q'}
           value={draft}
           onChange={(event) => setDraft(event.target.value)}
-          placeholder="Ask anything — or type a follow-up"
+          placeholder="Ask in English — Rwanda or Hamwe"
           autoComplete="off"
         />
         <button className="btn btn-primary" type="submit" disabled={busy}>
           Ask
         </button>
       </form>
+      {!compact ? (
+        <section className="giso-bank" aria-label="Question bank">
+          <p className="eyebrow">Question bank · {QA_BANK.length}</p>
+          <div className="giso-chips giso-bank-chips">
+            {QA_BANK.map((item) => (
+              <button key={item.q} type="button" onClick={() => ask(item.q)}>
+                {item.q}
+              </button>
+            ))}
+          </div>
+        </section>
+      ) : null}
     </div>
   )
 }

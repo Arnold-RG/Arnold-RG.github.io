@@ -1,4 +1,5 @@
 import { GISUBIZO_PROMPTS, type KnowledgeCard } from './knowledge'
+import { matchQA, relatedQuestions, shufflePrompts } from './qa'
 import {
   chooseTools,
   deskBrief,
@@ -83,7 +84,7 @@ function intentOf(query: string): Intent {
   if (/thank|murakoze|thanks/.test(q)) return 'thanks'
   if (/\bvs\.?\b|versus|compar|difference|differ|or chimps?|gorillas? or/.test(q)) return 'compare'
   if (extractDays(q) || /how many days|itinerary|plan .*day|sketch .*day/.test(q)) return 'plan'
-  if (/kinyarwanda|muraho|phrase|words|translate|say hello|teach me/.test(q)) return 'phrases'
+  if (/kinyarwanda|rwandan word|rwandan phrase|how do you say|translate/.test(q)) return 'phrases'
   if (/pack|bring|wear|what should i take/.test(q)) return 'pack'
   if (/hour|open|closed|office|desk|weekend/.test(q)) return 'hours'
   if (/which (tour|circle)|hamwe|membership|permit included|momo|ticket/.test(q)) return 'catalog'
@@ -98,8 +99,8 @@ function intentOf(query: string): Intent {
 
 function greeting(): GisubizoReply {
   return {
-    text: 'Muraho. I am Gisubizo — “the answer.” Ask in your own words. I read Rwanda from a local knowledge desk, then write a brief for this question — not a pasted FAQ.',
-    followups: GISUBIZO_PROMPTS.slice(0, 4),
+    text: 'Hello. I am Gisubizo, Hamwe’s Rwanda desk. I answer in English only, with facts about Rwanda and this company. Ask a clear question — you can also tap one of the prompts.',
+    followups: shufflePrompts(6),
     tools: [],
   }
 }
@@ -209,10 +210,11 @@ function bullets(lines: string[]): string {
 }
 
 function composeBody(intent: Intent, query: string, cards: KnowledgeCard[], tools: string[]): string {
-  const claims = pickClaims(cards, query, intent === 'list' || intent === 'pack' || intent === 'phrases' ? 8 : 5)
+  const focused = cards.slice(0, 1)
+  const claims = pickClaims(focused.length ? focused : cards, query, intent === 'list' || intent === 'pack' ? 6 : 4)
 
   if (intent === 'phrases' || tools.includes('phrasebook')) {
-    return `Use these without theatre:\n${bullets(phrasebook(query).split('\n'))}\n\nEnglish already works in Kigali and on Hamwe days. “Murakoze cyane” is the one you will actually spend.`
+    return `English explanations of common Kinyarwanda words:\n${bullets(phrasebook(query).split('\n'))}\n\nEnglish is enough in Kigali and on Hamwe tours. Gisubizo replies in English only.`
   }
 
   if (intent === 'plan' || tools.includes('plan_days')) {
@@ -267,13 +269,21 @@ export function askGisubizo(query: string, history: GisubizoTurn[] = []): Gisubi
   if (intent === 'greet') return greeting()
   if (intent === 'thanks') {
     return {
-      text: 'Murakoze cyane. Ask another piece of the country whenever you want — even a messy follow-up.',
-      followups: ['How do gorilla treks work?', 'Plan 5 days in Rwanda', 'Teach me a few Kinyarwanda words'],
+      text: 'You are welcome. Ask another Rwanda or Hamwe question whenever you want.',
+      followups: shufflePrompts(4),
       tools: [],
     }
   }
 
   const resolved = resolveQuery(raw, history)
+  const matched = matchQA(resolved) ?? matchQA(raw)
+  if (matched) {
+    return {
+      text: matched.a,
+      followups: relatedQuestions(matched, raw),
+      tools: ['rwanda_knowledge'],
+    }
+  }
   if (intent === 'compare') {
     const compared = compareTopics(resolved)
     if (compared) return compared
@@ -285,7 +295,7 @@ export function askGisubizo(query: string, history: GisubizoTurn[] = []): Gisubi
 
   if (!cards.length && !tools.filter((name) => name !== 'rwanda_knowledge').length) {
     return {
-      text: 'I write from Rwanda and from Hamwe. Try gorillas, Kigali, Nyungwe, francs, packing, Kinyarwanda, a number of days, or how a circle works — in your own words.',
+      text: 'I only answer Rwanda and Hamwe questions in English. Try the capital, gorilla trekking, visas, Hamwe circles, office hours, or tap a prompt below.',
       followups: GISUBIZO_PROMPTS.slice(0, 4),
       tools,
     }
