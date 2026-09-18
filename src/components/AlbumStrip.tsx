@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { album } from '../data'
+import { album } from '../data/album'
 
 export function AlbumStrip() {
   const loop = [...album, ...album]
