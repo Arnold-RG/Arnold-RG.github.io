@@ -24,46 +24,60 @@ export const OFFICE_PHONE = {
   local: '0794 607 518',
 } as const
 
-const WEEKDAY: Record<string, number> = {
-  Mon: 1,
-  Tue: 2,
-  Wed: 3,
-  Thu: 4,
-  Fri: 5,
-  Sat: 6,
-  Sun: 0,
-}
-
-function pad(value: number): string {
-  return String(value).padStart(2, '0')
-}
-
-function kigaliParts(now: Date) {
-  const parts = new Intl.DateTimeFormat('en-GB', {
-    timeZone: OFFICE_HOURS.zone,
-    weekday: 'short',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hourCycle: 'h23',
-  }).formatToParts(now)
-
-  const read = (type: Intl.DateTimeFormatPartTypes) =>
-    parts.find((part) => part.type === type)?.value ?? ''
-
-  return {
-    weekday: WEEKDAY[read('weekday')] ?? 0,
-    hour: Number(read('hour')),
-    minute: Number(read('minute')),
-    second: Number(read('second')),
-  }
-}
-
+/** Kigali keeps Central Africa Time, UTC+2, with no daylight saving. */
+const CAT_OFFSET_MS = 2 * 60 * 60 * 1000
 const OPEN_SEC = 8 * 3600
 const LUNCH_START_SEC = 12 * 3600
 const LUNCH_END_SEC = 13 * 3600 + 30 * 60
 const CLOSE_SEC = 18 * 3600
 const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
+function pad(value: number): string {
+  return String(value).padStart(2, '0')
+}
+
+interface CatWall {
+  year: number
+  month: number
+  day: number
+  weekday: number
+  hour: number
+  minute: number
+  second: number
+  nowSec: number
+}
+
+function catWall(now: Date): CatWall {
+  const shifted = new Date(now.getTime() + CAT_OFFSET_MS)
+  const hour = shifted.getUTCHours()
+  const minute = shifted.getUTCMinutes()
+  const second = shifted.getUTCSeconds()
+
+  return {
+    year: shifted.getUTCFullYear(),
+    month: shifted.getUTCMonth() + 1,
+    day: shifted.getUTCDate(),
+    weekday: shifted.getUTCDay(),
+    hour,
+    minute,
+    second,
+    nowSec: hour * 3600 + minute * 60 + second,
+  }
+}
+
+function catInstantMs(year: number, month: number, day: number, hour = 0, minute = 0, second = 0): number {
+  return Date.UTC(year, month - 1, day, hour, minute, second) - CAT_OFFSET_MS
+}
+
+function addDays(year: number, month: number, day: number, days: number) {
+  const next = new Date(Date.UTC(year, month - 1, day) + days * 86_400_000)
+  return {
+    year: next.getUTCFullYear(),
+    month: next.getUTCMonth() + 1,
+    day: next.getUTCDate(),
+    weekday: next.getUTCDay(),
+  }
+}
 
 export type OfficeState = 'open' | 'lunch' | 'closed'
 
@@ -95,46 +109,51 @@ function officeState(weekday: number, nowSec: number): OfficeState {
   return 'open'
 }
 
+function nextMonday(wall: CatWall) {
+  const daysAhead = wall.weekday === 0 ? 1 : 8 - wall.weekday
+  return addDays(wall.year, wall.month, wall.day, daysAhead)
+}
+
 export function getOfficeCountdown(now = new Date()): OfficeCountdown {
-  const { weekday, hour, minute, second } = kigaliParts(now)
-  const nowSec = hour * 3600 + minute * 60 + second
-  const weekdayDesk = weekday >= 1 && weekday <= 5
-  const state = officeState(weekday, nowSec)
+  const wall = catWall(now)
+  const state = officeState(wall.weekday, wall.nowSec)
   const open = state === 'open'
   const lunch = state === 'lunch'
 
-  let remaining = 0
+  let target = { year: wall.year, month: wall.month, day: wall.day, hour: 8, minute: 0, second: 0 }
   let headline = 'Opens in'
   let targetLabel = 'Monday 08:00 CAT'
 
-  if (open && nowSec < LUNCH_START_SEC) {
-    remaining = LUNCH_START_SEC - nowSec
+  if (open && wall.nowSec < LUNCH_START_SEC) {
+    target = { ...target, hour: 12, minute: 0 }
     headline = 'Closes in'
     targetLabel = 'Lunch 12:00 CAT'
   } else if (open) {
-    remaining = CLOSE_SEC - nowSec
+    target = { ...target, hour: 18, minute: 0 }
     headline = 'Closes in'
     targetLabel = 'Today 18:00 CAT'
   } else if (lunch) {
-    remaining = LUNCH_END_SEC - nowSec
+    target = { ...target, hour: 13, minute: 30 }
     headline = 'Opens in'
     targetLabel = 'Today 13:30 CAT'
-  } else if (weekdayDesk && nowSec < OPEN_SEC) {
-    remaining = OPEN_SEC - nowSec
+  } else if (wall.weekday >= 1 && wall.weekday <= 5 && wall.nowSec < OPEN_SEC) {
+    target = { ...target, hour: 8, minute: 0 }
     headline = 'Opens in'
     targetLabel = 'Today 08:00 CAT'
-  } else {
-    let daysAhead = 1
-    if (weekday === 5 && nowSec >= CLOSE_SEC) daysAhead = 3
-    else if (weekday === 6) daysAhead = 2
-    else if (weekday === 0) daysAhead = 1
-    remaining = 86400 - nowSec + (daysAhead - 1) * 86400 + OPEN_SEC
+  } else if (wall.weekday >= 1 && wall.weekday <= 4) {
+    const tomorrow = addDays(wall.year, wall.month, wall.day, 1)
+    target = { ...tomorrow, hour: 8, minute: 0, second: 0 }
     headline = 'Opens in'
-    const targetDay = (weekday + daysAhead) % 7
-    targetLabel = daysAhead === 1 ? 'Tomorrow 08:00 CAT' : `${DAY_NAMES[targetDay]} 08:00 CAT`
+    targetLabel = 'Tomorrow 08:00 CAT'
+  } else {
+    const monday = nextMonday(wall)
+    target = { ...monday, hour: 8, minute: 0, second: 0 }
+    headline = 'Opens in'
+    targetLabel = `${DAY_NAMES[monday.weekday]} 08:00 CAT`
   }
 
-  remaining = Math.max(0, remaining)
+  const remainingMs = Math.max(0, catInstantMs(target.year, target.month, target.day, target.hour, target.minute, target.second) - now.getTime())
+  const remaining = Math.floor(remainingMs / 1000)
   const hours = Math.floor(remaining / 3600)
   const minutes = Math.floor((remaining % 3600) / 60)
   const seconds = remaining % 60
@@ -150,7 +169,7 @@ export function getOfficeCountdown(now = new Date()): OfficeCountdown {
     remainingSec: remaining,
     headline,
     targetLabel,
-    clock: `${pad(hour)}:${pad(minute)}:${pad(second)} CAT`,
+    clock: `${DAY_NAMES[wall.weekday]} · ${pad(wall.hour)}:${pad(wall.minute)}:${pad(wall.second)} CAT`,
     hoursLabel: OFFICE_HOURS.label,
   }
 }
