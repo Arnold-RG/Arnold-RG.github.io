@@ -296,7 +296,7 @@ export function chooseTools(query: string): string[] {
   if (/hamwe|tour|seat|ticket|circle|fare|momo|permit|membership|depart|price|cost|extra/.test(q)) {
     tools.push('hamwe_catalog')
   }
-  if (/muraho|kinyarwanda|hello|phrase|words|translate|say .*rwanda|speak/.test(q)) tools.push('phrasebook')
+  if (/kinyarwanda|rwandan word|how do you say|translate/.test(q)) tools.push('phrasebook')
   if (extractDays(q) || /how many days|itinerary|plan .*day|schedule|route/.test(q)) tools.push('plan_days')
   tools.push('rwanda_knowledge')
   return [...new Set(tools)]

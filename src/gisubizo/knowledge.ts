@@ -7,38 +7,7 @@ export interface KnowledgeCard {
   followups: string[]
 }
 
-export const GISUBIZO_PROMPTS = [
-  'What is Rwanda known for?',
-  'How do gorilla treks work?',
-  'When is the best time to visit?',
-  'What should I pack?',
-  'Teach me a few Kinyarwanda words',
-  'How does a Hamwe circle work?',
-  'What is Kigali like?',
-  'Is Rwanda safe for solo travellers?',
-  'Gorillas vs chimpanzees — what is the difference?',
-  'How many days do I need?',
-  'What should I do on day one?',
-  'How should I visit the memorial?',
-  'What is Umuganda?',
-  'What about money and francs?',
-  'Do I need a visa?',
-  'Which animals live in Akagera?',
-  'What is the Nyungwe canopy walk like?',
-  'Tell me about Lake Kivu',
-  'Is the gorilla permit included?',
-  'What is there to eat?',
-  'Can I pay with MoMo?',
-  'What should families know?',
-  'How do I get around without a car?',
-  'What is Imigongo?',
-  'Plan 5 days in Rwanda',
-  'What is golden-monkey trekking?',
-  'Is Rwanda expensive?',
-  'Any cultural rules I should know?',
-  'When is the Kigali office open?',
-  'Which Hamwe tour includes gorillas?',
-]
+export { GISUBIZO_PROMPTS, shufflePrompts } from './qa'
 
 export const PHRASES: { rw: string; en: string }[] = [
   { rw: 'Muraho', en: 'hello (works all day)' },
@@ -87,8 +56,8 @@ export const KNOWLEDGE: KnowledgeCard[] = [
     claims: [
       'It is landlocked, bordered by Uganda, Tanzania, Burundi, and the Democratic Republic of the Congo.',
       'Kigali is the capital. Local time is CAT (UTC+2). The franc (RWF) is the currency.',
-      'Kinyarwanda, English, and French are official; Swahili is common in trade.',
-      'The country is roughly 26,000 km² — comparable to a small European state — with a population around 14 million.',
+      'The official languages are Kinyarwanda, English, French, and Kiswahili. English is enough for Hamwe tours and Kigali visitor services.',
+      'The country is 26,338 km², with a population of about 14 million.',
       'People come for mountain gorillas, a strikingly ordered capital, Nyungwe forest, Akagera’s lakes, and Lake Kivu’s slow western shore.',
       'Independence from Belgium was in 1962. The public story visitors meet first is recovery, cleanliness, and memory after 1994.',
       'Driving is on the right. Plastic bags are banned and taken at the airport.',
@@ -554,12 +523,3 @@ export const KNOWLEDGE: KnowledgeCard[] = [
     followups: ['Plan 5 days in Rwanda', 'Which Hamwe tour includes gorillas?', 'What should I do on day one?'],
   },
 ]
-
-export function shufflePrompts(count = 6): string[] {
-  const copy = [...GISUBIZO_PROMPTS]
-  for (let i = copy.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[copy[i], copy[j]] = [copy[j], copy[i]]
-  }
-  return copy.slice(0, count)
-}
