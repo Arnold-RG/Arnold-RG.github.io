@@ -198,7 +198,7 @@ function leadFor(intent: Intent, query: string, primary?: KnowledgeCard): string
     }
   }
   if (intent === 'pack') return 'Pack for hills and forest, not a beach.'
-  if (intent === 'how' || intent === 'explain' || intent === 'list' || intent === 'cost' || intent === 'pack') {
+  if (intent === 'how' || intent === 'explain' || intent === 'list' || intent === 'cost') {
     return primary?.hook ?? ''
   }
   return ''
