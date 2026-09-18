@@ -991,7 +991,7 @@ export const faqs: FaqItem[] = [
   },
   {
     q: 'When is the Kigali office open?',
-    a: 'Every day, 08:00–18:00 CAT, with lunch 12:00–13:30.',
+    a: 'Every day, 08:00 - 12:00 ¦ 13:30 - 18:00 CAT.',
   },
   {
     q: 'Where is the Hamwe office?',

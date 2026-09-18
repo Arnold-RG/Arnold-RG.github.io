@@ -6,7 +6,7 @@ export const OFFICE_HOURS = {
   lunchStart: '12:00',
   lunchEnd: '13:30',
   closed: 'after 18:00 CAT',
-  label: 'Daily 08:00–18:00 · Lunch 12:00–13:30 CAT',
+  label: '08:00 - 12:00 ¦ 13:30 - 18:00',
 } as const
 
 export const OFFICE_ADDRESS = {

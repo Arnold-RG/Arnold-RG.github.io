@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDeskStatus } from '../hooks/useDeskStatus'
+import { OFFICE_HOURS } from '../lib/hours'
 
 const STOPS = [
   { name: 'Kigali', src: '/images/kigali.png' },
@@ -48,7 +49,7 @@ export function Constellation({ compact = false }: { compact?: boolean }) {
         </div>
         <div>
           <span>Kigali desk</span>
-          <strong>{desk.open ? 'Open' : 'Closed'} · 08:00–18:00</strong>
+          <strong>{desk.open ? 'Open' : 'Closed'} · {OFFICE_HOURS.label}</strong>
         </div>
       </figcaption>
     </figure>
