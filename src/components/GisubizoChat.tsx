@@ -15,7 +15,7 @@ export function GisubizoChat({ compact = false }: { compact?: boolean }) {
       id: 'open',
       role: 'gisubizo',
       text: 'Hello. I am Gisubizo, Hamwe’s Rwanda desk. I answer in English only. Tap a question or type your own.',
-      followups: shufflePrompts(compact ? 4 : 6),
+      followups: shufflePrompts(compact ? 3 : 5),
     },
   ])
   const [draft, setDraft] = useState('')
@@ -56,21 +56,43 @@ export function GisubizoChat({ compact = false }: { compact?: boolean }) {
       <div className="giso-thread" ref={scroller}>
         {lines.map((line) => (
           <article key={line.id} className={`giso-line is-${line.role}`}>
-            {line.role === 'gisubizo' ? <p className="giso-who">Gisubizo</p> : null}
-            <p>{line.text}</p>
-            {line.followups?.length ? (
-              <div className="giso-chips">
-                {line.followups.map((chip) => (
-                  <button key={chip} type="button" onClick={() => ask(chip)}>
-                    {chip}
-                  </button>
-                ))}
-              </div>
+            {line.role === 'gisubizo' ? (
+              <span className="giso-avatar" aria-hidden="true">
+                G
+              </span>
             ) : null}
+            <div className="giso-bubble">
+              {line.role === 'gisubizo' ? <p className="giso-who">Gisubizo</p> : null}
+              <p>{line.text}</p>
+              {line.followups?.length ? (
+                <div className="giso-chips">
+                  {line.followups.map((chip) => (
+                    <button key={chip} type="button" onClick={() => ask(chip)}>
+                      {chip}
+                    </button>
+                  ))}
+                </div>
+              ) : null}
+            </div>
           </article>
         ))}
-        {busy ? <p className="giso-who">Gisubizo is writing…</p> : null}
+        {busy ? (
+          <article className="giso-line is-gisubizo is-typing">
+            <span className="giso-avatar" aria-hidden="true">
+              G
+            </span>
+            <div className="giso-bubble">
+              <p className="giso-who">Gisubizo</p>
+              <p className="giso-dots" aria-label="Gisubizo is writing">
+                <i />
+                <i />
+                <i />
+              </p>
+            </div>
+          </article>
+        ) : null}
       </div>
+
       <form className="giso-form" onSubmit={onSubmit}>
         <label className="sr-only" htmlFor={compact ? 'giso-dock-q' : 'giso-page-q'}>
           Ask Gisubizo
@@ -79,16 +101,19 @@ export function GisubizoChat({ compact = false }: { compact?: boolean }) {
           id={compact ? 'giso-dock-q' : 'giso-page-q'}
           value={draft}
           onChange={(event) => setDraft(event.target.value)}
-          placeholder="Ask in English — Rwanda or Hamwe"
+          placeholder="Ask about Rwanda or Hamwe"
           autoComplete="off"
         />
-        <button className="btn btn-primary" type="submit" disabled={busy}>
-          Ask
+        <button className="giso-send" type="submit" disabled={busy || !draft.trim()}>
+          Send
         </button>
       </form>
+
       {!compact ? (
-        <section className="giso-bank" aria-label="Question bank">
-          <p className="eyebrow">Question bank · {QA_BANK.length}</p>
+        <details className="giso-bank">
+          <summary>
+            Browse questions <span>{QA_BANK.length}</span>
+          </summary>
           <div className="giso-chips giso-bank-chips">
             {QA_BANK.map((item) => (
               <button key={item.q} type="button" onClick={() => ask(item.q)}>
@@ -96,7 +121,7 @@ export function GisubizoChat({ compact = false }: { compact?: boolean }) {
               </button>
             ))}
           </div>
-        </section>
+        </details>
       ) : null}
     </div>
   )

@@ -11,24 +11,34 @@ export function GisubizoDock() {
   return (
     <div className={`giso-dock ${open ? 'is-open' : ''}`}>
       {open ? (
-        <div className="giso-panel">
-          <header>
+        <div className="giso-panel" role="dialog" aria-label="Gisubizo">
+          <header className="giso-panel-head">
+            <span className="giso-avatar" aria-hidden="true">
+              G
+            </span>
             <div>
-              <p className="eyebrow">Web MCP · Rwanda</p>
               <strong>Gisubizo</strong>
+              <p>English desk · live</p>
             </div>
             <div className="giso-panel-actions">
-              <Link to="/gisubizo">Full desk</Link>
+              <Link to="/gisubizo">Open page</Link>
               <button type="button" onClick={() => setOpen(false)} aria-label="Close Gisubizo">
-                Close
+                ×
               </button>
             </div>
           </header>
           <GisubizoChat compact />
         </div>
       ) : null}
-      <button className="giso-fab" type="button" onClick={() => setOpen((value) => !value)}>
-        {open ? 'Close' : 'Gisubizo'}
+      <button
+        className="giso-fab"
+        type="button"
+        onClick={() => setOpen((value) => !value)}
+        aria-expanded={open}
+        aria-label={open ? 'Close Gisubizo' : 'Open Gisubizo'}
+      >
+        <em>{open ? '×' : 'G'}</em>
+        <span>{open ? 'Close' : 'Gisubizo'}</span>
       </button>
     </div>
   )
