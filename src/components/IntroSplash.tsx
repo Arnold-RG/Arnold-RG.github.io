@@ -34,10 +34,10 @@ export function IntroSplash({ onDone }: { onDone: () => void }) {
       <div className="intro-glow" aria-hidden="true" />
       <img
         className="intro-logo"
-        src="/brand/hamwe-logo-lockup.png"
+        src="/brand/hamwe-logo-lockup.png?v=tourism"
         alt="Hamwe Tourism"
-        width={1048}
-        height={323}
+        width={1246}
+        height={408}
       />
       <span className="intro-line" aria-hidden="true" />
       <button className="intro-skip" type="button" onClick={skip}>
