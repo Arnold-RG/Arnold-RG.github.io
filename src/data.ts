@@ -939,11 +939,11 @@ export const memberships: MembershipPlan[] = [
 export const faqs: FaqItem[] = [
   {
     q: 'How much do day tickets cost?',
-    a: 'Hamwe day tickets (activities and budget traveler passes) are FRw 8,000–20,000. Hosted circle tours are FRw 32,000–80,000. Luxury packages are FRw 80,000 — nothing on this site costs more.',
+    a: 'Hamwe Tourism day tickets (activities and budget traveler passes) are FRw 8,000–20,000. Hosted tours are FRw 32,000–80,000. Luxury packages are FRw 80,000 — nothing on this site costs more.',
   },
   {
     q: 'What is a luxury package?',
-    a: 'Luxury packages are the highest Hamwe fares: FRw 80,000. That is The Full Gathering, Virunga Dawn Circle, the Luxury package day, and Host table membership. No listed price is higher.',
+    a: 'Luxury packages are the highest Hamwe Tourism fares: FRw 80,000. That is The Full Gathering, Virunga Dawn Circle, and the Luxury package day. No listed price is higher.',
   },
   {
     q: 'What does a budget traveler spend per day?',
@@ -974,8 +974,8 @@ export const faqs: FaqItem[] = [
     a: 'After payment you get a QR boarding pass. Add to Calendar downloads an .ics file iPhone Calendar understands. Add to Apple Wallet downloads a pass file — a signed .pkpass needs Apple certificates in production.',
   },
   {
-    q: 'What is a Circle membership?',
-    a: 'A subscription on top of tickets, not instead of them. Circle month is FRw 15,000. Circle year is FRw 55,000. Host table is a luxury package at FRw 80,000 — the site maximum.',
+    q: 'Do you sell a membership?',
+    a: 'No. Hamwe Tourism sells dated tour seats and day tickets only. Book a departure or write the house for a custom trip. Older membership passes already on a device still open as tickets.',
   },
   {
     q: 'Are flights to Kigali included?',
@@ -996,6 +996,14 @@ export const faqs: FaqItem[] = [
   {
     q: 'Where is the Hamwe office?',
     a: 'Ikaze House, KG 11 Ave, Kisimenti, Kigali. Email circle@hamwe.rw. Phone +250 794 607 518.',
+  },
+  {
+    q: 'What should I plan before I fly?',
+    a: 'Check visa rules on Irembo, pack without plastic bags, buy travel insurance, and book your own flight to KGL. Hamwe Tourism’s Plan page covers season, packing, money, and health. Airport welcome is in every hosted tour ticket.',
+  },
+  {
+    q: 'What is included in a Hamwe tour?',
+    a: 'A Kigali host, airport welcome, the vehicle, lodges named in the journal, park fees when listed (including gorilla permits on treks that list them), named meals, and a pre-trip call. International flights, visas, insurance, unnamed drinks, tips, and optional day tickets are not included.',
   },
 ]
 

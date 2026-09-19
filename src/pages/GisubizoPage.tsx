@@ -7,7 +7,7 @@ export function GisubizoPage() {
         <p className="eyebrow">Gisubizo · English desk</p>
         <h1>Ask Rwanda. Get a clear answer.</h1>
         <p className="lede">
-          Gisubizo is the Hamwe desk for facts about the country and this company. English only.
+          Gisubizo is the Hamwe Tourism desk for facts about the country and this company. English only.
           Type a question, or open the list under the chat.
         </p>
       </header>

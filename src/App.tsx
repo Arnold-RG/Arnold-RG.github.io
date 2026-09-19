@@ -1,17 +1,18 @@
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { Layout } from './components/Layout'
 import { GisubizoPage } from './pages/GisubizoPage'
 import { AboutPage } from './pages/AboutPage'
 import { ActivitiesPage } from './pages/ActivitiesPage'
 import { ActivityDetailPage } from './pages/ActivityDetailPage'
 import { CheckoutPage } from './pages/CheckoutPage'
-import { CirclesPage } from './pages/CirclesPage'
 import { ConfirmationPage } from './pages/ConfirmationPage'
 import { DestinationsPage } from './pages/DestinationsPage'
 import { AlbumPage } from './pages/AlbumPage'
 import { FaqPage } from './pages/FaqPage'
 import { HomePage } from './pages/HomePage'
-import { MembershipPage } from './pages/MembershipPage'
+import { IncludedPage } from './pages/IncludedPage'
+import { PlanPage } from './pages/PlanPage'
+import { ResponsiblePage } from './pages/ResponsiblePage'
 import { ContactPage } from './pages/ContactPage'
 import { TicketsPage } from './pages/TicketsPage'
 import { TourDetailPage } from './pages/TourDetailPage'
@@ -26,10 +27,13 @@ export default function App() {
         <Route path="/tours/:slug" element={<TourDetailPage />} />
         <Route path="/activities" element={<ActivitiesPage />} />
         <Route path="/activities/:slug" element={<ActivityDetailPage />} />
-        <Route path="/circles" element={<CirclesPage />} />
+        <Route path="/circles" element={<Navigate to="/tours" replace />} />
         <Route path="/destinations" element={<DestinationsPage />} />
         <Route path="/album" element={<AlbumPage />} />
-        <Route path="/membership" element={<MembershipPage />} />
+        <Route path="/membership" element={<Navigate to="/tours" replace />} />
+        <Route path="/plan" element={<PlanPage />} />
+        <Route path="/included" element={<IncludedPage />} />
+        <Route path="/responsible" element={<ResponsiblePage />} />
         <Route path="/faq" element={<FaqPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />

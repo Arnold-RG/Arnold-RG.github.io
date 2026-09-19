@@ -17,19 +17,20 @@ export function Footer() {
         </div>
         <div>
           <p className="footer-label">Walk</p>
-          <Link to="/tours">Departures</Link>
-          <Link to="/destinations">Land</Link>
+          <Link to="/tours">Tours</Link>
+          <Link to="/destinations">Destinations</Link>
           <Link to="/album">Photo album</Link>
           <Link to="/activities">Activities</Link>
-          <Link to="/circles">Circles</Link>
+          <Link to="/plan">Plan your trip</Link>
         </div>
         <div>
           <p className="footer-label">House</p>
-          <Link to="/membership">Membership</Link>
+          <Link to="/included">What’s included</Link>
+          <Link to="/responsible">Travel with care</Link>
           <Link to="/about">How it works</Link>
           <Link to="/faq">FAQ</Link>
           <Link to="/gisubizo">Gisubizo</Link>
-          <Link to="/contact">Contact</Link>
+          <Link to="/contact">Request a trip</Link>
           <Link to="/tickets">Your tickets</Link>
           <a href="mailto:circle@hamwe.rw">circle@hamwe.rw</a>
         </div>
@@ -47,7 +48,7 @@ export function Footer() {
         </div>
       </div>
       <div className="footer-bar">
-        <span>© {new Date().getFullYear()} Hamwe Collectives</span>
+        <span>© {new Date().getFullYear()} Hamwe Tourism</span>
         <span>Fares in FRw. Demo payments — no live MoMo or card charge.</span>
       </div>
     </footer>

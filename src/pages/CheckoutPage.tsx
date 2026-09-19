@@ -51,13 +51,13 @@ export function CheckoutPage() {
         <header className="page-hero">
           <p className="eyebrow">Checkout</p>
           <h1>Your bag is empty.</h1>
-          <p className="lede">Pick a departure, an activity, or a Circle membership first.</p>
+          <p className="lede">Pick a tour or a day ticket first.</p>
           <div className="hero-actions">
             <Link className="btn btn-primary" to="/tours">
-              Browse departures
+              Browse tours
             </Link>
-            <Link className="btn btn-ghost" to="/membership">
-              Circle membership
+            <Link className="btn btn-ghost" to="/activities">
+              Day tickets
             </Link>
           </div>
         </header>

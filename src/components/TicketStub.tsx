@@ -7,7 +7,7 @@ import type { TicketOrder } from '../types'
 function kindLabel(kind: TicketOrder['kind']): string {
   if (kind === 'tour') return 'Tour seat'
   if (kind === 'activity') return 'Activity pass'
-  return 'Circle membership'
+  return 'Stored pass'
 }
 
 export function TicketStub({ ticket }: { ticket: TicketOrder }) {
@@ -15,7 +15,7 @@ export function TicketStub({ ticket }: { ticket: TicketOrder }) {
     <article className="ticket" id="printable-ticket">
       <div className="ticket-ornament" aria-hidden="true" />
       <div className="ticket-main">
-        <p className="eyebrow">Hamwe · Visit Rwanda</p>
+        <p className="eyebrow">Hamwe Tourism</p>
         <p className="mono-meta boarding-route">KGL · DIGITAL PASS</p>
         <h2>{ticket.itemName}</h2>
         <dl className="ticket-meta">

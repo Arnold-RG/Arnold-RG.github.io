@@ -4,7 +4,7 @@ import { TourCard } from '../components/TourCard'
 import type { Difficulty } from '../types'
 
 const filters: Array<{ id: 'all' | Difficulty | 'luxury'; label: string }> = [
-  { id: 'all', label: 'All circles' },
+  { id: 'all', label: 'All tours' },
   { id: 'luxury', label: 'Luxury packages' },
   { id: 'gentle', label: 'Gentle' },
   { id: 'moderate', label: 'Moderate' },
@@ -23,10 +23,10 @@ export function ToursPage() {
   return (
     <div className="page-pad">
       <header className="page-hero">
-        <p className="eyebrow">Departures · live seats</p>
-        <h1>Choose a circle, not a brochure.</h1>
+        <p className="eyebrow">Tours · live seats</p>
+        <h1>Choose a hosted trip, not a brochure.</h1>
         <p className="lede">
-          Every Hamwe circle tour is a dated, hosted itinerary with lodges. Fares are FRw
+          Every Hamwe Tourism tour is a dated, hosted itinerary with lodges. Fares are FRw
           32,000–80,000. Luxury packages — The Full Gathering and Virunga Dawn Circle — are FRw
           80,000, the site maximum. Day tickets are FRw 8,000–20,000 on Activities.
         </p>

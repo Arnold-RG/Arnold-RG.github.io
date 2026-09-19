@@ -19,9 +19,9 @@ export function ConfirmationPage() {
       <h1>You are on the list.</h1>
       <p className="lede">
         {ticket.kind === 'membership'
-          ? 'Your Circle membership is active on this device. Keep the pass for supper seats and early boarding.'
+          ? 'This older membership pass is still stored on this device. Hamwe Tourism now sells tour seats and day tickets only.'
           : ticket.joinCircle
-            ? 'A circle introduction lands in your inbox two weeks before departure. Save this pass to Calendar or Wallet.'
+            ? 'A group introduction lands in your inbox two weeks before departure. Save this pass to Calendar or Wallet.'
             : 'Your seat is reserved. Add it to Calendar so the morning does not sneak up.'}
       </p>
       <TicketStub ticket={ticket} />
