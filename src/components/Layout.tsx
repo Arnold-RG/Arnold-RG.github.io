@@ -11,7 +11,7 @@ export function Layout() {
   const finishIntro = useCallback(() => setIntroDone(true), [])
 
   useEffect(() => {
-    document.title = 'hamwevisitrwanda.com'
+    document.title = 'Hamwe Tourism'
   }, [])
 
   useEffect(() => {

@@ -46,7 +46,7 @@ export function ActivitiesPage() {
         <h1>Day tickets and luxury packages at real Rwanda prices.</h1>
         <p className="lede">
           Day tickets are FRw 8,000–20,000. Luxury packages are FRw 80,000 — the highest fare on this
-          site. Hosted circle tours sit between FRw 32,000 and FRw 80,000 on Departures.
+          site. Hosted tours sit between FRw 32,000 and FRw 80,000 on Tours.
         </p>
       </header>
       <DailyBudget />

@@ -4,11 +4,11 @@ export function AboutPage() {
   return (
     <div className="about">
       <header className="page-hero">
-        <p className="eyebrow">How Hamwe works</p>
+        <p className="eyebrow">How Hamwe Tourism works</p>
         <h1>We plan the tour. You bring a stranger’s courage.</h1>
         <p className="lede">
-          Hamwe — “together” — is a Kigali company that sells seats on small, hosted Rwanda
-          itineraries. The point is not more options. The point is a circle that already has a
+          Hamwe — “together” — is a Kigali tourism house that sells seats on small, hosted Rwanda
+          itineraries. The point is not more options. The point is a group that already has a
           road, a table, and a date.
         </p>
       </header>
@@ -56,7 +56,7 @@ export function AboutPage() {
       </div>
 
       <section className="about-cta">
-        <h2>The next circle leaves in October.</h2>
+        <h2>The next departure leaves in October.</h2>
         <Link className="btn btn-primary" to="/tours">
           See departures
         </Link>

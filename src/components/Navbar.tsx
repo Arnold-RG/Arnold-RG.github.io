@@ -4,12 +4,12 @@ import { useBooking } from '../context/BookingContext'
 import { Logo } from './Logo'
 
 const links = [
-  { to: '/tours', label: 'Departures' },
-  { to: '/destinations', label: 'Land' },
-  { to: '/album', label: 'Album' },
+  { to: '/tours', label: 'Tours' },
+  { to: '/destinations', label: 'Destinations' },
   { to: '/activities', label: 'Activities' },
-  { to: '/membership', label: 'Membership' },
-  { to: '/circles', label: 'Circles' },
+  { to: '/album', label: 'Album' },
+  { to: '/plan', label: 'Plan' },
+  { to: '/about', label: 'About' },
   { to: '/tickets', label: 'Tickets' },
 ]
 
@@ -51,7 +51,7 @@ export function Navbar() {
           Tickets{tickets.length ? ` (${tickets.length})` : ''}
         </NavLink>
         <NavLink to={cart ? '/checkout' : '/tours'} className="nav-cta">
-          {cart ? 'Checkout' : 'Buy a seat'}
+          {cart ? 'Checkout' : 'Book a trip'}
         </NavLink>
         <button
           className={`menu-btn ${open ? 'open' : ''}`}

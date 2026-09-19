@@ -1,4 +1,4 @@
-import { activities, destinations, faqs, memberships, tours } from '../data'
+import { activities, destinations, faqs, tours } from '../data'
 import { money } from '../lib/format'
 import { getDeskStatus, OFFICE_ADDRESS, OFFICE_HOURS, OFFICE_PHONE } from '../lib/hours'
 import { KNOWLEDGE, MONTHS, PHRASES, type KnowledgeCard } from './knowledge'
@@ -17,7 +17,7 @@ export const GISUBIZO_TOOLS: McpTool[] = [
   },
   {
     name: 'hamwe_catalog',
-    description: 'List matching Hamwe tours, extras, memberships, and FAQ lines.',
+    description: 'List matching Hamwe Tourism tours, extras, and FAQ lines.',
     inputSchema: { query: 'string' },
   },
   {
@@ -166,7 +166,6 @@ export function hamweCatalog(query: string): string {
   const words = tokens(query)
   const q = query.toLowerCase()
   const wantGorilla = /gorilla|permit|virunga|volcano/.test(q)
-  const wantMembers = /member|subscription/.test(q)
   const wantExtra = /activity|extra|studio|dinner|jazz|boat|market/.test(q)
 
   const tourHits = tours.filter((tour) => {
@@ -183,8 +182,8 @@ export function hamweCatalog(query: string): string {
     ? activities.slice(0, 3).map((item) => `${item.name} (${item.city}) — ${item.duration}, ${money(item.priceUsd)}.`)
     : []
 
-  const plans = wantMembers
-    ? memberships.map((plan) => `${plan.name} — ${money(plan.priceUsd)} / ${plan.period}. ${plan.tagline}`)
+  const plans = /member|subscription/.test(q)
+    ? ['Hamwe Tourism no longer sells memberships. Book a dated tour or a day ticket, or request a custom trip at /contact.']
     : []
 
   const land = destinations

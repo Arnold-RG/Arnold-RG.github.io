@@ -21,7 +21,7 @@ export function TicketsPage() {
           <p className="eyebrow">Wallet empty</p>
           <p>No tickets yet. The country is still out there.</p>
           <Link className="btn btn-primary" to="/tours">
-            Find a circle
+            Find a tour
           </Link>
         </div>
       ) : (

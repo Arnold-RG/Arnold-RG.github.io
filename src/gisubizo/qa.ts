@@ -126,12 +126,12 @@ export const QA_BANK: QAItem[] = [
   {
     q: 'Is Visit Rwanda the same as Hamwe?',
     tags: ['visitrwanda', 'rdb', 'hamwe'],
-    a: 'No. Visit Rwanda is the national tourism brand associated with the Rwanda Development Board. Hamwe is this private Kigali travel company: hosted circles, dated seats, and this website. They are not the same organisation.',
+    a: 'No. Visit Rwanda is the national tourism brand associated with the Rwanda Development Board. Hamwe Tourism is this private Kigali travel company: hosted tours, dated seats, and this website. They are not the same organisation.',
   },
   {
     q: 'What is Hamwe?',
     tags: ['hamwe', 'company', 'about'],
-    a: 'Hamwe is a Kigali travel company (Hamwe Collectives) that sells dated seats on small hosted Rwanda itineraries. The word hamwe means “together.” Circles are 10–14 people. You buy a seat, meet on a call two weeks before departure, and walk with a bilingual host.',
+    a: 'Hamwe Tourism is a Kigali travel company that sells dated seats on small hosted Rwanda itineraries. The word hamwe means “together.” Groups are 10–14 people. You buy a seat, meet on a call two weeks before departure, and walk with a bilingual host.',
   },
   {
     q: 'What does Hamwe mean?',
@@ -141,12 +141,12 @@ export const QA_BANK: QAItem[] = [
   {
     q: 'What is the history of Hamwe?',
     tags: ['hamwe', 'history', 'company'],
-    a: 'Hamwe Collectives is the Kigali company behind this website. It is built to sell hosted circle tours rather than a menu of unbundled days. The public house is Ikaze House, KG 11 Ave, Kisimenti. Payments on this site are a demo until a live merchant account is connected.',
+    a: 'Hamwe Tourism is the Kigali company behind this website. It is built to sell hosted tours rather than a menu of unbundled days. The public house is Ikaze House, KG 11 Ave, Kisimenti. Payments on this site are a demo until a live merchant account is connected.',
   },
   {
     q: 'Who owns Hamwe?',
     tags: ['hamwe', 'company', 'owner'],
-    a: 'On this website Hamwe is presented as Hamwe Collectives, a Kigali travel house. For bookings and questions write circle@hamwe.rw or call +250 794 607 518 during office hours.',
+    a: 'On this website Hamwe is presented as Hamwe Tourism, a Kigali travel house. For bookings and questions write circle@hamwe.rw or call +250 794 607 518 during office hours.',
   },
   {
     q: 'How does a Hamwe circle work?',
@@ -191,7 +191,7 @@ export const QA_BANK: QAItem[] = [
   {
     q: 'What is a Circle membership?',
     tags: ['membership', 'circle'],
-    a: 'Membership is extra, not a replacement for a tour ticket. Circle month is FRw 15,000. Circle year is FRw 55,000. Host table is a luxury package at FRw 80,000. Nothing on this site costs more than FRw 80,000.',
+    a: 'Hamwe Tourism no longer sells memberships. Book a dated tour seat or a day ticket. Fares are FRw 8,000–80,000. Older membership passes already on a device still open as tickets.',
   },
   {
     q: 'Can I cancel a Hamwe ticket?',
@@ -376,7 +376,7 @@ export const QA_BANK: QAItem[] = [
   {
     q: 'What is a luxury package?',
     tags: ['luxury', 'package', 'maximum', '80'],
-    a: 'Luxury packages are FRw 80,000 — the highest fare on this site. That is The Full Gathering, Virunga Dawn Circle, the Luxury package day, and Host table membership. No listed price is higher than FRw 80,000. The lowest fare is FRw 8,000.',
+    a: 'Luxury packages are FRw 80,000 — the highest fare on this site. That is The Full Gathering, Virunga Dawn Circle, and the Luxury package day. No listed price is higher than FRw 80,000. The lowest fare is FRw 8,000.',
   },
   {
     q: 'What does a budget traveler spend per day?',
@@ -501,7 +501,7 @@ export const QA_BANK: QAItem[] = [
   {
     q: 'What extras can I book?',
     tags: ['activities', 'extras'],
-    a: 'Hamwe day tickets are FRw 8,000–20,000. Luxury packages are FRw 80,000. That includes Budget traveler day (FRw 15,000), budget transport (FRw 9,000), budget meals (FRw 8,000), Luxury package day (FRw 80,000), Imigongo studio, coffee, long table, canopy hour, boats, walks, memorial morning, market, caves, and jazz. Hosted circle tours are FRw 32,000–80,000 on Departures.',
+    a: 'Hamwe day tickets are FRw 8,000–20,000. Luxury packages are FRw 80,000. That includes Budget traveler day (FRw 15,000), budget transport (FRw 9,000), budget meals (FRw 8,000), Luxury package day (FRw 80,000), Imigongo studio, coffee, long table, canopy hour, boats, walks, memorial morning, market, caves, and jazz. Hosted tours are FRw 32,000–80,000 on Tours.',
   },
   {
     q: 'What is the Full Gathering itinerary?',
@@ -556,12 +556,12 @@ export const QA_BANK: QAItem[] = [
   {
     q: 'Is this the official Visit Rwanda website?',
     tags: ['official', 'rdb', 'visitrwanda'],
-    a: 'No. The national tourism site is visitrwanda.com, linked to the Rwanda Development Board. This site is Hamwe Visit Rwanda — a private circle-travel company. The browser name is hamwevisitrwanda.com.',
+    a: 'No. The national tourism site is visitrwanda.com, linked to the Rwanda Development Board. This site is Hamwe Tourism — a private Kigali travel company. They are not the same organisation.',
   },
   {
     q: 'What is the website address?',
     tags: ['website', 'domain', 'url'],
-    a: 'The public site is published at https://arnold-rg.github.io while the hamwevisitrwanda.com domain is connected. The browser tab is labelled hamwevisitrwanda.com.',
+    a: 'The public site is published at https://arnold-rg.github.io. The browser tab is labelled Hamwe Tourism.',
   },
   {
     q: 'On which side of the road do they drive?',
@@ -636,12 +636,12 @@ export const QA_BANK: QAItem[] = [
   {
     q: 'Is Hamwe a government agency?',
     tags: ['government', 'private', 'rdb'],
-    a: 'No. Hamwe Collectives is a private travel company on this website. Park permits and immigration remain with Rwandan authorities (RDB and immigration).',
+    a: 'No. Hamwe Tourism is a private travel company on this website. Park permits and immigration remain with Rwandan authorities (RDB and immigration).',
   },
   {
     q: 'What is this website built for?',
     tags: ['website', 'project', 'hamwe'],
-    a: 'This website is the Hamwe Visit Rwanda product: browse tours, extras, membership, pay on a demo checkout, and ask Gisubizo in English about Rwanda and the company. Source is public on GitHub at Arnold-RG/Arnold-RG.github.io.',
+    a: 'This website is the Hamwe Tourism product: browse tours, extras, and day tickets, pay on a demo checkout, request a trip, and ask Gisubizo in English about Rwanda and the company. Source is public on GitHub at Arnold-RG/Arnold-RG.github.io.',
   },
   {
     q: 'Can the public view the source code?',
@@ -656,7 +656,17 @@ export const QA_BANK: QAItem[] = [
   {
     q: 'What is the next Hamwe departure?',
     tags: ['next', 'departure', 'october'],
-    a: 'On this site the nearest listed Full Gathering departure is 14 October 2026. Other circles follow in October and November 2026. Check Departures for live seat counts.',
+    a: 'On this site the nearest listed Full Gathering departure is 14 October 2026. Other tours follow in October and November 2026. Check Tours for live seat counts.',
+  },
+  {
+    q: 'How do I request a custom trip?',
+    tags: ['request', 'custom', 'contact'],
+    a: 'Open Request a trip on this website, or write circle@hamwe.rw / call +250 794 607 518. Send your travel window, party size, and the parks you care about. Hamwe Tourism will point you to a published departure or sketch a hosted itinerary.',
+  },
+  {
+    q: 'What is Hamwe Tourism?',
+    tags: ['hamwe', 'tourism', 'brand', 'name'],
+    a: 'Hamwe Tourism is the name of this Kigali travel company. Hamwe means “together.” It is not Visit Rwanda, the national tourism brand. The live site is https://arnold-rg.github.io.',
   },
 ]
 

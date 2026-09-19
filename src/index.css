@@ -2316,6 +2316,49 @@ ol {
     url("/images/hero-hills.jpg") center / cover;
 }
 
+.house-note {
+  margin-top: 2.4rem;
+  padding: 1.6rem 1.4rem 1.7rem;
+  border: 1px solid var(--hair);
+  background: var(--glass);
+}
+
+.house-note h2 {
+  margin: 0.25rem 0 0.7rem;
+}
+
+.house-note > p {
+  color: var(--muted);
+  max-width: 42rem;
+}
+
+.include-list {
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+  margin: 1rem 0 1.4rem;
+}
+
+.include-list li {
+  padding-left: 1.1rem;
+  position: relative;
+  color: var(--ink);
+}
+
+.include-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.45rem;
+  height: 0.45rem;
+  background: var(--gold);
+}
+
+.home-land {
+  margin-top: 0.4rem;
+}
+
 .checkout {
   display: grid;
   grid-template-columns: 1.15fr 0.7fr;
@@ -2369,6 +2412,7 @@ label {
 }
 
 input,
+select,
 textarea {
   width: 100%;
   min-height: 2.7rem;

@@ -5,11 +5,11 @@ export function DestinationsPage() {
   return (
     <div className="page-pad">
       <header className="page-hero">
-        <p className="eyebrow">Land · in a sensible order</p>
+        <p className="eyebrow">Destinations · in a sensible order</p>
         <h1>The country, walked as a map.</h1>
         <p className="lede">
-          Six grounds Hamwe actually uses. Each plate opens a circle that already has a date, a
-          host, and a road.
+          Six grounds Hamwe Tourism actually uses. Each plate opens a tour that already has a date,
+          a host, and a road.
         </p>
       </header>
       <div className="land-grid">

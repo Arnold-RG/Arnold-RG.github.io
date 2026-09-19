@@ -35,7 +35,7 @@ export function IntroSplash({ onDone }: { onDone: () => void }) {
       <img
         className="intro-logo"
         src="/brand/hamwe-logo-lockup.png"
-        alt="Hamwe Visit Rwanda"
+        alt="Hamwe Tourism"
         width={1048}
         height={323}
       />
