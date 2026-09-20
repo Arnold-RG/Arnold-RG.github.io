@@ -26,7 +26,7 @@ Hamwe means *together*. This is my public source for Hamwe Tourism: a React 19 +
 
 It is a private travel company site — not [Visit Rwanda](https://www.visitrwanda.com) and not the Rwanda Development Board.
 
-**Author:** [Arnold-RG](https://github.com/Arnold-RG)
+**Author:** Arnold Rurangwa · ARNOVA Group
 
 ---
 
@@ -261,4 +261,4 @@ Open `http://localhost:5173`. `npm run build` typechecks and writes the Pages ar
 Ikaze House, KG 11 Ave, Kisimenti, Kigali  
 +250 794 607 518 · circle@hamwe.rw
 
-Built by [Arnold-RG](https://github.com/Arnold-RG). © 2026 Hamwe Tourism. Demo payments. Public source.
+Built by Arnold Rurangwa, ARNOVA Group. © 2026 Hamwe Tourism. Demo payments. Public source.
