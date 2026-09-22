@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+﻿import { useEffect, useState } from 'react'
 
 const HOLD_MS = 3400
 const EXIT_MS = 800
@@ -34,7 +34,7 @@ export function IntroSplash({ onDone }: { onDone: () => void }) {
       <div className="intro-glow" aria-hidden="true" />
       <img
         className="intro-logo"
-        src="/brand/hamwe-logo-lockup.png?v=tourism"
+        src={`${import.meta.env.BASE_URL}brand/hamwe-logo-lockup.png?v=tourism`}
         alt="Hamwe Tourism"
         width={1246}
         height={408}
