@@ -1,4 +1,4 @@
-# Arnold Rurangwa — GitHub Pages
+﻿# Arnold Rurangwa â€” GitHub Pages
 
 **Live portfolio:** [https://arnold-rg.github.io/](https://arnold-rg.github.io/)
 
@@ -25,3 +25,4 @@ npm run build
 ```
 
 GitHub Actions assembles `site/` at the Pages root and Hamwe under `/hamwe/`.
+
