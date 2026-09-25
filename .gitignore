@@ -24,3 +24,7 @@ src/data/rwanda-album-full.json
 *.njsproj
 *.sln
 *.sw?
+.cursor/
+.cursorrules
+*.cursor*
+AGENTS.md
