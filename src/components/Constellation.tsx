@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useDeskStatus } from '../hooks/useDeskStatus'
+import { asset } from '../lib/asset'
 import { OFFICE_HOURS } from '../lib/hours'
 
 const STOPS = [
-  { name: 'Kigali', src: '/images/kigali.jpg' },
-  { name: 'Volcanoes', src: '/images/gorilla-volcanoes.jpg' },
-  { name: 'Kivu', src: '/images/lake-kivu.jpg' },
-  { name: 'Nyungwe', src: '/images/nyungwe.jpg' },
-  { name: 'Akagera', src: '/images/akagera.jpg' },
+  { name: 'Kigali', src: asset('/images/kigali.jpg') },
+  { name: 'Volcanoes', src: asset('/images/gorilla-volcanoes.jpg') },
+  { name: 'Kivu', src: asset('/images/lake-kivu.jpg') },
+  { name: 'Nyungwe', src: asset('/images/nyungwe.jpg') },
+  { name: 'Akagera', src: asset('/images/akagera.jpg') },
 ]
 
 export function Constellation({ compact = false }: { compact?: boolean }) {

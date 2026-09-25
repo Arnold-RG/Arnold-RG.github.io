@@ -1,4 +1,4 @@
-name: Deploy Hamwe
+name: Deploy site
 
 on:
   push:
@@ -25,6 +25,12 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - name: Assemble portfolio root + Hamwe at /hamwe
+        run: |
+          mv dist hamwe-build
+          mkdir -p dist/hamwe
+          cp -a site/. dist/
+          cp -a hamwe-build/. dist/hamwe/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

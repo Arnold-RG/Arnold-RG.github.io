@@ -14,7 +14,7 @@ export function AboutPage() {
       </header>
 
       <figure className="about-plate">
-        <img className="about-hero-img" src="/images/imigongo.jpg" alt="Imigongo geometric artwork" />
+        <img className="about-hero-img" src={`${import.meta.env.BASE_URL}images/imigongo.jpg`} alt="Imigongo geometric artwork" />
         <figcaption className="mono-meta">Imigongo · studio geometry</figcaption>
       </figure>
 

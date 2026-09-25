@@ -1,7 +1,12 @@
 import catalog from './rwanda-album.json' with { type: 'json' }
+import { asset } from '../lib/asset'
 import type { AlbumPhoto } from '../types'
 
-export const rwandaAlbum = catalog.photos as AlbumPhoto[]
+export const rwandaAlbum = (catalog.photos as AlbumPhoto[]).map((photo) => ({
+  ...photo,
+  src: asset(photo.src),
+  full: asset(photo.full || photo.src),
+}))
 
 const TOPIC_ORDER = [
   'kigali',

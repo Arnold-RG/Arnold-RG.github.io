@@ -1,3 +1,4 @@
+import { asset } from './lib/asset'
 import type { Activity, DailyBudget, Destination, FaqItem, MembershipPlan, Tour, TravelerPreview } from './types'
 import { fareFromRwf, ticketFromRwf, LUXURY_PACKAGE_RWF } from './lib/format'
 
@@ -23,8 +24,8 @@ export const tours: Tour[] = [
     region: 'Countrywide',
     cohortName: 'October Circle',
     luxury: true,
-    image: '/images/cohort.jpg',
-    gallery: ['/images/kigali.jpg', '/images/gorilla-volcanoes.jpg', '/images/lake-kivu.jpg', '/images/nyungwe.jpg'],
+    image: asset('/images/cohort.jpg'),
+    gallery: [asset('/images/kigali.jpg'), asset('/images/gorilla-volcanoes.jpg'), asset('/images/lake-kivu.jpg'), asset('/images/nyungwe.jpg')],
     highlights: [
       'Gorilla trek in Volcanoes National Park',
       'Lake Kivu nights and coffee cooperatives',
@@ -154,8 +155,8 @@ export const tours: Tour[] = [
     region: 'North',
     cohortName: 'November Mist',
     luxury: true,
-    image: '/images/gorilla-volcanoes.jpg',
-    gallery: ['/images/gorilla-volcanoes.jpg', '/images/hero-hills.jpg', '/images/kigali.jpg'],
+    image: asset('/images/gorilla-volcanoes.jpg'),
+    gallery: [asset('/images/gorilla-volcanoes.jpg'), asset('/images/hero-hills.jpg'), asset('/images/kigali.jpg')],
     highlights: [
       'Gorilla permit and trek included',
       'Twin lakes and Musanze caves',
@@ -243,8 +244,8 @@ export const tours: Tour[] = [
     difficulty: 'gentle',
     region: 'West',
     cohortName: 'Shore Table',
-    image: '/images/lake-kivu.jpg',
-    gallery: ['/images/lake-kivu.jpg', '/images/coffee.jpg', '/images/dinner.jpg'],
+    image: asset('/images/lake-kivu.jpg'),
+    gallery: [asset('/images/lake-kivu.jpg'), asset('/images/coffee.jpg'), asset('/images/dinner.jpg')],
     highlights: [
       'Three nights on Lake Kivu',
       'Coffee cooperative from cherry to cup',
@@ -317,8 +318,8 @@ export const tours: Tour[] = [
     difficulty: 'moderate',
     region: 'South & West',
     cohortName: 'Tea Line',
-    image: '/images/nyungwe.jpg',
-    gallery: ['/images/nyungwe.jpg', '/images/imigongo.jpg', '/images/hero-hills.jpg'],
+    image: asset('/images/nyungwe.jpg'),
+    gallery: [asset('/images/nyungwe.jpg'), asset('/images/imigongo.jpg'), asset('/images/hero-hills.jpg')],
     highlights: [
       'Nyungwe canopy walk',
       'Chimpanzee tracking',
@@ -412,8 +413,8 @@ export const tours: Tour[] = [
     difficulty: 'gentle',
     region: 'East',
     cohortName: 'Ihema Light',
-    image: '/images/akagera.jpg',
-    gallery: ['/images/akagera.jpg', '/images/hero-hills.jpg', '/images/dinner.jpg'],
+    image: asset('/images/akagera.jpg'),
+    gallery: [asset('/images/akagera.jpg'), asset('/images/hero-hills.jpg'), asset('/images/dinner.jpg')],
     highlights: [
       'Two game drives in Akagera',
       'Boat on Lake Ihema',
@@ -479,8 +480,8 @@ export const tours: Tour[] = [
     difficulty: 'gentle',
     region: 'Kigali',
     cohortName: 'Hill Weekend',
-    image: '/images/kigali.jpg',
-    gallery: ['/images/kigali.jpg', '/images/imigongo.jpg', '/images/dinner.jpg'],
+    image: asset('/images/kigali.jpg'),
+    gallery: [asset('/images/kigali.jpg'), asset('/images/imigongo.jpg'), asset('/images/dinner.jpg')],
     highlights: [
       'Memorial and city hills',
       'Nyamirambo food walk',
@@ -568,7 +569,7 @@ export const activities: Activity[] = [
     spotsLeft: 12,
     spotsTotal: 14,
     category: 'budget',
-    image: '/images/kigali.jpg',
+    image: asset('/images/kigali.jpg'),
     description:
       'One independent day of local transport and meals in Kigali. This ticket sits in the real budget band: FRw 10,000–20,000 a day excluding a hotel. Motos, coaches, and local plates — not a private car.',
     togetherNote: 'For travelers who want accurate street prices, not a lodge package.',
@@ -586,7 +587,7 @@ export const activities: Activity[] = [
     spotsLeft: 12,
     spotsTotal: 14,
     category: 'budget',
-    image: '/images/hero-hills.jpg',
+    image: asset('/images/hero-hills.jpg'),
     description:
       'A day of ordinary Kigali movement: motos and coaches. Real budget transport is FRw 8,000–10,000 per day. This ticket is FRw 9,000.',
     togetherNote: 'Does not include food or a hotel.',
@@ -604,7 +605,7 @@ export const activities: Activity[] = [
     spotsLeft: 10,
     spotsTotal: 14,
     category: 'budget',
-    image: '/images/dinner.jpg',
+    image: asset('/images/dinner.jpg'),
     description:
       'Local plates for the day — brochettes, beans, tea. Real budget food is FRw 5,000–10,000 per day. This ticket is FRw 8,000, inside Hamwe’s FRw 8,000–20,000 ticket range.',
     togetherNote: 'Does not include transport or a hotel.',
@@ -622,7 +623,7 @@ export const activities: Activity[] = [
     spotsLeft: 8,
     spotsTotal: 12,
     category: 'comfort',
-    image: '/images/kigali.jpg',
+    image: asset('/images/kigali.jpg'),
     description:
       'Sit-down meals and regular taxis for one day, excluding a hotel. A comfortable independent day in Rwanda is often FRw 20,000–45,000. This pass is FRw 20,000. Luxury packages are FRw 80,000.',
     togetherNote: 'For a full private day at the site ceiling, buy the Luxury package day.',
@@ -640,7 +641,7 @@ export const activities: Activity[] = [
     spotsLeft: 6,
     spotsTotal: 8,
     category: 'taxi',
-    image: '/images/atlas-rwanda.jpg',
+    image: asset('/images/atlas-rwanda.jpg'),
     description:
       'A set block of taxi or private-car hours. Using taxis or private cars frequently is often FRw 20,000–50,000 per day for transport alone. This ticket is FRw 20,000 for a defined daytime block. The Luxury package day is FRw 80,000 — the highest fare on this site.',
     togetherNote: 'All-day private hire at the Hamwe ceiling is the Luxury package day, FRw 80,000.',
@@ -658,7 +659,7 @@ export const activities: Activity[] = [
     spotsLeft: 4,
     spotsTotal: 6,
     category: 'luxury',
-    image: '/images/cohort.jpg',
+    image: asset('/images/cohort.jpg'),
     description:
       'The Hamwe ceiling: a private car, sit-down meals, and a host for one full day. This ticket is FRw 80,000. No fare on this site is higher.',
     togetherNote: 'Luxury packages — day or hosted circle — top out at FRw 80,000.',
@@ -676,7 +677,7 @@ export const activities: Activity[] = [
     spotsLeft: 6,
     spotsTotal: 10,
     category: 'culture',
-    image: '/images/imigongo.jpg',
+    image: asset('/images/imigongo.jpg'),
     description:
       'Learn the geometry of Imigongo — black, cream, and oxblood spirals — from a working studio. You leave with a small panel and red under your nails.',
     togetherNote: 'Pairs well with any Kigali night. Strangers share a workbench.',
@@ -693,7 +694,7 @@ export const activities: Activity[] = [
     spotsLeft: 8,
     spotsTotal: 12,
     category: 'food',
-    image: '/images/coffee.jpg',
+    image: asset('/images/coffee.jpg'),
     description:
       'Walk a cooperative from red cherry to washed parchment to the cupping table. Farmers host. The circle tastes blind and argues kindly.',
     togetherNote: 'Best as a Kivu Shore extra. Open to any Hamwe traveler in town.',
@@ -710,7 +711,7 @@ export const activities: Activity[] = [
     spotsLeft: 4,
     spotsTotal: 14,
     category: 'food',
-    image: '/images/dinner.jpg',
+    image: asset('/images/dinner.jpg'),
     description:
       'A courtyard supper for people who arrived alone. Isombe, brochettes, akabenz, sorghum juice. Place cards mix the table on purpose.',
     togetherNote: 'The original Hamwe ritual. Come even if you are not on a full tour.',
@@ -727,7 +728,7 @@ export const activities: Activity[] = [
     spotsLeft: 9,
     spotsTotal: 12,
     category: 'nature',
-    image: '/images/nyungwe.jpg',
+    image: asset('/images/nyungwe.jpg'),
     description:
       'A first-light walk on the hanging bridge if your tour does not already include it — or a second pass for people who want the mist twice.',
     togetherNote: 'Small group. Guides wait for the slowest camera.',
@@ -744,7 +745,7 @@ export const activities: Activity[] = [
     spotsLeft: 7,
     spotsTotal: 10,
     category: 'night',
-    image: '/images/lake-kivu.jpg',
+    image: asset('/images/lake-kivu.jpg'),
     description:
       'Evening boat as the fishing lamps come on. The circle sits on the same bench and watches the water turn copper.',
     togetherNote: 'Open seats for any traveler on the shore that night.',
@@ -761,7 +762,7 @@ export const activities: Activity[] = [
     spotsLeft: 10,
     spotsTotal: 12,
     category: 'nature',
-    image: '/images/hero-hills.jpg',
+    image: asset('/images/hero-hills.jpg'),
     description:
       'A guided walk between Lakes Burera and Ruhondo. Terraces, children selling passion fruit, volcanoes on the skyline.',
     togetherNote: 'Easy miles. Good for people who want to talk while they walk.',
@@ -779,7 +780,7 @@ export const activities: Activity[] = [
     spotsLeft: 8,
     spotsTotal: 12,
     category: 'culture',
-    image: '/images/kigali.jpg',
+    image: asset('/images/kigali.jpg'),
     description:
       'A guided morning at the Kigali Genocide Memorial with time after to sit, not rush. The circle stays small so the hour can stay quiet.',
     togetherNote: 'Open to Hamwe travelers and to people in Kigali who want company, not a crowd.',
@@ -797,7 +798,7 @@ export const activities: Activity[] = [
     spotsLeft: 9,
     spotsTotal: 12,
     category: 'food',
-    image: '/images/kigali.jpg',
+    image: asset('/images/kigali.jpg'),
     description:
       'Fruit, fabric, brochettes, and the noise of a working capital. A host who shops there walks you through without turning it into a photoshoot.',
     togetherNote: 'Best the afternoon you land, before the hills start.',
@@ -815,7 +816,7 @@ export const activities: Activity[] = [
     spotsLeft: 7,
     spotsTotal: 10,
     category: 'nature',
-    image: '/images/gorilla-volcanoes.jpg',
+    image: asset('/images/gorilla-volcanoes.jpg'),
     description:
       'Lava tunnels under the volcanoes, helmets on, lamps low. A short walk that still feels like another country under the country.',
     togetherNote: 'Pairs with Virunga Dawn. Bring a jacket.',
@@ -833,7 +834,7 @@ export const activities: Activity[] = [
     spotsLeft: 6,
     spotsTotal: 14,
     category: 'night',
-    image: '/images/dinner.jpg',
+    image: asset('/images/dinner.jpg'),
     description:
       'A reserved table for the circle at a hill jazz room. One drink included. The rest is conversation and whatever the band decides.',
     togetherNote: 'Come even if you travelled alone. Place cards mix the table.',
@@ -849,7 +850,7 @@ export const destinations: Destination[] = [
     name: 'Kigali',
     region: 'Capital hills',
     blurb: 'Memorial mornings, Nyamirambo food, a city that teaches the map of hills before the itinerary does.',
-    image: '/images/kigali.jpg',
+    image: asset('/images/kigali.jpg'),
     tourSlug: 'kigali-first-circle',
   },
   {
@@ -858,7 +859,7 @@ export const destinations: Destination[] = [
     name: 'Volcanoes',
     region: 'North · Musanze',
     blurb: 'One hour with a gorilla family. The rest of the day is quiet on purpose.',
-    image: '/images/gorilla-volcanoes.jpg',
+    image: asset('/images/gorilla-volcanoes.jpg'),
     tourSlug: 'virunga-dawn-circle',
   },
   {
@@ -867,7 +868,7 @@ export const destinations: Destination[] = [
     name: 'Lake Kivu',
     region: 'West · Rubavu',
     blurb: 'Coffee cooperatives, lamp boats, and a table that stays late on the inland sea.',
-    image: '/images/lake-kivu.jpg',
+    image: asset('/images/lake-kivu.jpg'),
     tourSlug: 'kivu-shore-cohort',
   },
   {
@@ -876,7 +877,7 @@ export const destinations: Destination[] = [
     name: 'Nyungwe',
     region: 'South-west forest',
     blurb: 'Canopy walkway at first light. Chimpanzees. Tea on the way in.',
-    image: '/images/nyungwe.jpg',
+    image: asset('/images/nyungwe.jpg'),
     tourSlug: 'canopy-and-kingdom',
   },
   {
@@ -885,7 +886,7 @@ export const destinations: Destination[] = [
     name: 'Akagera',
     region: 'East savannah',
     blurb: 'Game drives, lakes, and a boat on Ihema when the light holds.',
-    image: '/images/akagera.jpg',
+    image: asset('/images/akagera.jpg'),
     tourSlug: 'akagera-wild-circle',
   },
   {
@@ -894,7 +895,7 @@ export const destinations: Destination[] = [
     name: 'Nyanza',
     region: 'Kingdom roads',
     blurb: 'The King’s Palace, Inyambo cattle, and the old royal line of the south.',
-    image: '/images/imigongo.jpg',
+    image: asset('/images/imigongo.jpg'),
     tourSlug: 'canopy-and-kingdom',
   },
 ]

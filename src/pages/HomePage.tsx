@@ -59,7 +59,7 @@ export function HomePage() {
     <div className="page-home">
       <section className="hero">
         <div className="hero-bg">
-          <img src="/images/hero-hills.jpg" alt="Terraced green hills of Rwanda in morning mist" />
+          <img src={`${import.meta.env.BASE_URL}images/hero-hills.jpg`} alt="Terraced green hills of Rwanda in morning mist" />
           <div className="hero-filaments" aria-hidden="true" />
           <div className="hero-scanlines" aria-hidden="true" />
           <div className="hero-vignette" aria-hidden="true" />
@@ -312,7 +312,7 @@ export function HomePage() {
       </section>
 
       <section className="closing-cta" data-reveal>
-        <img src="/images/cohort.jpg" alt="Rwandans on the Congo Nile Trail" />
+        <img src={`${import.meta.env.BASE_URL}images/cohort.jpg`} alt="Rwandans on the Congo Nile Trail" />
         <div>
           <p className="eyebrow">Next departure</p>
           <h2>Come for the hills. Stay for the table.</h2>
