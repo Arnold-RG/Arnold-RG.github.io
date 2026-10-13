@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
-const HOLD_MS = 3400
-const EXIT_MS = 800
+const HOLD_MS = 1100
+const EXIT_MS = 520
 
 export function IntroSplash({ onDone }: { onDone: () => void }) {
   const [leaving, setLeaving] = useState(false)

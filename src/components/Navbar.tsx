@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useBooking } from '../context/BookingContext'
 import { Logo } from './Logo'
 
@@ -18,10 +18,31 @@ export function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
+  const menuRef = useRef<HTMLButtonElement>(null)
+  const linksRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     setOpen(false)
   }, [location.pathname])
+
+  useEffect(() => {
+    if (!open) return
+    const previous = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    linksRef.current?.querySelector<HTMLElement>('a')?.focus()
+
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setOpen(false)
+        menuRef.current?.focus()
+      }
+    }
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = previous
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [open])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -34,7 +55,7 @@ export function Navbar() {
     <header className={`nav ${scrolled ? 'nav-solid' : ''} ${open ? 'nav-open' : ''}`}>
       <Logo />
 
-      <nav className={`nav-links ${open ? 'open' : ''}`}>
+      <nav id="site-nav" ref={linksRef} className={`nav-links ${open ? 'open' : ''}`} aria-label="Primary">
         {links.map((link) => (
           <NavLink
             key={link.to}
@@ -54,10 +75,12 @@ export function Navbar() {
           {cart ? 'Checkout' : 'Book a trip'}
         </NavLink>
         <button
+          ref={menuRef}
           className={`menu-btn ${open ? 'open' : ''}`}
           type="button"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
+          aria-controls="site-nav"
           onClick={() => setOpen((value) => !value)}
         >
           <span />

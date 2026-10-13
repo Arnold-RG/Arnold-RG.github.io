@@ -5,7 +5,7 @@ import { OFFICE_ADDRESS, OFFICE_PHONE } from '../lib/hours'
 export function ContactPage() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [window, setWindow] = useState('')
+  const [travelWindow, setTravelWindow] = useState('')
   const [party, setParty] = useState('2')
   const [interest, setInterest] = useState('hosted-tour')
   const [message, setMessage] = useState('')
@@ -16,14 +16,24 @@ export function ContactPage() {
     const payload = {
       name,
       email,
-      window,
+      window: travelWindow,
       party,
       interest,
       message,
       at: new Date().toISOString(),
     }
-    const current = JSON.parse(localStorage.getItem('hamwe-mail') ?? '[]') as unknown[]
-    localStorage.setItem('hamwe-mail', JSON.stringify([payload, ...current]))
+    let current: unknown[] = []
+    try {
+      const stored = JSON.parse(localStorage.getItem('hamwe-mail') ?? '[]') as unknown
+      if (Array.isArray(stored)) current = stored
+    } catch {
+      current = []
+    }
+    try {
+      localStorage.setItem('hamwe-mail', JSON.stringify([payload, ...current].slice(0, 40)))
+    } catch {
+      /* storage full or blocked; the note still confirms on this device */
+    }
     setSent(true)
   }
 
@@ -41,14 +51,19 @@ export function ContactPage() {
       <div className="contact-grid">
         <form className="checkout-form" onSubmit={onSubmit}>
           {sent ? (
-            <p className="lede">
-              Received on this demo desk. In production it would reach circle@hamwe.rw.
+            <p className="lede" role="status">
+              Received on this demo desk. It stays in this browser. In production it would reach circle@hamwe.rw.
             </p>
           ) : (
             <>
               <label>
                 Name
-                <input value={name} onChange={(event) => setName(event.target.value)} required />
+                <input
+                  value={name}
+                  onChange={(event) => setName(event.target.value)}
+                  autoComplete="name"
+                  required
+                />
               </label>
               <label>
                 Email
@@ -56,14 +71,15 @@ export function ContactPage() {
                   type="email"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
+                  autoComplete="email"
                   required
                 />
               </label>
               <label>
                 Travel window
                 <input
-                  value={window}
-                  onChange={(event) => setWindow(event.target.value)}
+                  value={travelWindow}
+                  onChange={(event) => setTravelWindow(event.target.value)}
                   placeholder="e.g. 12–24 October"
                 />
               </label>

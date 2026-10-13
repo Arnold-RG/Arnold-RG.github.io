@@ -1,18 +1,33 @@
 import { useCallback, useEffect, useState } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
+import { applyPageMeta } from '../lib/meta'
 import { Footer } from './Footer'
 import { IntroSplash } from './IntroSplash'
 import { Navbar } from './Navbar'
 import { ScrollMotion } from './ScrollMotion'
 import { GisubizoDock } from './GisubizoDock'
 
+function introAlreadySeen() {
+  if (typeof document === 'undefined') return false
+  return document.documentElement.classList.contains('skip-intro')
+}
+
 export function Layout() {
-  const [introDone, setIntroDone] = useState(false)
-  const finishIntro = useCallback(() => setIntroDone(true), [])
+  const location = useLocation()
+  const [introDone, setIntroDone] = useState(introAlreadySeen)
+  const finishIntro = useCallback(() => {
+    try {
+      sessionStorage.setItem('hamwe-intro', 'seen')
+    } catch {
+      /* private mode */
+    }
+    document.documentElement.classList.add('skip-intro')
+    setIntroDone(true)
+  }, [])
 
   useEffect(() => {
-    document.title = 'Hamwe Tourism'
-  }, [])
+    applyPageMeta(location.pathname)
+  }, [location.pathname])
 
   useEffect(() => {
     if (introDone) document.getElementById('boot-intro')?.remove()

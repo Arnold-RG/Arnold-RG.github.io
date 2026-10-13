@@ -1,6 +1,6 @@
-﻿# Arnold Rurangwa â€” GitHub Pages
+﻿# Arnold Rurangwa — GitHub Pages
 
-**Live portfolio:** [https://arnold-rg.github.io/](https://arnold-rg.github.io/)
+**Live site:** [https://arnold-rg.github.io/](https://arnold-rg.github.io/)
 
 This repository powers the personal GitHub Pages site:
 
@@ -11,6 +11,8 @@ This repository powers the personal GitHub Pages site:
 
 Portfolio static files live in [`site/`](./site/). Hamwe Tourism is the React/Vite app in this repo, built with base `/hamwe/`.
 
+`robots.txt` and `sitemap.xml` ship with the portfolio at the site root.
+
 ## Develop Hamwe locally
 
 ```bash
@@ -18,11 +20,12 @@ npm install
 npm run dev
 ```
 
+The dev server uses the same `/hamwe/` base as production.
+
 ## Build
 
 ```bash
 npm run build
 ```
 
-GitHub Actions assembles `site/` at the Pages root and Hamwe under `/hamwe/`.
-
+GitHub Actions, on every push to `main`, assembles `site/` at the Pages root and Hamwe under `/hamwe/`, then deploys to GitHub Pages.

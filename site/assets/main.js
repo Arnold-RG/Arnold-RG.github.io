@@ -16,7 +16,7 @@
     try {
       localStorage.setItem("theme", theme);
     } catch (_) {}
-    if (themeMeta) themeMeta.setAttribute("content", theme === "dark" ? "#0b1220" : "#f4f6f9");
+    if (themeMeta) themeMeta.setAttribute("content", theme === "dark" ? "#12110e" : "#f3efe6");
     if (themeToggle) {
       themeToggle.setAttribute(
         "aria-label",
@@ -43,6 +43,7 @@
       drawer.classList.toggle("is-open", open);
       drawer.hidden = !open;
       toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      document.body.style.overflow = open ? "hidden" : "";
     };
 
     toggle.addEventListener("click", () => {
@@ -51,6 +52,13 @@
 
     drawer.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => setOpen(false));
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+        setOpen(false);
+        toggle.focus();
+      }
     });
   }
 
@@ -93,7 +101,7 @@
   }
 
   /* Nav accent bar */
-  const sectionIds = ["work", "experience", "skills", "about", "contact"];
+  const sectionIds = ["work", "experience", "skills", "certificates", "about", "contact"];
   const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
   const navLinks = document.querySelectorAll(".nav-links a[data-section]");
   const indicator = document.querySelector(".nav-indicator");

@@ -5,26 +5,66 @@
     <link rel="icon" type="image/png" href="%BASE_URL%favicon.png" />
     <link rel="apple-touch-icon" href="%BASE_URL%favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#050a07" />
+    <meta name="theme-color" content="#0b0d0c" />
     <meta
       name="description"
       content="Hamwe Tourism plans full Rwanda tours for small groups of strangers. Buy a ticket, meet the table, walk the thousand hills together."
     />
+    <link rel="canonical" href="https://arnold-rg.github.io/hamwe/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hamwe Tourism" />
+    <meta property="og:title" content="Hamwe Tourism" />
+    <meta property="og:description" content="Hosted Rwanda tours from Kigali. Hamwe Tourism." />
+    <meta property="og:url" content="https://arnold-rg.github.io/hamwe/" />
+    <meta property="og:image" content="https://arnold-rg.github.io/hamwe/images/hero-hills.jpg" />
+    <meta property="og:locale" content="en_RW" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Hamwe Tourism" />
+    <meta name="twitter:description" content="Hosted Rwanda tours from Kigali. Hamwe Tourism." />
+    <meta name="twitter:image" content="https://arnold-rg.github.io/hamwe/images/hero-hills.jpg" />
+    <script>
+      document.documentElement.classList.add('js')
+      try {
+        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        if (reduceMotion) document.documentElement.setAttribute('data-reduced-motion', '')
+        if (reduceMotion || sessionStorage.getItem('hamwe-intro') === 'seen') {
+          document.documentElement.classList.add('skip-intro')
+        }
+      } catch (e) {}
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Syne:ital,wght@0,700;0,800;1,700;1,800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <title>Hamwe Tourism</title>
-    <meta property="og:title" content="Hamwe Tourism" />
-    <meta property="og:description" content="Hosted Rwanda tours from Kigali. Hamwe Tourism." />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TravelAgency",
+        "name": "Hamwe Tourism",
+        "url": "https://arnold-rg.github.io/hamwe/",
+        "image": "https://arnold-rg.github.io/hamwe/images/hero-hills.jpg",
+        "email": "circle@hamwe.rw",
+        "telephone": "+250794607518",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Ikaze House, KG 11 Ave",
+          "addressLocality": "Kigali",
+          "addressCountry": "RW"
+        }
+      }
+    </script>
     <style>
+      html.skip-intro #boot-intro {
+        display: none !important;
+      }
       #boot-intro {
         position: fixed;
         inset: 0;
         z-index: 400;
-        background: #050a07;
+        background: #0b0d0c;
         display: grid;
         place-items: center;
       }
@@ -36,6 +76,9 @@
       @keyframes boot-logo {
         0%, 100% { transform: scale(1); opacity: 1; filter: drop-shadow(0 0 24px rgba(226, 178, 58, 0.35)); }
         50% { transform: scale(1.04); opacity: 0.88; filter: drop-shadow(0 0 40px rgba(226, 178, 58, 0.55)); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #boot-intro img { animation: none; }
       }
     </style>
   </head>

@@ -129,7 +129,11 @@ export function CheckoutPage() {
       <form className="checkout-form" onSubmit={onSubmit} noValidate>
         <p className="eyebrow">Ticket · FRw</p>
         <h1>{cart.kind === 'membership' ? 'Join the circle' : 'Reserve your seat'}</h1>
-        {error ? <p className="form-error">{error}</p> : null}
+        {error ? (
+          <p className="form-error" role="alert">
+            {error}
+          </p>
+        ) : null}
 
         <fieldset>
           <legend>Traveler</legend>

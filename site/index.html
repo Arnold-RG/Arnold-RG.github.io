@@ -4,11 +4,42 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Arnold Rurangwa — Computer Engineer in Kraków, Poland. Software, systems, cybersecurity, and applied AI." />
-  <meta name="theme-color" content="#f4f6f9" />
+  <meta name="theme-color" content="#f3efe6" />
+  <link rel="canonical" href="https://arnold-rg.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Arnold Rurangwa — Computer Engineer" />
+  <meta property="og:description" content="Computer Engineer in Kraków. Software, systems, cybersecurity, and applied AI." />
+  <meta property="og:url" content="https://arnold-rg.github.io/" />
+  <meta property="og:image" content="https://arnold-rg.github.io/assets/portrait.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Arnold Rurangwa — Computer Engineer" />
+  <meta name="twitter:description" content="Computer Engineer in Kraków. Software, systems, cybersecurity, and applied AI." />
+  <meta name="twitter:image" content="https://arnold-rg.github.io/assets/portrait.png" />
   <title>Arnold Rurangwa — Computer Engineer</title>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Arnold Rurangwa",
+      "jobTitle": "Computer Engineer",
+      "url": "https://arnold-rg.github.io/",
+      "email": "mailto:rurangwaarnold32@gmail.com",
+      "telephone": "+48575217930",
+      "image": "https://arnold-rg.github.io/assets/portrait.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kraków",
+        "addressCountry": "PL"
+      },
+      "sameAs": [
+        "https://github.com/Arnold-RG",
+        "https://www.linkedin.com/in/rurangwa-arnold-53b90520b/"
+      ]
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="icon" href="./assets/logo.png" type="image/png" />
   <link rel="stylesheet" href="./assets/styles.css" />
   <script>
@@ -16,6 +47,7 @@
       try {
         var t = localStorage.getItem("theme");
         if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+        else if (window.matchMedia("(prefers-color-scheme: dark)").matches) document.documentElement.setAttribute("data-theme", "dark");
         else document.documentElement.setAttribute("data-theme", "light");
       } catch (e) {
         document.documentElement.setAttribute("data-theme", "light");
@@ -42,6 +74,7 @@
             <li><a href="#work" data-section="work">Work</a></li>
             <li><a href="#experience" data-section="experience">Experience</a></li>
             <li><a href="#skills" data-section="skills">Skills</a></li>
+            <li><a href="#certificates" data-section="certificates">Certificates</a></li>
             <li><a href="#about" data-section="about">About</a></li>
             <li><a href="#contact" data-section="contact">Contact</a></li>
           </ul>
