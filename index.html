@@ -83,6 +83,17 @@
     </style>
   </head>
   <body>
+    <script>
+      (function () {
+        try {
+          var params = new URLSearchParams(location.search)
+          var path = params.get('p')
+          if (!path || path.charAt(0) !== '/') return
+          if (path.length > 1 && path.charAt(path.length - 1) === '/') path = path.slice(0, -1)
+          history.replaceState(null, '', '/hamwe' + path + location.hash)
+        } catch (e) {}
+      })()
+    </script>
     <div id="boot-intro" aria-hidden="true">
       <img src="%BASE_URL%brand/hamwe-logo-lockup.png?v=tourism" alt="Hamwe Tourism" />
     </div>

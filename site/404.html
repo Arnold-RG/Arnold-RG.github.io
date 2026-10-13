@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Arnold Rurangwa</title>
+  <script>
+    (function () {
+      var path = location.pathname || '/'
+      if (path === '/hamwe' || path.indexOf('/hamwe/') === 0) {
+        var rest = path.replace(/^\/hamwe/, '') || '/'
+        if (rest.charAt(0) !== '/') rest = '/' + rest
+        if (rest.length > 1 && rest.charAt(rest.length - 1) === '/') rest = rest.slice(0, -1)
+        location.replace('/hamwe/?p=' + encodeURIComponent(rest) + location.hash)
+        return
+      }
+      location.replace('/')
+    })()
+  </script>
+</head>
+<body></body>
+</html>
