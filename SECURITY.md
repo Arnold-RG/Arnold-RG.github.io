@@ -1,43 +1,24 @@
 # Security Policy
 
-This repository powers **arnold-rg.github.io** — a static personal hub and the **Hamwe Tourism** demo storefront on GitHub Pages.
+## Supported versions
 
-## Supported surfaces
-
-| Surface | Path | Notes |
-| --- | --- | --- |
-| Portfolio hub | `/` | Static HTML/CSS/JS in `site/` |
-| Hamwe Tourism | `/hamwe/` | React + Vite demo; checkout does **not** debit |
-
-## What is stored (client only)
-
-- Hamwe cart and issued tickets in the guest’s `localStorage`
-- Trip-request drafts in `localStorage` (`hamwe-mail`)
-- Portfolio theme preference in `localStorage` (`theme`)
-- No server-side guest database; no payment processor secrets in this repo
-
-## What is not a vulnerability
-
-- Demo card / MoMo / PayPal UI that never charges
-- Catalog prices and public office contact details
-- Theme preference stored locally
+Security updates apply to the latest commit on the default branch of this repository.
 
 ## Reporting a vulnerability
 
-If you find XSS on ticket or form fields, open redirects, secret exposure, or anything that would become dangerous once a merchant account is connected:
+Email **rurangwaarnold32@gmail.com** with:
 
-1. Email **rurangwaarnold32@gmail.com** or **circle@hamwe.rw**
-2. Or open a private advisory to [@Arnold-RG](https://github.com/Arnold-RG)
+- Repository name and affected URL/path
+- Description and impact
+- Steps to reproduce (proof of concept if available)
 
-Please include steps to reproduce and expected vs actual behavior.
+Please do **not** open a public issue for unpatched vulnerabilities.
 
-**Do not** file live card data, government ID, or private credentials in a public issue.
+We aim to acknowledge reports within 7 days and publish a fix or mitigation when confirmed.
 
-## Hardening in this project
+## Practice
 
+- No secrets in source; use `.env.example` only
+- Prefer `textContent` over `innerHTML` for untrusted data
 - External links use `rel="noopener noreferrer"`
-- Referrer policy: `strict-origin-when-cross-origin`
-- Forms use `maxlength` and basic validation
-- No secrets committed; `.env*` excluded via `.gitignore`
-- Dependabot watches npm and GitHub Actions
-- GitHub Actions use least privilege (`contents: read` on build; Pages deploy only)
+- Dependabot / Actions least privilege where applicable
