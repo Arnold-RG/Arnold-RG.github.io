@@ -1,5 +1,10 @@
+@import url("../assets/arnova/arnova-base.css");
+
 :root {
-  /* Volcanic charcoal · lake blue · soft gold */
+  /* Hamwe brand — volcanic charcoal · lake blue · soft gold (distinct from hub folio) */
+  --arn-accent: #c9a86a;
+  --arn-accent-2: #3d8ea8;
+  --arn-hero-bg: #0a1210;
   --void: #0a1210;
   --soil: #101a17;
   --moss: #163028;
@@ -648,9 +653,19 @@ ol {
 .hero {
   position: relative;
   min-height: 100svh;
+  min-height: 100dvh;
   display: grid;
   align-items: end;
   overflow: hidden;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.hero.arn-hero::before,
+.hero.arn-hero::after,
+.hero-brand.arn-hero::before,
+.hero-brand.arn-hero::after {
+  /* Hamwe uses custom hero media; suppress shared gradient layers */
+  opacity: 0.2;
 }
 
 .hero-bg {

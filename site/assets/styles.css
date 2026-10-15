@@ -1,51 +1,55 @@
-/* Studio folio — volcanic charcoal · lake blue · soft gold */
+/* Hub folio — editorial-tech charcoal / ink blue / electric lime (aligned with arnold-portfolio)
+   Hamwe Tourism keeps its own volcanic charcoal · lake · gold brand at /hamwe/ */
 
 :root,
 html[data-theme="dark"] {
-  --bg: #0a1210;
-  --bg-elevated: #121c19;
-  --bg-alt: #0e1815;
-  --ink: #eef4f1;
-  --ink-soft: #c5d4ce;
-  --muted: #8fa69e;
-  --line: rgba(238, 244, 241, 0.1);
-  --line-strong: rgba(238, 244, 241, 0.2);
-  --accent: #c9a86a;
-  --accent-hover: #dbbc82;
-  --accent-soft: rgba(201, 168, 106, 0.12);
-  --accent-glow: rgba(61, 142, 168, 0.22);
-  --lake: #3d8ea8;
-  --ring: #c9a86a;
-  --header-bg: rgba(10, 18, 16, 0.88);
-  --portrait-ring: rgba(61, 142, 168, 0.45);
-  --shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+  --bg: #080c12;
+  --bg-elevated: #0d1420;
+  --bg-alt: #0a1018;
+  --ink: #eef4ff;
+  --ink-soft: #b8c4d9;
+  --muted: #7a8aa3;
+  --line: rgba(180, 210, 255, 0.12);
+  --line-strong: rgba(180, 210, 255, 0.22);
+  --accent: #b8ff2e;
+  --accent-hover: #c8ff5a;
+  --accent-soft: rgba(184, 255, 46, 0.08);
+  --accent-glow: rgba(46, 230, 214, 0.18);
+  --lake: #2ee6d6;
+  --ring: #b8ff2e;
+  --header-bg: rgba(8, 12, 18, 0.88);
+  --portrait-ring: rgba(46, 230, 214, 0.45);
+  --shadow: 0 28px 60px -28px rgba(0, 0, 0, 0.7);
   --font-display: "Fraunces", Palatino, serif;
   --font-body: "Sora", ui-sans-serif, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
   --measure: 72rem;
   --space: clamp(1.15rem, 3vw, 2rem);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --arn-accent: var(--accent);
+  --arn-accent-2: var(--lake);
+  --arn-hero-bg: var(--bg);
   color-scheme: dark;
 }
 
 html[data-theme="light"] {
-  --bg: #e8f1ef;
-  --bg-elevated: #f4faf8;
-  --bg-alt: #d7e6e1;
-  --ink: #0f1c18;
-  --ink-soft: #243832;
-  --muted: #4a635c;
-  --line: rgba(15, 28, 24, 0.1);
-  --line-strong: rgba(15, 28, 24, 0.2);
-  --accent: #2f6f86;
-  --accent-hover: #245a6d;
-  --accent-soft: rgba(47, 111, 134, 0.1);
-  --accent-glow: rgba(47, 111, 134, 0.16);
-  --lake: #2f6f86;
-  --ring: #2f6f86;
-  --header-bg: rgba(232, 241, 239, 0.9);
-  --portrait-ring: #9bb8b0;
-  --shadow: 0 16px 36px rgba(15, 28, 24, 0.08);
+  --bg: #edf1f7;
+  --bg-elevated: #e2e8f2;
+  --bg-alt: #d6e0ee;
+  --ink: #0a1220;
+  --ink-soft: #2a3648;
+  --muted: #5a6a80;
+  --line: rgba(10, 18, 32, 0.12);
+  --line-strong: rgba(10, 18, 32, 0.2);
+  --accent: #5a9a00;
+  --accent-hover: #4a8200;
+  --accent-soft: rgba(90, 154, 0, 0.1);
+  --accent-glow: rgba(13, 154, 140, 0.14);
+  --lake: #0d9a8c;
+  --ring: #5a9a00;
+  --header-bg: rgba(237, 241, 247, 0.9);
+  --portrait-ring: #7aa8c8;
+  --shadow: 0 28px 50px -30px rgba(10, 18, 32, 0.35);
   color-scheme: light;
 }
 
@@ -380,10 +384,17 @@ html[data-theme="light"] .btn-primary:hover {
 }
 
 .hero-bleed {
-  min-height: min(100svh, 56rem);
+  min-height: 100svh;
+  min-height: 100dvh;
   display: grid;
   align-items: end;
   padding: 0;
+  isolation: isolate;
+}
+
+.hero.arn-hero::before,
+.hero.arn-hero::after {
+  display: none;
 }
 
 .hero-media {
@@ -396,7 +407,7 @@ html[data-theme="light"] .btn-primary:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(0.85) contrast(1.05) brightness(0.72);
+  filter: saturate(0.8) contrast(1.06) brightness(0.68);
   animation: hero-drift 18s ease-in-out infinite alternate;
 }
 
@@ -404,8 +415,23 @@ html[data-theme="light"] .btn-primary:hover {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(10, 18, 16, 0.92) 0%, rgba(10, 18, 16, 0.55) 48%, rgba(10, 18, 16, 0.35) 100%),
-    linear-gradient(180deg, rgba(10, 18, 16, 0.45), transparent 30%, rgba(10, 18, 16, 0.88));
+    linear-gradient(105deg, rgba(8, 12, 18, 0.94) 0%, rgba(8, 12, 18, 0.62) 42%, rgba(8, 12, 18, 0.28) 100%),
+    linear-gradient(180deg, rgba(8, 12, 18, 0.4), transparent 32%, rgba(8, 12, 18, 0.9));
+}
+
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+html[data-theme="light"] .hero-veil {
+  background:
+    linear-gradient(105deg, rgba(237, 241, 247, 0.94) 0%, rgba(237, 241, 247, 0.7) 45%, rgba(237, 241, 247, 0.35) 100%),
+    linear-gradient(180deg, rgba(237, 241, 247, 0.35), transparent 30%, rgba(237, 241, 247, 0.88));
 }
 
 @keyframes hero-drift {
@@ -948,6 +974,28 @@ html[data-theme="light"] .hero-title span {
 }
 
 /* Contact */
+.contact-section {
+  background:
+    radial-gradient(ellipse 70% 50% at 8% 0%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 55%),
+    var(--bg-alt);
+}
+
+.contact-invite {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1rem + 0.45vw, 1.4rem);
+  font-weight: 550;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.contact-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  margin: 0 0 1.5rem;
+}
+
 .contact-grid {
   display: grid;
   gap: 0.75rem;

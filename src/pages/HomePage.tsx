@@ -57,7 +57,7 @@ const house = [
 export function HomePage() {
   return (
     <div className="page-home">
-      <section className="hero hero-brand">
+      <section className="hero hero-brand arn-hero">
         <div className="hero-bg">
           <img
             src={`${import.meta.env.BASE_URL}images/hero-hills.jpg`}
