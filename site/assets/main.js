@@ -16,7 +16,7 @@
     try {
       localStorage.setItem("theme", theme);
     } catch (_) {}
-    if (themeMeta) themeMeta.setAttribute("content", theme === "dark" ? "#0a1210" : "#e8f1ef");
+    if (themeMeta) themeMeta.setAttribute("content", theme === "dark" ? "#111318" : "#f4f6f1");
     if (themeToggle) {
       themeToggle.setAttribute(
         "aria-label",
@@ -151,4 +151,20 @@
     const first = document.querySelector(".nav-links a[data-section='work']");
     if (first) moveIndicator(first);
   });
+
+  /* Hero brand entrance */
+  if (!reduceMotion) {
+    document.documentElement.classList.add("motion-ready");
+  }
+
+  /* Soft parallax on hero portrait */
+  const portrait = document.querySelector(".hero-portrait img");
+  if (portrait && !reduceMotion) {
+    const onScroll = () => {
+      const y = Math.min(window.scrollY, 420);
+      portrait.style.transform = `translateY(${y * 0.08}px) scale(${1 + y * 0.00008})`;
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
 })();
