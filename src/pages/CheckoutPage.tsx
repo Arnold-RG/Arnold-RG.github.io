@@ -143,6 +143,7 @@ export function CheckoutPage() {
               value={form.travelerName}
               onChange={(event) => setField('travelerName', event.target.value)}
               autoComplete="name"
+              maxLength={80}
               required
             />
           </label>
@@ -153,6 +154,7 @@ export function CheckoutPage() {
               value={form.email}
               onChange={(event) => setField('email', event.target.value)}
               autoComplete="email"
+              maxLength={120}
               required
             />
           </label>
@@ -163,6 +165,7 @@ export function CheckoutPage() {
               onChange={(event) => setField('phone', event.target.value)}
               autoComplete="tel"
               placeholder="+250 794 607 518"
+              maxLength={24}
             />
           </label>
           {cart.kind !== 'membership' ? (
@@ -196,6 +199,7 @@ export function CheckoutPage() {
                 value={form.dietary}
                 onChange={(event) => setField('dietary', event.target.value)}
                 placeholder="Vegetarian, nuts, none"
+                maxLength={160}
               />
             </label>
             <label>
@@ -204,6 +208,7 @@ export function CheckoutPage() {
                 rows={3}
                 value={form.notes}
                 onChange={(event) => setField('notes', event.target.value)}
+                maxLength={1000}
               />
             </label>
           </fieldset>
@@ -239,6 +244,7 @@ export function CheckoutPage() {
                   onChange={(event) => setField('momoPhone', event.target.value)}
                   placeholder="0794 607 518"
                   inputMode="tel"
+                  maxLength={24}
                 />
               </label>
               <button
@@ -275,6 +281,7 @@ export function CheckoutPage() {
                   value={form.cardName}
                   onChange={(event) => setField('cardName', event.target.value)}
                   autoComplete="cc-name"
+                  maxLength={80}
                 />
               </label>
               <label>
@@ -285,6 +292,7 @@ export function CheckoutPage() {
                   onChange={(event) => setField('cardNumber', event.target.value)}
                   autoComplete="cc-number"
                   placeholder="4242 4242 4242 4242"
+                  maxLength={24}
                 />
               </label>
               <div className="split-fields">
@@ -295,6 +303,7 @@ export function CheckoutPage() {
                     onChange={(event) => setField('expiry', event.target.value)}
                     placeholder="12 / 28"
                     autoComplete="cc-exp"
+                    maxLength={7}
                   />
                 </label>
                 <label>
@@ -303,6 +312,7 @@ export function CheckoutPage() {
                     value={form.cvc}
                     onChange={(event) => setField('cvc', event.target.value)}
                     autoComplete="cc-csc"
+                    maxLength={4}
                   />
                 </label>
               </div>
@@ -318,6 +328,7 @@ export function CheckoutPage() {
                   value={form.paypalEmail}
                   onChange={(event) => setField('paypalEmail', event.target.value)}
                   placeholder={form.email || 'you@email.com'}
+                  maxLength={120}
                 />
               </label>
               <p className="tiny">You would be sent to PayPal and returned with a paid receipt.</p>

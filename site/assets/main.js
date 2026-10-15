@@ -16,7 +16,7 @@
     try {
       localStorage.setItem("theme", theme);
     } catch (_) {}
-    if (themeMeta) themeMeta.setAttribute("content", theme === "dark" ? "#12110e" : "#f3efe6");
+    if (themeMeta) themeMeta.setAttribute("content", theme === "dark" ? "#0a1210" : "#e8f1ef");
     if (themeToggle) {
       themeToggle.setAttribute(
         "aria-label",

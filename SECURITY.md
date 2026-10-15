@@ -1,21 +1,43 @@
-# Security
+# Security Policy
 
-Hamwe Tourism is a **demo storefront**. Checkout draws MoMo, QR, card, and PayPal — it does not debit.
+This repository powers **arnold-rg.github.io** — a static personal hub and the **Hamwe Tourism** demo storefront on GitHub Pages.
 
-## What is stored
+## Supported surfaces
 
-- Cart and issued tickets in the guest’s `localStorage`
+| Surface | Path | Notes |
+| --- | --- | --- |
+| Portfolio hub | `/` | Static HTML/CSS/JS in `site/` |
+| Hamwe Tourism | `/hamwe/` | React + Vite demo; checkout does **not** debit |
+
+## What is stored (client only)
+
+- Hamwe cart and issued tickets in the guest’s `localStorage`
 - Trip-request drafts in `localStorage` (`hamwe-mail`)
-- No server-side guest database
+- Portfolio theme preference in `localStorage` (`theme`)
+- No server-side guest database; no payment processor secrets in this repo
 
-## What you should not open an issue for as a “leak”
+## What is not a vulnerability
 
-- Demo card numbers typed in the UI
-- The public office phone and email
-- Catalog prices
+- Demo card / MoMo / PayPal UI that never charges
+- Catalog prices and public office contact details
+- Theme preference stored locally
 
-## What to report
+## Reporting a vulnerability
 
-If you find a path that would *become* dangerous once a merchant account is connected — XSS on the ticket holder name, open redirects, or anything that would ship a secret — write **circle@hamwe.rw** or open a private note to [@Arnold-RG](https://github.com/Arnold-RG).
+If you find XSS on ticket or form fields, open redirects, secret exposure, or anything that would become dangerous once a merchant account is connected:
 
-Do not file live card data or government ID in a public issue.
+1. Email **rurangwaarnold32@gmail.com** or **circle@hamwe.rw**
+2. Or open a private advisory to [@Arnold-RG](https://github.com/Arnold-RG)
+
+Please include steps to reproduce and expected vs actual behavior.
+
+**Do not** file live card data, government ID, or private credentials in a public issue.
+
+## Hardening in this project
+
+- External links use `rel="noopener noreferrer"`
+- Referrer policy: `strict-origin-when-cross-origin`
+- Forms use `maxlength` and basic validation
+- No secrets committed; `.env*` excluded via `.gitignore`
+- Dependabot watches npm and GitHub Actions
+- GitHub Actions use least privilege (`contents: read` on build; Pages deploy only)

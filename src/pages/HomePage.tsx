@@ -57,27 +57,27 @@ const house = [
 export function HomePage() {
   return (
     <div className="page-home">
-      <section className="hero">
+      <section className="hero hero-brand">
         <div className="hero-bg">
-          <img src={`${import.meta.env.BASE_URL}images/hero-hills.jpg`} alt="Terraced green hills of Rwanda in morning mist" />
+          <img
+            src={`${import.meta.env.BASE_URL}images/hero-hills.jpg`}
+            alt="Terraced green hills of Rwanda in morning mist"
+          />
           <div className="hero-filaments" aria-hidden="true" />
           <div className="hero-scanlines" aria-hidden="true" />
           <div className="hero-vignette" aria-hidden="true" />
         </div>
 
-        <OfficeCountdown />
-
-        <div className="hero-hud">
+        <div className="hero-hud hero-hud-solo">
           <div className="hero-copy">
-            <p className="eyebrow">Hamwe Tourism · Rwanda, hosted</p>
+            <p className="eyebrow brand-signal">Hamwe Tourism</p>
             <h1>
               Rwanda, walked
               <em> together.</em>
             </h1>
             <p className="lede">
-              Hamwe Tourism sells seats on fully planned tours — gorillas, Kivu, Nyungwe, Akagera,
-              Kigali — then introduces the people holding those seats. You buy a ticket. The table
-              does the rest.
+              Hosted tours from Kigali — gorillas, Kivu, Nyungwe, Akagera — for small groups who
+              buy a seat and meet at the table.
             </p>
             <div className="hero-actions">
               <Link className="btn btn-primary" to="/tours">
@@ -86,26 +86,49 @@ export function HomePage() {
               <Link className="btn btn-ghost" to="/plan">
                 Plan your trip
               </Link>
-              <Link className="btn btn-ghost" to="/gisubizo">
-                Ask Gisubizo
-              </Link>
             </div>
-            <dl className="hero-stats">
-              <div>
-                <dt>Group size</dt>
-                <dd>10–14</dd>
-              </div>
-              <div>
-                <dt>Next seat</dt>
-                <dd>{next ? compactDate(next.nextDeparture) : '—'}</dd>
-              </div>
-              <div>
-                <dt>Host on every tour</dt>
-                <dd>Kigali-based</dd>
-              </div>
-            </dl>
           </div>
+        </div>
+      </section>
 
+      <div className="marquee" aria-hidden="true">
+        <div className="marquee-track">
+          {Array.from({ length: 2 }).map((_, index) => (
+            <p key={index}>
+              Kigali · Volcanoes · Lake Kivu · Nyungwe · Akagera · Nyanza · Musanze · Huye ·
+              Rubavu · Kimironko ·
+            </p>
+          ))}
+        </div>
+      </div>
+
+      <section className="boarding-band" data-reveal>
+        <OfficeCountdown />
+        <div className="boarding-band-inner">
+          <div className="boarding-band-copy">
+            <p className="eyebrow">Next departure</p>
+            <h2>A dated seat. A shared table.</h2>
+            <p className="lede">
+              Every tour is capped, hosted, and already written. You choose a departure — not a
+              buffet of options.
+            </p>
+            {next ? (
+              <dl className="hero-stats compact-stats">
+                <div>
+                  <dt>Group size</dt>
+                  <dd>10–14</dd>
+                </div>
+                <div>
+                  <dt>Next seat</dt>
+                  <dd>{compactDate(next.nextDeparture)}</dd>
+                </div>
+                <div>
+                  <dt>Host</dt>
+                  <dd>Kigali-based</dd>
+                </div>
+              </dl>
+            ) : null}
+          </div>
           <div className="hero-stage">
             <Constellation />
             {next ? (
@@ -145,20 +168,9 @@ export function HomePage() {
         </div>
       </section>
 
-      <div className="marquee" aria-hidden="true">
-        <div className="marquee-track">
-          {Array.from({ length: 2 }).map((_, index) => (
-            <p key={index}>
-              Kigali · Volcanoes · Lake Kivu · Nyungwe · Akagera · Nyanza · Musanze · Huye ·
-              Rubavu · Kimironko ·
-            </p>
-          ))}
-        </div>
-      </div>
-
       <AlbumStrip />
 
-      <section className="section" data-reveal>
+      <section className="section unsection" data-reveal>
         <header className="section-head">
           <p className="eyebrow">The method</p>
           <h2>Not a bus. A planned trip.</h2>
@@ -220,7 +232,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="section" data-reveal>
+      <section className="section unsection land-bleed" data-reveal>
         <header className="section-head split">
           <div>
             <p className="eyebrow">Destinations</p>

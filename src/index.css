@@ -1,28 +1,32 @@
 :root {
-  --void: #0b0d0c;
-  --soil: #141816;
-  --moss: #1c2a24;
-  --mist: #e6e0d4;
-  --paper: #f7f1e6;
-  --gold: #c4a46a;
+  /* Volcanic charcoal · lake blue · soft gold */
+  --void: #0a1210;
+  --soil: #101a17;
+  --moss: #163028;
+  --mist: #d8e4df;
+  --paper: #eef4f1;
+  --gold: #c9a86a;
   --ember: #c45c26;
-  --cyan: #8ea894;
-  --status-open: #2fbf6b;
-  --status-lunch: #f0c14a;
+  --cyan: #3d8ea8;
+  --lake: #2f6f86;
+  --status-open: #3dbf7a;
+  --status-lunch: #e0b84a;
   --status-closed: #e23d3d;
   --oxblood: #8b2e2a;
-  --glass: rgba(12, 24, 18, 0.55);
-  --ink: #f6f1e7;
-  --muted: #cbbfa8;
-  --line: rgba(196, 164, 106, 0.38);
-  --hair: rgba(246, 241, 231, 0.14);
-  --shadow: 0 28px 70px rgba(0, 0, 0, 0.42);
-  --display: "Cormorant Garamond", "Palatino Linotype", Palatino, serif;
-  --body: Figtree, ui-sans-serif, sans-serif;
+  --glass: rgba(10, 22, 28, 0.58);
+  --ink: #eef4f1;
+  --muted: #9fb4ad;
+  --line: rgba(201, 168, 106, 0.36);
+  --hair: rgba(238, 244, 241, 0.12);
+  --shadow: 0 28px 70px rgba(0, 0, 0, 0.45);
+  --display: "Fraunces", "Palatino Linotype", Palatino, serif;
+  --body: Sora, ui-sans-serif, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, monospace;
   --nav-h: 84px;
-  --gutter: clamp(1.25rem, 4.5vw, 4rem);
+  --gutter: clamp(1.1rem, 4.5vw, 4rem);
   --max: 1180px;
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-t: env(safe-area-inset-top, 0px);
 }
 
 *,
@@ -46,6 +50,15 @@ body,
 
 body {
   overflow-x: clip;
+  margin: 0;
+  font-family: var(--body);
+  font-weight: 400;
+  font-size: clamp(0.95rem, 0.9rem + 0.25vw, 1.05rem);
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--void);
+  padding-bottom: var(--safe-b);
+  -webkit-font-smoothing: antialiased;
 }
 
 img,
@@ -77,7 +90,7 @@ body.intro-lock {
   width: 100%;
   transform: scaleX(0);
   transform-origin: left center;
-  background: linear-gradient(90deg, var(--gold), var(--cyan));
+  background: linear-gradient(90deg, var(--gold), var(--lake));
 }
 
 .shell.is-waiting .site-stage {
@@ -349,11 +362,12 @@ ol {
 .shell {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   isolation: isolate;
   background:
-    radial-gradient(1100px 560px at 82% -12%, rgba(36, 48, 42, 0.72), transparent 58%),
-    radial-gradient(820px 480px at 0% 24%, rgba(196, 164, 106, 0.07), transparent 52%),
-    linear-gradient(180deg, var(--void), var(--soil) 46%, #0c0f0d);
+    radial-gradient(1100px 560px at 82% -12%, rgba(47, 111, 134, 0.28), transparent 58%),
+    radial-gradient(820px 480px at 0% 24%, rgba(201, 168, 106, 0.08), transparent 52%),
+    linear-gradient(180deg, var(--void), var(--soil) 46%, #07110f);
 }
 
 .atmosphere {
@@ -656,7 +670,9 @@ ol {
 .hero-filaments {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 68% 42%, rgba(196, 164, 106, 0.2), transparent 58%);
+  background:
+    radial-gradient(ellipse at 68% 42%, rgba(201, 168, 106, 0.22), transparent 58%),
+    radial-gradient(ellipse at 18% 70%, rgba(61, 142, 168, 0.18), transparent 50%);
   mix-blend-mode: soft-light;
   animation: filament-pulse 14s ease-in-out infinite;
 }
@@ -839,8 +855,79 @@ ol {
   padding: 1.25rem 0 4rem;
 }
 
+.hero-hud-solo {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: end;
+  min-height: calc(100svh - var(--nav-h));
+  padding: calc(var(--nav-h) + 1.5rem) 0 max(3.5rem, calc(2rem + var(--safe-b)));
+}
+
+.hero-brand .hero-copy {
+  max-width: 38rem;
+}
+
+.brand-signal {
+  font-size: clamp(0.72rem, 1.6vw, 0.85rem);
+  letter-spacing: 0.28em;
+  color: var(--gold);
+}
+
 .shell.is-live .hero-hud {
   animation: rise 1.15s ease both;
+}
+
+.boarding-band {
+  width: min(100% - 2 * var(--gutter), var(--max));
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0;
+}
+
+.boarding-band .office-clock {
+  width: 100%;
+  margin: 0 0 1.75rem;
+  padding-top: 0;
+}
+
+.boarding-band-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(1.5rem, 4vw, 2.75rem);
+  align-items: center;
+}
+
+.boarding-band-copy h2 {
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  margin-bottom: 0.85rem;
+}
+
+.compact-stats {
+  margin-top: 1.5rem;
+}
+
+.unsection {
+  padding-inline: 0;
+}
+
+.unsection > .section-head,
+.unsection > .steps,
+.unsection > .land-grid,
+.unsection > .card-grid {
+  width: min(100% - 2 * var(--gutter), var(--max));
+  margin-inline: auto;
+}
+
+.land-bleed .land-grid {
+  width: 100%;
+  max-width: none;
+  gap: 0;
+}
+
+.land-bleed .land-plate {
+  border-radius: 0;
+}
+
+.land-bleed .land-plate img {
+  min-height: clamp(16rem, 38vw, 24rem);
 }
 
 .hero h1 {
@@ -3178,6 +3265,7 @@ textarea {
   }
 
   .hero-hud,
+  .boarding-band-inner,
   .live-circles,
   .together-band,
   .detail-layout,
@@ -3307,6 +3395,7 @@ textarea {
   }
 
   .hero-hud,
+  .boarding-band-inner,
   .hero-stats,
   .live-route-meta,
   .steps,
@@ -3330,6 +3419,15 @@ textarea {
   .contact-grid,
   .daily-budget-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-brand {
+    min-height: 100svh;
+  }
+
+  .hero-hud-solo {
+    min-height: calc(100svh - var(--nav-h));
+    padding-bottom: max(2.5rem, calc(1.5rem + var(--safe-b)));
   }
 
   .album-grid {

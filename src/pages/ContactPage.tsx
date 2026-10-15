@@ -62,6 +62,7 @@ export function ContactPage() {
                   value={name}
                   onChange={(event) => setName(event.target.value)}
                   autoComplete="name"
+                  maxLength={80}
                   required
                 />
               </label>
@@ -72,6 +73,7 @@ export function ContactPage() {
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                   autoComplete="email"
+                  maxLength={120}
                   required
                 />
               </label>
@@ -81,6 +83,7 @@ export function ContactPage() {
                   value={travelWindow}
                   onChange={(event) => setTravelWindow(event.target.value)}
                   placeholder="e.g. 12–24 October"
+                  maxLength={80}
                 />
               </label>
               <label>
@@ -109,6 +112,7 @@ export function ContactPage() {
                   rows={6}
                   value={message}
                   onChange={(event) => setMessage(event.target.value)}
+                  maxLength={2000}
                   required
                 />
               </label>
