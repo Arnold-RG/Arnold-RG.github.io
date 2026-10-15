@@ -33,7 +33,7 @@ jobs:
           cp -a hamwe-build/. dist/hamwe/
           cp -f SECURITY.md dist/SECURITY.md
           cp -f SECURITY.md dist/hamwe/SECURITY.md
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
