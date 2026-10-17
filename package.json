@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "dev:portfolio": "node scripts/serve-site.mjs",
-    "build": "tsc && vite build && node scripts/spa-fallback.mjs",
+    "build": "tsc && vite build && node scripts/spa-fallback.mjs && node scripts/check-published.mjs",
     "preview": "vite preview",
     "test": "node --test tests/portfolio.test.mjs",
     "test:e2e": "playwright test",

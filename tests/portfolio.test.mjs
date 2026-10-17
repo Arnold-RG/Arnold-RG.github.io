@@ -1,7 +1,10 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
+import { problemsInTree } from "../scripts/check-published.mjs";
 
 const html = readFileSync(new URL("../site/index.html", import.meta.url), "utf8");
 const css = readFileSync(new URL("../site/assets/styles.css", import.meta.url), "utf8");
@@ -29,10 +32,11 @@ function contrast(a, b) {
   return (hi + 0.05) / (lo + 0.05);
 }
 
-test("hero names Arnold, Ateck, Kraków, and the target roles", () => {
+test("hero names Arnold Rurangwa, Kraków, and the target roles", () => {
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
   assert.match(html, /<h1[^>]*>Arnold Rurangwa<\/h1>/);
-  assert.match(html, /Also goes by Ateck/);
+  assert.doesNotMatch(html, /Ateck/);
+  assert.doesNotMatch(html, /alternateName/);
   assert.match(html, /Kraków, Poland/);
   assert.match(html, /Software development, Linux\/sysadmin, and IT support/);
   assert.match(html, /href="#main"/);
@@ -59,11 +63,15 @@ test("published projects, jobs, and education are present", () => {
   assert.ok(text.includes("I&M Bank"));
 });
 
-test("TODO placeholders match the profile gaps", () => {
-  for (const item of profile.todos) {
-    assert.ok(html.includes(`id="${item.id}"`), item.id);
-    assert.ok(decode(html).includes(item.text), item.text);
-  }
+test("published files contain no TODO text or local file paths", () => {
+  const repo = fileRoot();
+  const targets = [join(repo, "site")];
+  const dist = join(repo, "dist");
+  if (existsSync(dist)) targets.push(dist);
+  const found = targets.flatMap(problemsInTree);
+  assert.deepEqual(found, []);
+  assert.equal(profile.todos, undefined);
+  assert.doesNotMatch(JSON.stringify(profile), /Ateck/);
 });
 
 test("contact details and meta tags", () => {
@@ -132,11 +140,17 @@ test("content security policy does not use a meta frame-ancestors directive", ()
   assert.match(html, /Content-Security-Policy/);
   assert.doesNotMatch(html, /frame-ancestors/);
   assert.doesNotMatch(html, /unsafe-inline/);
+  const hamwe = readFileSync(new URL("../index.html", import.meta.url), "utf8");
+  assert.doesNotMatch(hamwe, /frame-ancestors/);
   const markup = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
   assert.ok(markup, "json-ld script");
   const hash = createHash("sha256").update(markup[1]).digest("base64");
   assert.match(html, new RegExp(`sha256-${hash.replace(/\+/g, "\\+")}`));
 });
+
+function fileRoot() {
+  return fileURLToPath(new URL("..", import.meta.url));
+}
 
 test("Hamwe deep links still recover through the root 404", () => {
   assert.match(fallback, /\/hamwe\//);

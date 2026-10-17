@@ -1,6 +1,5 @@
 {
   "name": "Arnold Rurangwa",
-  "alternateName": "Ateck",
   "location": "Kraków, Poland",
   "email": "rurangwaarnold32@gmail.com",
   "phoneDisplay": "+48 575 217 930",
@@ -139,39 +138,5 @@
     "credential": "B.Sc. Computer Engineering — Cybersecurity & Computer Networks",
     "school": "Wrocławska Akademia Biznesu",
     "dates": "Mar 2022 – Sep 2025"
-  },
-  "todos": [
-    {
-      "id": "todo-cert-issuers",
-      "text": "TODO: Name the issuer and credential ID for AI Augmented Engineering Lead (LangGraph, Azure with GHCP) and AI Essentials: Policy, Governance and Use. The existing folio only says Professional credential."
-    },
-    {
-      "id": "todo-cert-links",
-      "text": "TODO: Add verification links for the Oracle, Cisco Networking Academy, Python Institute, Google Career Certificates, and Udemy credentials. The certificate names are published; the URLs are not."
-    },
-    {
-      "id": "todo-arnova",
-      "text": "TODO: Add a role title and dates for ARNOVA Group if it is an employer. GitHub lists it as the company, and AbroadCost names it, but no title or dates were found."
-    },
-    {
-      "id": "todo-github-location",
-      "text": "TODO: GitHub still says the location is Kigali, Rwanda. The resume and this site say Kraków, Poland. Confirm which location should be public."
-    },
-    {
-      "id": "todo-ateck",
-      "text": "TODO: Confirm that the public site should say Ateck. It is how this project was briefed, and the Peakwise README contains the Windows path C:\\Users\\ateck\\. It is not the display name on GitHub."
-    },
-    {
-      "id": "todo-authorization",
-      "text": "TODO: Add work authorization in Poland, notice period, and whether the search is full-time, contract, or open to relocation. None of that is in the source material."
-    },
-    {
-      "id": "todo-impact",
-      "text": "TODO: Add real outcomes to the experience bullets (tools used by name, volumes, or results) only where the numbers are true. None are published today."
-    },
-    {
-      "id": "todo-polish",
-      "text": "TODO: Add a Polish language level if you want Kraków employers to see it. The folio lists English, Kinyarwanda, French, and Swahili only."
-    }
-  ]
+  }
 }
