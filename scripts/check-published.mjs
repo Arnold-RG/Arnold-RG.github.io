@@ -6,6 +6,7 @@ const TEXT = new Set([".html", ".css", ".js", ".mjs", ".json", ".svg", ".xml", "
 const todoText = /\bTODO\b/;
 const gapList = new RegExp("\\b" + ["ne", "eded"].join("") + "\\b", "i");
 const privateName = new RegExp(["Ar", "nova"].join(""), "i");
+const privateAlias = new RegExp(["at", "eck"].join(""), "i");
 const localPath =
   /(?:\b[A-Za-z]:[\\/])|(?:^|[\s"'`(=:])\/(?:home|Users|opt|tmp|workspace|usr|var)\//m;
 const SKIP = new Set(["node_modules", "dist", "dist-ssr", ".git", "test-results", "playwright-report", "blob-report"]);
@@ -14,11 +15,11 @@ function scanText(path, text, found, gaps) {
   if (todoText.test(text)) found.push(`${path}: contains TODO`);
   if (gaps && gapList.test(text)) found.push(`${path}: contains a placeholder list`);
   if (localPath.test(text)) found.push(`${path}: contains a local file path`);
-  if (privateName.test(text)) found.push(`${path}: contains a private name`);
+  if (privateName.test(text) || privateAlias.test(text)) found.push(`${path}: contains a private name`);
 }
 
 function scanPath(path, found) {
-  if (privateName.test(path)) found.push(`${path}: path contains a private name`);
+  if (privateName.test(path) || privateAlias.test(path)) found.push(`${path}: path contains a private name`);
 }
 
 export function problemsInTree(root) {
@@ -88,7 +89,8 @@ export function privateNameProblems(root) {
         continue;
       }
       if (!TEXT.has(extname(path)) && extname(path) !== ".md") continue;
-      if (privateName.test(readFileSync(path, "utf8"))) found.push(`${path}: contains a private name`);
+      const body = readFileSync(path, "utf8");
+      if (privateName.test(body) || privateAlias.test(body)) found.push(`${path}: contains a private name`);
     }
   };
 

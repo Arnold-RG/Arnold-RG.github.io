@@ -190,6 +190,49 @@ test("Hamwe deep links still recover through the root 404", () => {
   assert.match(fallback, /location\.replace\('\/hamwe\/\?p='/);
 });
 
+test("public identity stays Resume, Kraków, and the public email", () => {
+  const readme = readFileSync(new URL("../README.md", import.meta.url), "utf8");
+  const album = JSON.parse(readFileSync(new URL("../src/data/rwandaAlbum.json", import.meta.url), "utf8"));
+  const group = new RegExp(["ar", "nova"].join(""), "i");
+  const alias = new RegExp(["at", "eck"].join(""), "i");
+  assert.equal(profile.location, "Kraków, Poland");
+  assert.equal(profile.email, "rurangwaarnold32@gmail.com");
+  assert.equal(profile.education.dates, "2022 – 2025");
+  assert.match(html, /Kraków, Poland/);
+  assert.match(html, /rurangwaarnold32@gmail.com/);
+  assert.match(html, />Resume</);
+  assert.match(html, /Download resume \(PDF\)/);
+  assert.match(html, /class="when">2022 – 2025<br/);
+  assert.match(readme, /2022 – 2025/);
+  assert.doesNotMatch(html, /Mar 2022 – Sep 2025/);
+  assert.doesNotMatch(readme, /Mar 2022 – Sep 2025/);
+  assert.doesNotMatch(html, /\bCV\b/);
+  assert.doesNotMatch(readme, /\bCV\b/);
+  for (const text of [html, readme, JSON.stringify(profile), JSON.stringify(album)]) {
+    assert.doesNotMatch(text, group);
+    assert.doesNotMatch(text, alias);
+  }
+});
+
+test("the Rwanda album is a curated set with author and licence", () => {
+  const album = JSON.parse(readFileSync(new URL("../src/data/rwandaAlbum.json", import.meta.url), "utf8"));
+  const photos = album.photos;
+  const placed = /rwanda|kigali|nyamirambo|kimihurura|kimironko|rebero|gisozi|gasabo|kicukiro|nyarugenge|musanze|ruhengeri|kinigi|rubavu|gisenyi|butare|huye|karongi|cyangugu|rwamagana|muhanga|gitarama|nyungwe|akagera|lake kivu|lac kivu|bisoke|sabyinyo|karisimbi|muhabura|gahinga|mille collines|nyabarongo|bugesera|nyagatare|gicumbi|nyamagabe|ngororero|rulindo|kayonza|kirehe|rutsiro|nyamasheke|gisagara|muhazi|ihema|ruhondo|burera|volcanoes national park/i;
+  const elsewhere = /biarritz|tenerife|el bailadero|hawai|loyal trooper|pennsylvania|dpla/i;
+  const email = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i;
+  assert.ok(photos.length >= 60 && photos.length <= 150, `photo count ${photos.length}`);
+  assert.equal(album.count, photos.length);
+  assert.doesNotMatch(JSON.stringify(album), email);
+  for (const photo of photos) {
+    const text = `${photo.title} ${photo.caption}`;
+    assert.match(text, placed, photo.title);
+    assert.doesNotMatch(text, elsewhere, photo.title);
+    assert.ok(photo.credit, photo.title);
+    assert.ok(photo.license, photo.title);
+    assert.match(photo.src, /^https:\/\//);
+  }
+});
+
 test("sitemap and robots still advertise the public site", () => {
   const robots = readFileSync(new URL("../site/robots.txt", import.meta.url), "utf8");
   const sitemap = readFileSync(new URL("../site/sitemap.xml", import.meta.url), "utf8");
