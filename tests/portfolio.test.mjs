@@ -4,7 +4,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
-import { problemsInDocs, problemsInTree } from "../scripts/check-published.mjs";
+import { privateNameProblems, problemsInDocs, problemsInTree } from "../scripts/check-published.mjs";
 
 const html = readFileSync(new URL("../site/index.html", import.meta.url), "utf8");
 const css = readFileSync(new URL("../site/assets/styles.css", import.meta.url), "utf8");
@@ -100,7 +100,7 @@ test("published files and docs contain no TODO text, placeholder lists, or local
   const targets = [join(repo, "site")];
   const dist = join(repo, "dist");
   if (existsSync(dist)) targets.push(dist);
-  const found = [...targets.flatMap(problemsInTree), ...problemsInDocs(repo)];
+  const found = [...targets.flatMap(problemsInTree), ...problemsInDocs(repo), ...privateNameProblems(repo)];
   assert.deepEqual(found, []);
   assert.equal(profile.todos, undefined);
 });
