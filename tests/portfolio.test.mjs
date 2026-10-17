@@ -71,6 +71,10 @@ test("published projects, jobs, skills, and education are present", () => {
     for (const link of project.links) assert.ok(html.includes(link), link);
   }
   assert.equal(profile.projects.filter((project) => project.featured).length, 4);
+  assert.match(html, /<details class="more">/);
+  assert.match(html, /role="button"/);
+  assert.match(html, /aria-controls="more-projects-list"/);
+  assert.match(html, /id="more-projects-list"/);
   assert.match(html, /More projects/);
   for (const job of profile.experience) {
     assert.ok(text.includes(job.title), job.title);

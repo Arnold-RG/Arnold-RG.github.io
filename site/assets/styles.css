@@ -1060,3 +1060,29 @@ a.contact-tile:hover {
     break-inside: avoid;
   }
 }
+
+/* Tier C experiment (mobile only): layout trims beyond copy */
+@media (max-width: 799px) {
+  .tags { display: block; }
+  .tags li { display: inline; padding: 0; border: 0; background: none; font-size: 0.95rem; }
+  .tags li:not(:last-child)::after { content: " · "; color: var(--muted); }
+  .skill-grid { gap: 0.6rem; }
+  .cert-groups { grid-template-columns: 1fr; gap: 0.6rem; }
+  .cert-groups li { padding: 0; }
+  .timeline > li { gap: 0.2rem; }
+  .project-stack { margin-top: -0.1rem; }
+}
+.more > summary {
+  cursor: pointer;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.more > summary:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}

@@ -121,8 +121,22 @@ test("projects sit high on a phone and the page is shorter", async ({ page }) =>
   }));
   expect(metrics.projects).toBeLessThan(1700);
   await expect(page.locator("#projects")).toBeAttached();
-  expect(metrics.height).toBeLessThan(10500);
+  expect(metrics.height).toBeLessThan(7800);
   expect(metrics.portrait).toBeLessThan(100);
+});
+
+test("more projects opens from the keyboard and stays in the page without script", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  const summary = page.getByRole("button", { name: /More projects/ });
+  const details = page.locator("details.more");
+  await expect(summary).toHaveAttribute("aria-controls", "more-projects-list");
+  await expect(details).not.toHaveAttribute("open", "");
+  await expect(page.locator("#more-projects-list")).toBeAttached();
+  await summary.focus();
+  await page.keyboard.press("Enter");
+  await expect(details).toHaveAttribute("open", "");
+  await expect(page.locator("#more-projects-list")).toBeVisible();
 });
 
 test("skip link is the first tab stop", async ({ page }) => {
