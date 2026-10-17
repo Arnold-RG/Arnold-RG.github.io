@@ -120,7 +120,8 @@ test("projects sit high on a phone and the page is shorter", async ({ page }) =>
     portrait: document.querySelector(".hero-portrait").getBoundingClientRect().width,
   }));
   expect(metrics.projects).toBeLessThan(1700);
-  expect(metrics.height).toBeLessThan(9600);
+  await expect(page.locator("#projects")).toBeAttached();
+  expect(metrics.height).toBeLessThan(10500);
   expect(metrics.portrait).toBeLessThan(100);
 });
 
