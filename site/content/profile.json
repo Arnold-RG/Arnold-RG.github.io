@@ -1,0 +1,142 @@
+{
+  "name": "Arnold Rurangwa",
+  "location": "Kraków, Poland",
+  "email": "rurangwaarnold32@gmail.com",
+  "phoneDisplay": "+48 575 217 930",
+  "phoneTel": "+48575217930",
+  "github": "https://github.com/Arnold-RG",
+  "linkedin": "https://www.linkedin.com/in/rurangwa-arnold-53b90520b/",
+  "resume": "./assets/Rurangwa-Arnold-Resume.pdf",
+  "targets": [
+    "Software development",
+    "Linux/sysadmin",
+    "IT support"
+  ],
+  "projects": [
+    {
+      "name": "STANS",
+      "summary": "Live OpenStreetMap traffic desk: Nominatim search, OSRM routing, GPS, weather, and Overpass points of interest.",
+      "links": [
+        "https://arnold-rg.github.io/STANS/",
+        "https://github.com/Arnold-RG/STANS"
+      ]
+    },
+    {
+      "name": "2daymovie",
+      "summary": "2daymovie.to — legal movie discovery: browse, trailers, where to watch.",
+      "links": [
+        "https://twodaymovie.onrender.com/",
+        "https://arnold-rg.github.io/2daymovie/",
+        "https://github.com/Arnold-RG/2daymovie"
+      ]
+    },
+    {
+      "name": "AbroadCost",
+      "summary": "ReloLedger — public country budget planner for 195 countries (Arnova Group).",
+      "links": [
+        "https://arnold-rg.github.io/AbroadCost/",
+        "https://github.com/Arnold-RG/AbroadCost"
+      ]
+    },
+    {
+      "name": "Our Money Hub",
+      "summary": "Our Money Hub (OMH) — private household ledger. Default currency is the Polish złoty.",
+      "links": [
+        "https://arnold-rg.github.io/our-money-hub/",
+        "https://github.com/Arnold-RG/our-money-hub"
+      ]
+    },
+    {
+      "name": "Kingdom Life Kraków",
+      "summary": "Public English church website for Kingdom Life Krakow. Sunday 12:00 at Hotel Centrum. Open to any browser.",
+      "links": [
+        "https://arnold-rg.github.io/kingdom-life-krakow/",
+        "https://github.com/Arnold-RG/kingdom-life-krakow"
+      ]
+    },
+    {
+      "name": "Peakwise",
+      "summary": "Name the molecule in your mass spectrum. LC-MS/MS peaks to SMILES.",
+      "links": [
+        "https://arnold-rg.github.io/peakwise/",
+        "https://github.com/Arnold-RG/peakwise"
+      ]
+    },
+    {
+      "name": "Elvora",
+      "summary": "On-device AI health coach for food, training, hydration, and recovery. Flutter — iOS, Android, and web.",
+      "links": [
+        "https://arnold-rg.github.io/nfl-bot/",
+        "https://arnold-rg.github.io/nfl-bot/app/",
+        "https://github.com/Arnold-RG/nfl-bot"
+      ]
+    },
+    {
+      "name": "RAGI",
+      "summary": "RAGI — owner-only private secretary (public code, private locks).",
+      "links": [
+        "https://arnold-rg.github.io/ragi/",
+        "https://github.com/Arnold-RG/ragi"
+      ]
+    },
+    {
+      "name": "Boutique La Différence",
+      "summary": "Neighborhood supermarket storefront for Boutique La Différence in Zindiro, Kigali — dark-themed shop, Excel-driven inventory, and an owner admin.",
+      "links": [
+        "https://arnold-rg.github.io/Boutique-la-difference/",
+        "https://github.com/Arnold-RG/Boutique-la-difference"
+      ]
+    },
+    {
+      "name": "Africa Shield Cyber Centre",
+      "summary": "Threat-intelligence and reporting desk for African security operations — SOC view, threat map, and incident reports.",
+      "links": [
+        "https://arnold-rg.github.io/Africa-shield-cyber-centre/",
+        "https://github.com/Arnold-RG/Africa-shield-cyber-centre"
+      ]
+    },
+    {
+      "name": "Hamwe Tourism",
+      "summary": "Hosted Rwanda tour storefront — catalogues, booking, and tickets — built with React and TypeScript in this repository.",
+      "links": [
+        "/hamwe/",
+        "https://github.com/Arnold-RG/Arnold-RG.github.io"
+      ]
+    },
+    {
+      "name": "AI & Data Scientist Roadmap",
+      "summary": "Study curriculum for AI and data science: 10 stages, quizzes, tests, and original projects aligned to roadmap.sh.",
+      "links": [
+        "https://arnold-rg.github.io/ai-data-scientist-roadmap/",
+        "https://github.com/Arnold-RG/ai-data-scientist-roadmap"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "title": "Data Operator",
+      "org": "Cognizant",
+      "dates": "Sep 2025 – Present"
+    },
+    {
+      "title": "Logistics Specialist Operator",
+      "org": "LG Energy Solution",
+      "dates": "May 2022 – Aug 2025"
+    },
+    {
+      "title": "E-Learning Content Developer",
+      "org": "Escola S.A",
+      "dates": "Feb 2023 – Jul 2023"
+    },
+    {
+      "title": "Technical Support Specialist",
+      "org": "I&M Bank",
+      "dates": "Sep 2021 – Feb 2022"
+    }
+  ],
+  "education": {
+    "credential": "B.Sc. Computer Engineering — Cybersecurity & Computer Networks",
+    "school": "Wrocławska Akademia Biznesu",
+    "dates": "Mar 2022 – Sep 2025"
+  }
+}
