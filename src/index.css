@@ -1,4 +1,4 @@
-@import url("../assets/arnova/arnova-base.css");
+@import url("../assets/shared/base.css");
 
 :root {
   /* Hamwe brand — volcanic charcoal · lake blue · soft gold (distinct from hub folio) */
@@ -2791,11 +2791,21 @@ textarea {
 }
 
 .album-lightbox figcaption {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+  display: grid;
+  gap: 0.25rem;
   margin-top: 0.7rem;
   color: var(--ink);
+  text-align: left;
+}
+
+.album-lightbox figcaption span,
+.album-lightbox small,
+.album-tile small {
+  font-family: var(--body);
+  font-size: 0.72rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--muted);
 }
 
 .album-lightbox em {

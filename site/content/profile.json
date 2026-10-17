@@ -1,0 +1,204 @@
+{
+  "name": "Arnold Rurangwa",
+  "location": "Kraków, Poland",
+  "email": "rurangwaarnold32@gmail.com",
+  "phoneDisplay": "+48 575 217 930",
+  "phoneTel": "+48575217930",
+  "github": "https://github.com/Arnold-RG",
+  "linkedin": "https://www.linkedin.com/in/rurangwa-arnold-53b90520b/",
+  "resume": "./assets/Rurangwa-Arnold-Resume.pdf",
+  "targets": [
+    "Software development",
+    "Linux & systems administration",
+    "IT support"
+  ],
+  "skills": {
+    "Networking & security": [
+      "TCP/IP & OSI",
+      "Routing & switching (Cisco)",
+      "VLAN/VPN configuration",
+      "Firewalls",
+      "IDS/IPS",
+      "Vulnerability assessment",
+      "SOC analysis",
+      "OWASP",
+      "Wireshark",
+      "Cisco Packet Tracer",
+      "Nmap"
+    ],
+    "Linux, cloud & DevOps": [
+      "Linux administration",
+      "Bash scripting & automation",
+      "Docker",
+      "CI/CD",
+      "GitHub Actions",
+      "Terraform (IaC)",
+      "Microsoft Azure",
+      "Cloud security & monitoring"
+    ],
+    "Software development": [
+      "Python",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "HTML5/CSS3",
+      "SQL/MySQL",
+      "REST APIs",
+      "FastAPI",
+      "Flutter/Dart",
+      "Git/GitHub"
+    ],
+    "IT support & data": [
+      "Hardware/software/OS troubleshooting",
+      "Windows configuration",
+      "Workstation & peripheral setup",
+      "Account & access management",
+      "Root-cause analysis",
+      "Incident response",
+      "Technical documentation",
+      "Data validation & quality"
+    ]
+  },
+  "projects": [
+    {
+      "name": "Africa Shield Cyber Centre",
+      "featured": true,
+      "summary": "Cybersecurity operations platform: SOC monitoring view, threat map, incident reporting, security-awareness resources, and admin authentication.",
+      "stack": "HTML, CSS, JavaScript, PHP",
+      "links": [
+        "https://arnold-rg.github.io/Africa-shield-cyber-centre/",
+        "https://github.com/Arnold-RG/Africa-shield-cyber-centre"
+      ]
+    },
+    {
+      "name": "STANS",
+      "featured": true,
+      "summary": "Real-time traffic and routing dashboard on OpenStreetMap: place search (Nominatim), route planning (OSRM), GPS location, weather, and points of interest (Overpass).",
+      "stack": "TypeScript, React, OSRM, Docker",
+      "links": [
+        "https://arnold-rg.github.io/STANS/",
+        "https://github.com/Arnold-RG/STANS"
+      ]
+    },
+    {
+      "name": "Hamwe Tourism",
+      "featured": true,
+      "summary": "Rwanda tour-booking web app: tour catalogues, booking flow, digital tickets with QR passes, and interactive maps. Built and deployed with GitHub Actions.",
+      "stack": "React, TypeScript, Vite, GitHub Actions",
+      "links": [
+        "/hamwe/",
+        "https://github.com/Arnold-RG/Arnold-RG.github.io"
+      ]
+    },
+    {
+      "name": "Peakwise",
+      "featured": true,
+      "summary": "AI-assisted mass-spectrometry tool: takes LC-MS/MS peak data, estimates formulas, and ranks candidate molecular structures.",
+      "stack": "Python, FastAPI, React, ML",
+      "links": [
+        "https://arnold-rg.github.io/peakwise/",
+        "https://github.com/Arnold-RG/peakwise"
+      ]
+    },
+    {
+      "name": "Elvora",
+      "summary": "Cross-platform AI wellness coach (iOS, Android, web): nutrition logging, training, hydration, sleep, and recovery tracking. Flutter, Dart, FastAPI.",
+      "links": [
+        "https://arnold-rg.github.io/nfl-bot/",
+        "https://arnold-rg.github.io/nfl-bot/app/",
+        "https://github.com/Arnold-RG/nfl-bot"
+      ]
+    },
+    {
+      "name": "AbroadCost",
+      "summary": "Cost-of-living budget planner covering 195 countries (published as ReloLedger).",
+      "links": [
+        "https://arnold-rg.github.io/AbroadCost/",
+        "https://github.com/Arnold-RG/AbroadCost"
+      ]
+    },
+    {
+      "name": "Boutique La Différence",
+      "summary": "Online storefront for a Kigali neighbourhood supermarket: catalogue driven by an Excel inventory, plus an owner admin panel.",
+      "links": [
+        "https://arnold-rg.github.io/Boutique-la-difference/",
+        "https://github.com/Arnold-RG/Boutique-la-difference"
+      ]
+    },
+    {
+      "name": "Our Money Hub",
+      "summary": "Private household budget ledger, defaulting to Polish złoty.",
+      "links": [
+        "https://arnold-rg.github.io/our-money-hub/",
+        "https://github.com/Arnold-RG/our-money-hub"
+      ]
+    },
+    {
+      "name": "RAGI",
+      "summary": "RAGI — owner-only private secretary (public code, private locks).",
+      "links": [
+        "https://arnold-rg.github.io/ragi/",
+        "https://github.com/Arnold-RG/ragi"
+      ]
+    },
+    {
+      "name": "2daymovie",
+      "summary": "Legal movie-discovery site: browse titles, watch trailers, and see where to stream. Python.",
+      "links": [
+        "https://twodaymovie.onrender.com/",
+        "https://arnold-rg.github.io/2daymovie/",
+        "https://github.com/Arnold-RG/2daymovie"
+      ]
+    },
+    {
+      "name": "Kingdom Life Kraków",
+      "summary": "Website for an English-speaking church in Kraków.",
+      "links": [
+        "https://arnold-rg.github.io/kingdom-life-krakow/",
+        "https://github.com/Arnold-RG/kingdom-life-krakow"
+      ]
+    },
+    {
+      "name": "AI & Data Scientist Roadmap",
+      "summary": "Self-study curriculum for AI/data science: 10 stages with quizzes, tests, and projects, aligned to roadmap.sh.",
+      "links": [
+        "https://arnold-rg.github.io/ai-data-scientist-roadmap/",
+        "https://github.com/Arnold-RG/ai-data-scientist-roadmap"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "title": "Data Operator",
+      "org": "Cognizant",
+      "dates": "Sep 2025 – Present"
+    },
+    {
+      "title": "Logistics Specialist Operator",
+      "org": "LG Energy Solution",
+      "dates": "May 2022 – Aug 2025"
+    },
+    {
+      "title": "E-Learning Content Developer (Internship)",
+      "org": "Escola S.A",
+      "dates": "Feb 2023 – Jul 2023"
+    },
+    {
+      "title": "Technical Support Specialist (Internship)",
+      "org": "I&M Bank",
+      "dates": "Sep 2021 – Feb 2022"
+    }
+  ],
+  "highlights": [
+    "Diagnosed and fixed slow PCs, application errors, printer failures, Windows configuration issues, and network connectivity problems for bank staff.",
+    "Installed and configured computers, printers, scanners, and software, and prepared workstations for employees.",
+    "Handled password resets, basic permissions, and application access in line with the bank's IT security procedures.",
+    "Documented and escalated first-level issues to infrastructure teams.",
+    "Collaborated with stakeholders to clarify data requirements and ensure outputs met quality, accuracy, security, and operational standards."
+  ],
+  "education": {
+    "credential": "B.Sc. Computer Engineering — Cybersecurity & Computer Networks",
+    "school": "Wrocławska Akademia Biznesu (ATA Wrocław)",
+    "dates": "2022 – 2025"
+  }
+}
