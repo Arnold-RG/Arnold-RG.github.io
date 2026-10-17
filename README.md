@@ -23,7 +23,7 @@ The public name is Arnold Rurangwa. Section order on the page:
 - **Projects:** four featured cards (Africa Shield Cyber Centre, STANS, Hamwe Tourism, Peakwise), each with a short stack line, then eight more in a compact list. Twelve public projects in all.
 - **Experience:** Cognizant, LG Energy Solution, Escola S.A, and I&M Bank, most recent first.
 - **Skills:** Networking and security; Linux, cloud, and DevOps; Software development; IT support and data.
-- **Education and certifications:** B.Sc. Computer Engineering (Cybersecurity and Computer Networks), then credentials from Cisco Networking Academy, Oracle, Python Institute, Google Career Certificates, and Udemy, plus two further credentials.
+- **Education and certifications:** B.Sc. Computer Engineering (Cybersecurity and Computer Networks) at Wrocławska Akademia Biznesu (ATA Wrocław), then credentials from Cisco Networking Academy, Oracle, Python Institute, Google Career Certificates, and Udemy, plus two further credentials.
 - **About:** a short profile, languages (English C1, Kinyarwanda C2, French C1, Swahili B2), and interests.
 - **Contact:** Email me, Download resume (PDF), and links for GitHub, LinkedIn, and phone.
 

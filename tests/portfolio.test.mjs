@@ -81,7 +81,9 @@ test("published projects, jobs, skills, and education are present", () => {
   for (const items of Object.values(profile.skills)) {
     for (const item of items) assert.ok(text.includes(item), item);
   }
+  assert.equal(profile.education.school, "Wrocławska Akademia Biznesu (ATA Wrocław)");
   assert.ok(text.includes(profile.education.school));
+  assert.doesNotMatch(text, /Akademia Techniczno-Artystyczna/);
   assert.ok(text.includes(profile.education.dates));
   assert.ok(text.includes("Cognizant"));
   assert.ok(text.includes("LG Energy Solution"));
