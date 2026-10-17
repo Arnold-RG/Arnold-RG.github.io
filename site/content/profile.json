@@ -1,0 +1,177 @@
+{
+  "name": "Arnold Rurangwa",
+  "alternateName": "Ateck",
+  "location": "Kraków, Poland",
+  "email": "rurangwaarnold32@gmail.com",
+  "phoneDisplay": "+48 575 217 930",
+  "phoneTel": "+48575217930",
+  "github": "https://github.com/Arnold-RG",
+  "linkedin": "https://www.linkedin.com/in/rurangwa-arnold-53b90520b/",
+  "resume": "./assets/Rurangwa-Arnold-Resume.pdf",
+  "targets": [
+    "Software development",
+    "Linux/sysadmin",
+    "IT support"
+  ],
+  "projects": [
+    {
+      "name": "STANS",
+      "summary": "Live OpenStreetMap traffic desk: Nominatim search, OSRM routing, GPS, weather, and Overpass points of interest.",
+      "links": [
+        "https://arnold-rg.github.io/STANS/",
+        "https://github.com/Arnold-RG/STANS"
+      ]
+    },
+    {
+      "name": "2daymovie",
+      "summary": "2daymovie.to — legal movie discovery: browse, trailers, where to watch.",
+      "links": [
+        "https://twodaymovie.onrender.com/",
+        "https://arnold-rg.github.io/2daymovie/",
+        "https://github.com/Arnold-RG/2daymovie"
+      ]
+    },
+    {
+      "name": "AbroadCost",
+      "summary": "ReloLedger — public country budget planner for 195 countries (Arnova Group).",
+      "links": [
+        "https://arnold-rg.github.io/AbroadCost/",
+        "https://github.com/Arnold-RG/AbroadCost"
+      ]
+    },
+    {
+      "name": "Our Money Hub",
+      "summary": "Our Money Hub (OMH) — private household ledger. Default currency is the Polish złoty.",
+      "links": [
+        "https://arnold-rg.github.io/our-money-hub/",
+        "https://github.com/Arnold-RG/our-money-hub"
+      ]
+    },
+    {
+      "name": "Kingdom Life Kraków",
+      "summary": "Public English church website for Kingdom Life Krakow. Sunday 12:00 at Hotel Centrum. Open to any browser.",
+      "links": [
+        "https://arnold-rg.github.io/kingdom-life-krakow/",
+        "https://github.com/Arnold-RG/kingdom-life-krakow"
+      ]
+    },
+    {
+      "name": "Peakwise",
+      "summary": "Name the molecule in your mass spectrum. LC-MS/MS peaks to SMILES.",
+      "links": [
+        "https://arnold-rg.github.io/peakwise/",
+        "https://github.com/Arnold-RG/peakwise"
+      ]
+    },
+    {
+      "name": "Elvora",
+      "summary": "On-device AI health coach for food, training, hydration, and recovery. Flutter — iOS, Android, and web.",
+      "links": [
+        "https://arnold-rg.github.io/nfl-bot/",
+        "https://arnold-rg.github.io/nfl-bot/app/",
+        "https://github.com/Arnold-RG/nfl-bot"
+      ]
+    },
+    {
+      "name": "RAGI",
+      "summary": "RAGI — owner-only private secretary (public code, private locks).",
+      "links": [
+        "https://arnold-rg.github.io/ragi/",
+        "https://github.com/Arnold-RG/ragi"
+      ]
+    },
+    {
+      "name": "Boutique La Différence",
+      "summary": "Neighborhood supermarket storefront for Boutique La Différence in Zindiro, Kigali — dark-themed shop, Excel-driven inventory, and an owner admin.",
+      "links": [
+        "https://arnold-rg.github.io/Boutique-la-difference/",
+        "https://github.com/Arnold-RG/Boutique-la-difference"
+      ]
+    },
+    {
+      "name": "Africa Shield Cyber Centre",
+      "summary": "Threat-intelligence and reporting desk for African security operations — SOC view, threat map, and incident reports.",
+      "links": [
+        "https://arnold-rg.github.io/Africa-shield-cyber-centre/",
+        "https://github.com/Arnold-RG/Africa-shield-cyber-centre"
+      ]
+    },
+    {
+      "name": "Hamwe Tourism",
+      "summary": "Hosted Rwanda tour storefront — catalogues, booking, and tickets — built with React and TypeScript in this repository.",
+      "links": [
+        "/hamwe/",
+        "https://github.com/Arnold-RG/Arnold-RG.github.io"
+      ]
+    },
+    {
+      "name": "AI & Data Scientist Roadmap",
+      "summary": "Study curriculum for AI and data science: 10 stages, quizzes, tests, and original projects aligned to roadmap.sh.",
+      "links": [
+        "https://arnold-rg.github.io/ai-data-scientist-roadmap/",
+        "https://github.com/Arnold-RG/ai-data-scientist-roadmap"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "title": "Data Operator",
+      "org": "Cognizant",
+      "dates": "Sep 2025 – Present"
+    },
+    {
+      "title": "Logistics Specialist Operator",
+      "org": "LG Energy Solution",
+      "dates": "May 2022 – Aug 2025"
+    },
+    {
+      "title": "E-Learning Content Developer",
+      "org": "Escola S.A",
+      "dates": "Feb 2023 – Jul 2023"
+    },
+    {
+      "title": "Technical Support Specialist",
+      "org": "I&M Bank",
+      "dates": "Sep 2021 – Feb 2022"
+    }
+  ],
+  "education": {
+    "credential": "B.Sc. Computer Engineering — Cybersecurity & Computer Networks",
+    "school": "Wrocławska Akademia Biznesu",
+    "dates": "Mar 2022 – Sep 2025"
+  },
+  "todos": [
+    {
+      "id": "todo-cert-issuers",
+      "text": "TODO: Name the issuer and credential ID for AI Augmented Engineering Lead (LangGraph, Azure with GHCP) and AI Essentials: Policy, Governance and Use. The existing folio only says Professional credential."
+    },
+    {
+      "id": "todo-cert-links",
+      "text": "TODO: Add verification links for the Oracle, Cisco Networking Academy, Python Institute, Google Career Certificates, and Udemy credentials. The certificate names are published; the URLs are not."
+    },
+    {
+      "id": "todo-arnova",
+      "text": "TODO: Add a role title and dates for ARNOVA Group if it is an employer. GitHub lists it as the company, and AbroadCost names it, but no title or dates were found."
+    },
+    {
+      "id": "todo-github-location",
+      "text": "TODO: GitHub still says the location is Kigali, Rwanda. The resume and this site say Kraków, Poland. Confirm which location should be public."
+    },
+    {
+      "id": "todo-ateck",
+      "text": "TODO: Confirm that the public site should say Ateck. It is how this project was briefed, and the Peakwise README contains the Windows path C:\\Users\\ateck\\. It is not the display name on GitHub."
+    },
+    {
+      "id": "todo-authorization",
+      "text": "TODO: Add work authorization in Poland, notice period, and whether the search is full-time, contract, or open to relocation. None of that is in the source material."
+    },
+    {
+      "id": "todo-impact",
+      "text": "TODO: Add real outcomes to the experience bullets (tools used by name, volumes, or results) only where the numbers are true. None are published today."
+    },
+    {
+      "id": "todo-polish",
+      "text": "TODO: Add a Polish language level if you want Kraków employers to see it. The folio lists English, Kinyarwanda, French, and Swahili only."
+    }
+  ]
+}

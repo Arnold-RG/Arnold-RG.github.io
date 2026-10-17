@@ -20,6 +20,9 @@ node_modules
 dist
 dist-ssr
 *.local
+test-results/
+playwright-report/
+blob-report/
 tmp-album-picks
 src/data/rwanda-album-full.json
 

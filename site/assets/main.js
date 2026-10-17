@@ -1,22 +1,21 @@
 (() => {
-  document.documentElement.classList.add("js");
-
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduceMotion) document.documentElement.setAttribute("data-reduced-motion", "");
-
-  /* Theme toggle */
   const root = document.documentElement;
   const themeToggle = document.getElementById("theme-toggle");
+  const themeStatus = document.getElementById("theme-status");
   const themeMeta = document.querySelector('meta[name="theme-color"]');
 
-  const getTheme = () => root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+  const getTheme = () => (root.getAttribute("data-theme") === "light" ? "light" : "dark");
 
-  const applyTheme = (theme) => {
+  const applyTheme = (theme, persist) => {
     root.setAttribute("data-theme", theme);
-    try {
-      localStorage.setItem("theme", theme);
-    } catch (_) {}
-    if (themeMeta) themeMeta.setAttribute("content", theme === "dark" ? "#111318" : "#f4f6f1");
+    if (persist) {
+      try {
+        localStorage.setItem("theme", theme);
+      } catch (_) {
+        /* private mode */
+      }
+    }
+    if (themeMeta) themeMeta.setAttribute("content", theme === "light" ? "#f7f5f0" : "#12161c");
     if (themeToggle) {
       themeToggle.setAttribute(
         "aria-label",
@@ -25,25 +24,29 @@
     }
   };
 
+  applyTheme(getTheme(), false);
+
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
-      applyTheme(getTheme() === "dark" ? "light" : "dark");
+      const next = getTheme() === "dark" ? "light" : "dark";
+      applyTheme(next, true);
+      if (themeStatus) themeStatus.textContent = next === "dark" ? "Dark theme" : "Light theme";
     });
   }
 
-  applyTheme(getTheme());
-
-  /* Mobile nav */
   const toggle = document.querySelector(".nav-toggle");
   const drawer = document.getElementById("nav-drawer");
 
   if (toggle && drawer) {
     const setOpen = (open) => {
       toggle.setAttribute("aria-expanded", String(open));
-      drawer.classList.toggle("is-open", open);
-      drawer.hidden = !open;
       toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-      document.body.style.overflow = open ? "hidden" : "";
+      drawer.hidden = !open;
+      document.body.classList.toggle("nav-open", open);
+      if (open) {
+        const first = drawer.querySelector("a");
+        if (first) first.focus();
+      }
     };
 
     toggle.addEventListener("click", () => {
@@ -60,111 +63,49 @@
         toggle.focus();
       }
     });
+
+    const desktop = window.matchMedia("(min-width: 960px)");
+    const closeIfDesktop = () => {
+      if (desktop.matches && toggle.getAttribute("aria-expanded") === "true") setOpen(false);
+    };
+    desktop.addEventListener("change", closeIfDesktop);
   }
 
-  /* Reveal on scroll */
-  const reveals = document.querySelectorAll("[data-reveal]");
+  document.querySelectorAll("a[href]").forEach((anchor) => {
+    const href = anchor.getAttribute("href") || "";
+    const leavesPortfolio = href.startsWith("http") || href.endsWith(".pdf");
+    if (!leavesPortfolio) return;
+    anchor.target = "_blank";
+    const rel = new Set((anchor.getAttribute("rel") || "").split(/\s+/).filter(Boolean));
+    rel.add("noopener");
+    rel.add("noreferrer");
+    anchor.setAttribute("rel", [...rel].join(" "));
+  });
 
-  const markVisible = (el, index = 0) => {
-    el.style.transitionDelay = `${Math.min(index % 5, 4) * 55}ms`;
-    el.classList.add("is-visible");
-  };
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion) root.setAttribute("data-reduced-motion", "");
 
-  if (reduceMotion || !("IntersectionObserver" in window)) {
-    reveals.forEach((el) => el.classList.add("is-visible"));
-  } else {
-    reveals.forEach((el, index) => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.94 && rect.bottom > 0) {
-        markVisible(el, index);
-      }
-    });
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const el = entry.target;
-          if (el.classList.contains("is-visible")) {
-            io.unobserve(el);
-            return;
-          }
-          markVisible(el, [...reveals].indexOf(el));
-          io.unobserve(el);
-        });
-      },
-      { rootMargin: "0px 0px -6% 0px", threshold: 0.08 }
-    );
-    reveals.forEach((el) => {
-      if (!el.classList.contains("is-visible")) io.observe(el);
-    });
-  }
-
-  /* Nav accent bar */
-  const sectionIds = ["work", "experience", "skills", "certificates", "about", "contact"];
+  const sectionIds = ["about", "skills", "projects", "experience", "contact"];
   const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
-  const navLinks = document.querySelectorAll(".nav-links a[data-section]");
-  const indicator = document.querySelector(".nav-indicator");
-  const navPrimary = document.querySelector(".nav-primary");
-
-  const moveIndicator = (link) => {
-    if (!indicator || !link || !navPrimary) return;
-    const parentBox = navPrimary.getBoundingClientRect();
-    const linkBox = link.getBoundingClientRect();
-    indicator.style.width = `${linkBox.width * 0.5}px`;
-    indicator.style.transform = `translateX(${linkBox.left - parentBox.left + linkBox.width * 0.25}px)`;
-  };
+  const navLinks = document.querySelectorAll(".nav-primary a[data-section]");
 
   const setActive = (id) => {
-    let activeLink = null;
     navLinks.forEach((link) => {
-      const match = link.dataset.section === id;
-      if (match) {
-        link.setAttribute("aria-current", "true");
-        activeLink = link;
-      } else {
-        link.removeAttribute("aria-current");
-      }
+      if (link.getAttribute("data-section") === id) link.setAttribute("aria-current", "true");
+      else link.removeAttribute("aria-current");
     });
-    if (activeLink) moveIndicator(activeLink);
   };
 
   if ("IntersectionObserver" in window && sections.length) {
     const sectionIo = new IntersectionObserver(
       (entries) => {
         const visible = entries
-          .filter((e) => e.isIntersecting)
+          .filter((entry) => entry.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
         if (visible[0]) setActive(visible[0].target.id);
       },
-      { rootMargin: "-32% 0px -50% 0px", threshold: [0.1, 0.25, 0.45] }
+      { rootMargin: "-20% 0px -55% 0px", threshold: [0.1, 0.25, 0.5] }
     );
-    sections.forEach((s) => sectionIo.observe(s));
-  }
-
-  window.addEventListener("resize", () => {
-    const current = document.querySelector('.nav-links a[aria-current="true"]');
-    if (current) moveIndicator(current);
-  });
-
-  requestAnimationFrame(() => {
-    const first = document.querySelector(".nav-links a[data-section='work']");
-    if (first) moveIndicator(first);
-  });
-
-  /* Hero brand entrance */
-  if (!reduceMotion) {
-    document.documentElement.classList.add("motion-ready");
-  }
-
-  /* Soft parallax on hero portrait */
-  const portrait = document.querySelector(".hero-portrait img");
-  if (portrait && !reduceMotion) {
-    const onScroll = () => {
-      const y = Math.min(window.scrollY, 420);
-      portrait.style.transform = `translateY(${y * 0.08}px) scale(${1 + y * 0.00008})`;
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
+    sections.forEach((section) => sectionIo.observe(section));
   }
 })();
