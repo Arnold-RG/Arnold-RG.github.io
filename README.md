@@ -20,7 +20,7 @@ This repository powers two things on GitHub Pages:
 The public name is Arnold Rurangwa. Section order on the page:
 
 - **Hero:** Arnold Rurangwa, “Open to work · Kraków, Poland”, the three target roles, then Download resume (PDF), Email me, and See projects.
-- **Projects:** four featured cards (Africa Shield Cyber Centre, STANS, Hamwe Tourism, Peakwise), each with a short stack line, then eight more in a compact list. Twelve public projects in all.
+- **Projects:** four featured cards (Africa Shield Cyber Centre, STANS, Hamwe Tourism, Peakwise), each with a short stack line, then eight more behind “More projects”. Twelve public projects in all.
 - **Experience:** Cognizant, LG Energy Solution, Escola S.A, and I&M Bank, most recent first.
 - **Skills:** Networking and security; Linux, cloud, and DevOps; Software development; IT support and data.
 - **Education and certifications:** B.Sc. Computer Engineering (Cybersecurity and Computer Networks) at Wrocławska Akademia Biznesu (ATA Wrocław), then credentials from Cisco Networking Academy, Oracle, Python Institute, Google Career Certificates, and Udemy, plus two further credentials.
@@ -33,18 +33,18 @@ The site also has dark and light themes (it follows the system setting until a c
 
 | Project | What it is | Links |
 | --- | --- | --- |
-| Africa Shield Cyber Centre | Cybersecurity operations platform: SOC monitoring view, threat map, incident reporting, security-awareness resources, and admin authentication. | [Live](https://arnold-rg.github.io/Africa-shield-cyber-centre/) · [Repo](https://github.com/Arnold-RG/Africa-shield-cyber-centre) |
-| STANS | Real-time traffic and routing dashboard on OpenStreetMap: place search, route planning, GPS, weather, and points of interest. | [Live](https://arnold-rg.github.io/STANS/) · [Repo](https://github.com/Arnold-RG/STANS) |
-| Hamwe Tourism | Rwanda tour-booking web app: catalogues, booking, digital tickets with QR passes, and maps. Built in this repo. | [Live](https://arnold-rg.github.io/hamwe/) · [Repo](https://github.com/Arnold-RG/Arnold-RG.github.io) |
-| Peakwise | AI-assisted mass-spectrometry tool: LC-MS/MS peak data, formula estimates, and ranked molecular structures. | [Live](https://arnold-rg.github.io/peakwise/) · [Repo](https://github.com/Arnold-RG/peakwise) |
-| Elvora | Cross-platform AI wellness coach for iOS, Android, and web: nutrition, training, hydration, sleep, and recovery. The GitHub repo is `nfl-bot`. | [Live](https://arnold-rg.github.io/nfl-bot/) · [Web app](https://arnold-rg.github.io/nfl-bot/app/) · [Repo](https://github.com/Arnold-RG/nfl-bot) |
-| AbroadCost | Cost-of-living budget planner for 195 countries, published as ReloLedger. | [Live](https://arnold-rg.github.io/AbroadCost/) · [Repo](https://github.com/Arnold-RG/AbroadCost) |
-| Boutique La Différence | Online storefront for a Kigali neighbourhood supermarket, with an Excel inventory and an owner admin. | [Live](https://arnold-rg.github.io/Boutique-la-difference/) · [Repo](https://github.com/Arnold-RG/Boutique-la-difference) |
-| Our Money Hub | Private household budget ledger. Default currency is the Polish złoty. | [Live](https://arnold-rg.github.io/our-money-hub/) · [Repo](https://github.com/Arnold-RG/our-money-hub) |
+| Africa Shield Cyber Centre | Cybersecurity operations desk: SOC monitoring, threat map, incident reporting, admin authentication. | [Live](https://arnold-rg.github.io/Africa-shield-cyber-centre/) · [Repo](https://github.com/Arnold-RG/Africa-shield-cyber-centre) |
+| STANS | Live traffic and routing dashboard on OpenStreetMap: search, GPS, weather, points of interest. | [Live](https://arnold-rg.github.io/STANS/) · [Repo](https://github.com/Arnold-RG/STANS) |
+| Hamwe Tourism | Rwanda tour-booking app: catalogues, booking, QR-pass tickets, and interactive maps. Built in this repo. | [Live](https://arnold-rg.github.io/hamwe/) · [Repo](https://github.com/Arnold-RG/Arnold-RG.github.io) |
+| Peakwise | AI-assisted mass-spectrometry tool: ranks candidate molecules from LC-MS/MS peaks. | [Live](https://arnold-rg.github.io/peakwise/) · [Repo](https://github.com/Arnold-RG/peakwise) |
+| Elvora | AI wellness coach (iOS, Android, web): nutrition, training, hydration, sleep. Flutter, FastAPI. The GitHub repo is `nfl-bot`. | [Live](https://arnold-rg.github.io/nfl-bot/) · [App](https://arnold-rg.github.io/nfl-bot/app/) · [Repo](https://github.com/Arnold-RG/nfl-bot) |
+| AbroadCost | Cost-of-living budget planner for 195 countries (ReloLedger). | [Live](https://arnold-rg.github.io/AbroadCost/) · [Repo](https://github.com/Arnold-RG/AbroadCost) |
+| Boutique La Différence | Kigali supermarket storefront with Excel-driven inventory and an owner admin panel. | [Live](https://arnold-rg.github.io/Boutique-la-difference/) · [Repo](https://github.com/Arnold-RG/Boutique-la-difference) |
+| Our Money Hub | Private household ledger; PLN by default. | [Live](https://arnold-rg.github.io/our-money-hub/) · [Repo](https://github.com/Arnold-RG/our-money-hub) |
 | RAGI | Owner-only private secretary (public code, private locks). | [Live](https://arnold-rg.github.io/ragi/) · [Repo](https://github.com/Arnold-RG/ragi) |
-| 2daymovie | Legal movie-discovery site: browse titles, watch trailers, and see where to stream. | [Live](https://twodaymovie.onrender.com/) · [Mirror](https://arnold-rg.github.io/2daymovie/) · [Repo](https://github.com/Arnold-RG/2daymovie) |
-| Kingdom Life Kraków | Website for an English-speaking church in Kraków. | [Live](https://arnold-rg.github.io/kingdom-life-krakow/) · [Repo](https://github.com/Arnold-RG/kingdom-life-krakow) |
-| AI & Data Scientist Roadmap | Self-study curriculum for AI and data science: 10 stages with quizzes, tests, and projects, aligned to roadmap.sh. | [Live](https://arnold-rg.github.io/ai-data-scientist-roadmap/) · [Repo](https://github.com/Arnold-RG/ai-data-scientist-roadmap) |
+| 2daymovie | Legal movie discovery: browse, trailers, where to watch. Python. | [Live](https://twodaymovie.onrender.com/) · [Mirror](https://arnold-rg.github.io/2daymovie/) · [Repo](https://github.com/Arnold-RG/2daymovie) |
+| Kingdom Life Kraków | English church website in Kraków. | [Live](https://arnold-rg.github.io/kingdom-life-krakow/) · [Repo](https://github.com/Arnold-RG/kingdom-life-krakow) |
+| AI & Data Scientist Roadmap | AI/data-science study curriculum: 10 stages, quizzes, and projects, per roadmap.sh. | [Live](https://arnold-rg.github.io/ai-data-scientist-roadmap/) · [Repo](https://github.com/Arnold-RG/ai-data-scientist-roadmap) |
 
 ## Tech stack
 
