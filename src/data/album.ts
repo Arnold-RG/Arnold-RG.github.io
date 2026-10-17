@@ -1,4 +1,4 @@
-import catalog from './rwanda-album.json' with { type: 'json' }
+import catalog from './rwandaAlbum.json' with { type: 'json' }
 import { asset } from '../lib/asset'
 import type { AlbumPhoto } from '../types'
 

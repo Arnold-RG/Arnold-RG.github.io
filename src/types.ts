@@ -121,6 +121,7 @@ export interface AlbumPhoto {
   topic?: string
   topicLabel?: string
   credit?: string
+  license?: string
   commons?: string
   full?: string
 }

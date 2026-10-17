@@ -12,7 +12,7 @@ export function AlbumPage() {
         <h1>Photo album</h1>
         <p className="lede">
           {rwandaAlbum.length
-            ? `${rwandaAlbum.length} photographs of the country — one frame for each subject.`
+            ? `${rwandaAlbum.length} photographs of Rwanda. Each frame keeps its author and licence.`
             : 'The album has no photographs yet.'}
         </p>
       </header>
@@ -26,10 +26,14 @@ export function AlbumPage() {
               type="button"
               onClick={() => setOpenId(photo.id)}
             >
-              <img src={photo.src} alt="" loading="lazy" />
+              <img src={photo.src} alt={photo.title} loading="lazy" />
               <span>
                 <strong>{photo.title}</strong>
                 <em>{photo.place}</em>
+                <small>
+                  {photo.credit}
+                  {photo.license ? ` · ${photo.license}` : ''}
+                </small>
               </span>
             </button>
           ))}
@@ -43,6 +47,11 @@ export function AlbumPage() {
             <figcaption>
               <strong>{open.title}</strong>
               <em>{open.place}</em>
+              {open.caption ? <span>{open.caption}</span> : null}
+              <small>
+                {open.credit}
+                {open.license ? ` · ${open.license}` : ''}
+              </small>
             </figcaption>
           </figure>
         </button>
